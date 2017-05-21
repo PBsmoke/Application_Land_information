@@ -155,7 +155,7 @@ namespace Application_Form
             }
 
             #region
-            if (string.IsNullOrEmpty(txtPath.Text))
+            if (!string.IsNullOrEmpty(txtPath.Text))
             {
                 if (File.Exists(txtPath.Text))
                 {

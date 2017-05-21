@@ -25,7 +25,7 @@ namespace Application_Form
         const int CLOSE_AREA = 15;
         private void frmMain_Load(object sender, EventArgs e)
         {
-            dbConString.Chk_ConnectionState();
+            
             tabPageMain.Visible = false;
             // Set the IsMdiContainer property to true.
             frmLogin frmLog = new frmLogin();
@@ -33,6 +33,7 @@ namespace Application_Form
 
             IsMdiContainer = true;
             pnMain.Visible = true;
+            dbConString.Chk_ConnectionState();
             DoLoadSettingPath();
         }
 

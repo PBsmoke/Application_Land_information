@@ -139,6 +139,12 @@ namespace Application_Service.ClassService
                 {
                     GroupBoxResetAll((GroupBox)control);
                 }
+
+                if (control is RichTextBox)
+                {
+                    RichTextBox textBox = (RichTextBox)control;
+                    textBox.Text = null;                
+                }
             }
         }
 
