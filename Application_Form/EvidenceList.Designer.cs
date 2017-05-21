@@ -34,8 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvEvidenceList = new System.Windows.Forms.DataGridView();
-            this.tbEvidenceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.applicationDS1 = new Application_Form.ApplicationData.ApplicationDS();
             this.colEvidenceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEvidenceCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEvidenceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +42,8 @@
             this.colPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbEvidenceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.applicationDS1 = new Application_Form.ApplicationData.ApplicationDS();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvidenceList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbEvidenceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationDS1)).BeginInit();
@@ -97,21 +97,13 @@
             this.dgvEvidenceList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvEvidenceList.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvEvidenceList.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgvEvidenceList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.dgvEvidenceList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEvidenceList.Size = new System.Drawing.Size(729, 435);
             this.dgvEvidenceList.TabIndex = 123;
             this.dgvEvidenceList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvEvidenceList_CellMouseDoubleClick);
             this.dgvEvidenceList.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvEvidenceList_CellMouseUp);
-            // 
-            // tbEvidenceBindingSource
-            // 
-            this.tbEvidenceBindingSource.DataMember = "tbEvidence";
-            this.tbEvidenceBindingSource.DataSource = this.applicationDS1;
-            // 
-            // applicationDS1
-            // 
-            this.applicationDS1.DataSetName = "ApplicationDS";
-            this.applicationDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // colEvidenceID
             // 
@@ -176,6 +168,16 @@
             this.colCreatedDate.Name = "colCreatedDate";
             this.colCreatedDate.ReadOnly = true;
             this.colCreatedDate.Visible = false;
+            // 
+            // tbEvidenceBindingSource
+            // 
+            this.tbEvidenceBindingSource.DataMember = "tbEvidence";
+            this.tbEvidenceBindingSource.DataSource = this.applicationDS1;
+            // 
+            // applicationDS1
+            // 
+            this.applicationDS1.DataSetName = "ApplicationDS";
+            this.applicationDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // EvidenceList
             // 

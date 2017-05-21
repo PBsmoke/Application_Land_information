@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPerview));
             this.pnlPreview = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -43,10 +44,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.pnlPreview);
             this.Name = "frmPerview";
-            this.Text = "frmPerview";
+            this.Text = "ดูตัวอย่าง";
             this.Load += new System.EventHandler(this.frmPerview_Load);
             this.ResumeLayout(false);
 

@@ -72,6 +72,8 @@
             this.dgvUserList.MultiSelect = false;
             this.dgvUserList.Name = "dgvUserList";
             this.dgvUserList.ReadOnly = true;
+            this.dgvUserList.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgvUserList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.dgvUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUserList.Size = new System.Drawing.Size(864, 457);
             this.dgvUserList.TabIndex = 124;

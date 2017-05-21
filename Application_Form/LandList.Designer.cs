@@ -79,6 +79,8 @@
             this.dgvLandList.Location = new System.Drawing.Point(0, 39);
             this.dgvLandList.Name = "dgvLandList";
             this.dgvLandList.ReadOnly = true;
+            this.dgvLandList.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgvLandList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.dgvLandList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLandList.Size = new System.Drawing.Size(729, 435);
             this.dgvLandList.TabIndex = 123;

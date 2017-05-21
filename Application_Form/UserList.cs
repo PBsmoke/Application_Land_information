@@ -98,7 +98,7 @@ namespace Application_Form
             try
             {
                 string sqlTmp = "";
-                sqlTmp = "SELECT * FROM tbUser";
+                sqlTmp = "SELECT * FROM tbUser ORDER BY UserName";
                 DataSet Ds = new DataSet();
                 dbConString.Com = new SqlCommand();
                 dbConString.Com.CommandType = CommandType.Text;
@@ -150,6 +150,46 @@ namespace Application_Form
                 btnStatus(true);
             }
             ShowData();
+        }
+
+        protected override void DoSearch()
+        {
+            string Whereclause = string.Empty;
+            if (!string.IsNullOrEmpty(tsBtuSearch.Text))
+            {
+                Whereclause = tsBtuSearch.Text;
+            }
+            else
+            {
+                Whereclause = string.Empty;
+            }
+
+            try
+            {
+                string sqlTmp = "";
+                sqlTmp = "SELECT * FROM tbUser";
+                if (!string.IsNullOrEmpty(Whereclause))
+                {
+                    sqlTmp += " WHERE UserName LIKE '%" + Whereclause + "%' ";
+                }
+                sqlTmp += " ORDER BY UserName";
+                DataSet Ds = new DataSet();
+                dbConString.Com = new SqlCommand();
+                dbConString.Com.CommandType = CommandType.Text;
+                dbConString.Com.CommandText = sqlTmp;
+                dbConString.Com.Connection = dbConString.mySQLConn;
+                SqlCommand cmd = new SqlCommand(sqlTmp, dbConString.mySQLConn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                tblUser.Clear();
+                da.Fill(tblUser, "tbUser");
+                da.Dispose();
+                dgvUserList.DataSource = tblUser.tbUser;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            SelectRowIndex = -1;
         }
     }
 }
