@@ -599,7 +599,43 @@ namespace Application_Form
 
         private void dgvTimeLandHD_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
+            string TimeLineHDID = string.Empty;
 
+            if (e.RowIndex > -1)
+            {
+                if (dgvTimeLandHD.Rows.Count > 0)
+                {
+                    if (dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value != null)
+                    {
+                        TimeLineHDID = dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value.ToString();
+                        ApplicationDS.tbTimeLineHDRow[] drHD_Del = (ApplicationDS.tbTimeLineHDRow[])tdsLand.tbTimeLineHD.Select("TimeLineHDID = '" + TimeLineHDID + "'");
+                        ApplicationDS.tbTimeLineDTRow[] drDT_Del = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineHDID = '" + TimeLineHDID + "'");
+
+                        //Del HD
+                        if (drHD_Del.Length > 0)
+                        {
+                            foreach (ApplicationDS.tbTimeLineHDRow dr in drHD_Del)
+                            {
+                                dr.Delete();
+                                dr.AcceptChanges();
+                            }
+                            //tdsLand.tbTimeLineHD.AcceptChanges();
+                            //dgvTimeLandHD.DataSource = tdsLand.tbTimeLineHD;
+                        }
+
+                        //Del DT
+                        if (drDT_Del.Length > 0)
+                        {
+                            foreach (ApplicationDS.tbTimeLineDTRow dr in drDT_Del)
+                            {
+                                dr.Delete();
+                                dr.AcceptChanges();
+                            }
+                            //tdsTempDTMain.tbTimeLineDT.AcceptChanges();
+                        }
+                    }
+                }
+            }
         }
 
     }

@@ -51,6 +51,21 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnPrint = new System.Windows.Forms.Button();
             this.dgvTimeLandDT = new GenericDataGridView.GenericDataGridView(this.components);
+            this.tbTimeLineDTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.applicationDS2 = new Application_Form.ApplicationData.ApplicationDS();
+            this.dgvTimeLandHD = new GenericDataGridView.GenericDataGridView(this.components);
+            this.tbTimeLineHDBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.colTimeLineHDID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLandID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTimeLineDate = new GenericDataGridView.GenericDataGridView.CalendarColumn();
+            this.colTimeLineEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreatedByHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreatedDateHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTimeLineDTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTimeLineHDIDDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEvidenceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,21 +75,6 @@
             this.colDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedByDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedDateDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbTimeLineDTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.applicationDS2 = new Application_Form.ApplicationData.ApplicationDS();
-            this.dgvTimeLandHD = new GenericDataGridView.GenericDataGridView(this.components);
-            this.colTimeLineHDID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLandID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTimeLineDate = new GenericDataGridView.GenericDataGridView.CalendarColumn();
-            this.colTimeLineEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreatedByHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreatedDateHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbTimeLineHDBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -316,76 +316,6 @@
             this.dgvTimeLandDT.TabIndex = 41;
             this.dgvTimeLandDT.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTimeLandDT_CellContentClick);
             // 
-            // colTimeLineDTID
-            // 
-            this.colTimeLineDTID.DataPropertyName = "TimeLineDTID";
-            this.colTimeLineDTID.HeaderText = "TimeLineDTID";
-            this.colTimeLineDTID.Name = "colTimeLineDTID";
-            this.colTimeLineDTID.ReadOnly = true;
-            this.colTimeLineDTID.Visible = false;
-            // 
-            // colTimeLineHDIDDT
-            // 
-            this.colTimeLineHDIDDT.DataPropertyName = "TimeLineHDID";
-            this.colTimeLineHDIDDT.HeaderText = "TimeLineHDID";
-            this.colTimeLineHDIDDT.Name = "colTimeLineHDIDDT";
-            this.colTimeLineHDIDDT.ReadOnly = true;
-            this.colTimeLineHDIDDT.Visible = false;
-            // 
-            // colEvidenceID
-            // 
-            this.colEvidenceID.DataPropertyName = "EvidenceID";
-            this.colEvidenceID.HeaderText = "EvidenceID";
-            this.colEvidenceID.Name = "colEvidenceID";
-            this.colEvidenceID.ReadOnly = true;
-            this.colEvidenceID.Visible = false;
-            // 
-            // colbtnADD
-            // 
-            this.colbtnADD.FillWeight = 20F;
-            this.colbtnADD.HeaderText = "ADD";
-            this.colbtnADD.Name = "colbtnADD";
-            this.colbtnADD.ReadOnly = true;
-            // 
-            // colEvidenceCode
-            // 
-            this.colEvidenceCode.DataPropertyName = "EvidenceCode";
-            this.colEvidenceCode.FillWeight = 30F;
-            this.colEvidenceCode.HeaderText = "รหัสพยาน/หลักฐาน";
-            this.colEvidenceCode.Name = "colEvidenceCode";
-            this.colEvidenceCode.ReadOnly = true;
-            // 
-            // colEvidenceType
-            // 
-            this.colEvidenceType.DataPropertyName = "EvidenceType";
-            this.colEvidenceType.FillWeight = 30F;
-            this.colEvidenceType.HeaderText = "ชื่อพยาน/หลักฐาน";
-            this.colEvidenceType.Name = "colEvidenceType";
-            this.colEvidenceType.ReadOnly = true;
-            // 
-            // colDetail
-            // 
-            this.colDetail.DataPropertyName = "Detail";
-            this.colDetail.HeaderText = "รายละเอียด";
-            this.colDetail.Name = "colDetail";
-            this.colDetail.ReadOnly = true;
-            // 
-            // colCreatedByDT
-            // 
-            this.colCreatedByDT.DataPropertyName = "CreatedBy";
-            this.colCreatedByDT.HeaderText = "CreatedBy";
-            this.colCreatedByDT.Name = "colCreatedByDT";
-            this.colCreatedByDT.ReadOnly = true;
-            this.colCreatedByDT.Visible = false;
-            // 
-            // CreatedDateDT
-            // 
-            this.CreatedDateDT.DataPropertyName = "CreatedDate";
-            this.CreatedDateDT.HeaderText = "CreatedDate";
-            this.CreatedDateDT.Name = "CreatedDateDT";
-            this.CreatedDateDT.ReadOnly = true;
-            this.CreatedDateDT.Visible = false;
-            // 
             // tbTimeLineDTBindingSource
             // 
             this.tbTimeLineDTBindingSource.DataMember = "tbTimeLineDT";
@@ -432,6 +362,49 @@
             this.dgvTimeLandHD.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvTimeLandHD_RowsAdded);
             this.dgvTimeLandHD.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvTimeLandHD_RowsRemoved);
             // 
+            // tbTimeLineHDBindingSource
+            // 
+            this.tbTimeLineHDBindingSource.DataMember = "tbTimeLineHD";
+            this.tbTimeLineHDBindingSource.DataSource = this.applicationDS2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 261);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(105, 17);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "พยาน / หลักฐาน";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 42);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(98, 17);
+            this.label8.TabIndex = 37;
+            this.label8.Text = "ลำดับเหตุการณ์";
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(598, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(87, 28);
+            this.button2.TabIndex = 35;
+            this.button2.Text = "ค้นหา";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox6.Location = new System.Drawing.Point(406, 7);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(186, 24);
+            this.textBox6.TabIndex = 34;
+            // 
             // colTimeLineHDID
             // 
             this.colTimeLineHDID.DataPropertyName = "TimeLineHDID";
@@ -451,7 +424,7 @@
             this.colTimeLineDate.DataPropertyName = "TimeLineDate";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.colTimeLineDate.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colTimeLineDate.FillWeight = 30F;
+            this.colTimeLineDate.FillWeight = 37F;
             this.colTimeLineDate.HeaderText = "วัน/เดือน/ปี ที่เกิดเหตุการณ์";
             this.colTimeLineDate.Name = "colTimeLineDate";
             this.colTimeLineDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -483,48 +456,75 @@
             this.colCreatedDateHD.Name = "colCreatedDateHD";
             this.colCreatedDateHD.Visible = false;
             // 
-            // tbTimeLineHDBindingSource
+            // colTimeLineDTID
             // 
-            this.tbTimeLineHDBindingSource.DataMember = "tbTimeLineHD";
-            this.tbTimeLineHDBindingSource.DataSource = this.applicationDS2;
+            this.colTimeLineDTID.DataPropertyName = "TimeLineDTID";
+            this.colTimeLineDTID.HeaderText = "TimeLineDTID";
+            this.colTimeLineDTID.Name = "colTimeLineDTID";
+            this.colTimeLineDTID.ReadOnly = true;
+            this.colTimeLineDTID.Visible = false;
             // 
-            // label9
+            // colTimeLineHDIDDT
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 261);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(92, 17);
-            this.label9.TabIndex = 38;
-            this.label9.Text = "พยานหลักฐาน";
+            this.colTimeLineHDIDDT.DataPropertyName = "TimeLineHDID";
+            this.colTimeLineHDIDDT.HeaderText = "TimeLineHDID";
+            this.colTimeLineHDIDDT.Name = "colTimeLineHDIDDT";
+            this.colTimeLineHDIDDT.ReadOnly = true;
+            this.colTimeLineHDIDDT.Visible = false;
             // 
-            // label8
+            // colEvidenceID
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 42);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 17);
-            this.label8.TabIndex = 37;
-            this.label8.Text = "ลำดับเหตุการณ์";
+            this.colEvidenceID.DataPropertyName = "EvidenceID";
+            this.colEvidenceID.HeaderText = "EvidenceID";
+            this.colEvidenceID.Name = "colEvidenceID";
+            this.colEvidenceID.ReadOnly = true;
+            this.colEvidenceID.Visible = false;
             // 
-            // button2
+            // colbtnADD
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(598, 4);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 28);
-            this.button2.TabIndex = 35;
-            this.button2.Text = "ค้นหา";
-            this.button2.UseVisualStyleBackColor = true;
+            this.colbtnADD.FillWeight = 20F;
+            this.colbtnADD.HeaderText = "ADD";
+            this.colbtnADD.Name = "colbtnADD";
+            this.colbtnADD.ReadOnly = true;
             // 
-            // textBox6
+            // colEvidenceCode
             // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Location = new System.Drawing.Point(406, 7);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(186, 24);
-            this.textBox6.TabIndex = 34;
+            this.colEvidenceCode.DataPropertyName = "EvidenceCode";
+            this.colEvidenceCode.FillWeight = 40F;
+            this.colEvidenceCode.HeaderText = "รหัสพยาน/หลักฐาน";
+            this.colEvidenceCode.Name = "colEvidenceCode";
+            this.colEvidenceCode.ReadOnly = true;
+            // 
+            // colEvidenceType
+            // 
+            this.colEvidenceType.DataPropertyName = "EvidenceType";
+            this.colEvidenceType.FillWeight = 40F;
+            this.colEvidenceType.HeaderText = "ชื่อพยาน/หลักฐาน";
+            this.colEvidenceType.Name = "colEvidenceType";
+            this.colEvidenceType.ReadOnly = true;
+            // 
+            // colDetail
+            // 
+            this.colDetail.DataPropertyName = "Detail";
+            this.colDetail.HeaderText = "รายละเอียด";
+            this.colDetail.Name = "colDetail";
+            this.colDetail.ReadOnly = true;
+            // 
+            // colCreatedByDT
+            // 
+            this.colCreatedByDT.DataPropertyName = "CreatedBy";
+            this.colCreatedByDT.HeaderText = "CreatedBy";
+            this.colCreatedByDT.Name = "colCreatedByDT";
+            this.colCreatedByDT.ReadOnly = true;
+            this.colCreatedByDT.Visible = false;
+            // 
+            // CreatedDateDT
+            // 
+            this.CreatedDateDT.DataPropertyName = "CreatedDate";
+            this.CreatedDateDT.HeaderText = "CreatedDate";
+            this.CreatedDateDT.Name = "CreatedDateDT";
+            this.CreatedDateDT.ReadOnly = true;
+            this.CreatedDateDT.Visible = false;
             // 
             // LandInfo
             // 
@@ -594,13 +594,6 @@
         private ApplicationData.ApplicationDS applicationDS2;
         private System.Windows.Forms.BindingSource tbTimeLineHDBindingSource;
         private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLineHDID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLandID;
-        private GenericDataGridView.GenericDataGridView.CalendarColumn colTimeLineDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLineEvent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRemark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedByHD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedDateHD;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLineDTID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLineHDIDDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceID;
@@ -610,5 +603,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedByDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDateDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLineHDID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLandID;
+        private GenericDataGridView.GenericDataGridView.CalendarColumn colTimeLineDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLineEvent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRemark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedByHD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedDateHD;
     }
 }
