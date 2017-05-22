@@ -128,7 +128,7 @@
             this.txtDistress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDistress.MaxLength = 500;
             this.txtDistress.Name = "txtDistress";
-            this.txtDistress.Size = new System.Drawing.Size(303, 213);
+            this.txtDistress.Size = new System.Drawing.Size(303, 298);
             this.txtDistress.TabIndex = 41;
             this.txtDistress.Text = "";
             // 
@@ -147,7 +147,7 @@
             this.txtHistory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtHistory.MaxLength = 500;
             this.txtHistory.Name = "txtHistory";
-            this.txtHistory.Size = new System.Drawing.Size(303, 213);
+            this.txtHistory.Size = new System.Drawing.Size(303, 298);
             this.txtHistory.TabIndex = 37;
             this.txtHistory.Text = "";
             // 
@@ -281,7 +281,6 @@
             // 
             // dgvTimeLandDT
             // 
-            this.dgvTimeLandDT.AllowUserToDeleteRows = false;
             this.dgvTimeLandDT.AutoGenerateColumns = false;
             this.dgvTimeLandDT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -431,6 +430,7 @@
             this.dgvTimeLandHD.TabIndex = 40;
             this.dgvTimeLandHD.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandHD_CellMouseUp);
             this.dgvTimeLandHD.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvTimeLandHD_RowsAdded);
+            this.dgvTimeLandHD.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvTimeLandHD_RowsRemoved);
             // 
             // colTimeLineHDID
             // 

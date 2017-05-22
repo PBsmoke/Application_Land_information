@@ -274,7 +274,7 @@ namespace Application_Form
                             dbConString.Transaction.Commit();
                             #endregion
                             MessageBox.Show("บันทึกค่าเรียบร้อย", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
+                            //this.Close();
                         }
                         catch (Exception ex)
                         {
@@ -442,6 +442,9 @@ namespace Application_Form
                         
                 }
                 dgvTimeLandDT.Refresh();
+
+                dgvTimeLandDT.Focus();
+                dgvTimeLandDT.CurrentCell = dgvTimeLandDT.Rows[0].Cells[colbtnADD.Name];
                 
             }
         }
@@ -455,6 +458,8 @@ namespace Application_Form
                 {
                     dgvTimeLandHD.Rows[e.RowIndex-1].Cells[colTimeLineHDID.Name].Value = Guid.NewGuid().ToString();
                     dgvTimeLandHD.Refresh();
+                    dgvTimeLandHD.Focus();
+                    dgvTimeLandHD.CurrentCell = dgvTimeLandHD.Rows[dgvTimeLandHD.Rows.Count - 1].Cells[colTimeLineDate.Name];
                 }
             }
         }
@@ -548,7 +553,7 @@ namespace Application_Form
             {
                 foreach (ApplicationDS.uv_AddressRow dr in tdsAddress.uv_Address.Select())
                 {
-                    namesCollection.Add(dr.PROVINCE_NAME.ToString());
+                    namesCollection.Add(dr.PROVINCE_NAME.ToString().Trim());
                 }
             }
 
@@ -567,7 +572,7 @@ namespace Application_Form
             {
                 foreach (ApplicationDS.uv_AddressRow dr in tdsAddress.uv_Address.Select())
                 {
-                    namesCollection.Add(dr.AMPHUR_NAME.ToString());
+                    namesCollection.Add(dr.AMPHUR_NAME.ToString().Trim());
                 }
             }
 
@@ -583,13 +588,18 @@ namespace Application_Form
             {
                 foreach (ApplicationDS.uv_AddressRow dr in tdsAddress.uv_Address.Select())
                 {
-                    namesCollection.Add(dr.DISTRICT_NAME.ToString());
+                    namesCollection.Add(dr.DISTRICT_NAME.ToString().Trim());
                 }
             }
 
             txtSubDistrict.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txtSubDistrict.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txtSubDistrict.AutoCompleteCustomSource = namesCollection;
+        }
+
+        private void dgvTimeLandHD_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+
         }
 
     }

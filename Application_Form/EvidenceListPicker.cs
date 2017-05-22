@@ -34,7 +34,7 @@ namespace Application_Form
             try
             {
                 string sqlTmp = "";
-                sqlTmp = "SELECT * FROM tbEvidence";
+                sqlTmp = "SELECT * FROM tbEvidence ORDER BY EvidenceCode";
                 DataSet Ds = new DataSet();
                 dbConString.Com = new SqlCommand();
                 dbConString.Com.CommandType = CommandType.Text;
