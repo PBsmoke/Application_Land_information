@@ -44,25 +44,28 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.DarkRed;
             this.label1.Location = new System.Drawing.Point(10, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 17);
+            this.label1.Size = new System.Drawing.Size(121, 17);
             this.label1.TabIndex = 13;
-            this.label1.Text = "รหัสพยานหลักฐาน";
+            this.label1.Text = "รหัสพยาน/หลักฐาน";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.DarkRed;
             this.label2.Location = new System.Drawing.Point(10, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 17);
+            this.label2.Size = new System.Drawing.Size(114, 17);
             this.label2.TabIndex = 14;
-            this.label2.Text = "ชื่อพยานหลักฐาน";
+            this.label2.Text = "ชื่อพยาน/หลักฐาน";
             // 
             // txtEvidenceCode
             // 
             this.txtEvidenceCode.Location = new System.Drawing.Point(152, 57);
             this.txtEvidenceCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtEvidenceCode.MaxLength = 50;
             this.txtEvidenceCode.Name = "txtEvidenceCode";
             this.txtEvidenceCode.Size = new System.Drawing.Size(174, 24);
             this.txtEvidenceCode.TabIndex = 15;
@@ -80,6 +83,7 @@
             // 
             this.txtDetail.Location = new System.Drawing.Point(152, 153);
             this.txtDetail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDetail.MaxLength = 500;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.Size = new System.Drawing.Size(385, 251);
             this.txtDetail.TabIndex = 19;

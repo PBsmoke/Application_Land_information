@@ -41,16 +41,18 @@
             // lblConfirm
             // 
             this.lblConfirm.AutoSize = true;
+            this.lblConfirm.ForeColor = System.Drawing.Color.DarkRed;
             this.lblConfirm.Location = new System.Drawing.Point(10, 125);
             this.lblConfirm.Name = "lblConfirm";
-            this.lblConfirm.Size = new System.Drawing.Size(118, 17);
+            this.lblConfirm.Size = new System.Drawing.Size(91, 17);
             this.lblConfirm.TabIndex = 25;
-            this.lblConfirm.Text = "Confirm Password";
+            this.lblConfirm.Text = "ยืนยันรหัสผ่าน";
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(152, 90);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPassword.MaxLength = 100;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(174, 24);
             this.txtPassword.TabIndex = 24;
@@ -60,6 +62,7 @@
             // 
             this.txtUserName.Location = new System.Drawing.Point(152, 58);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtUserName.MaxLength = 50;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(174, 24);
             this.txtUserName.TabIndex = 23;
@@ -67,25 +70,28 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
+            this.lblPassword.ForeColor = System.Drawing.Color.DarkRed;
             this.lblPassword.Location = new System.Drawing.Point(10, 93);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(66, 17);
+            this.lblPassword.Size = new System.Drawing.Size(57, 17);
             this.lblPassword.TabIndex = 22;
-            this.lblPassword.Text = "Password";
+            this.lblPassword.Text = "รหัสผ่าน";
             // 
             // lblUserName
             // 
             this.lblUserName.AutoSize = true;
+            this.lblUserName.ForeColor = System.Drawing.Color.DarkRed;
             this.lblUserName.Location = new System.Drawing.Point(10, 61);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(74, 17);
+            this.lblUserName.Size = new System.Drawing.Size(49, 17);
             this.lblUserName.TabIndex = 21;
-            this.lblUserName.Text = "User Name";
+            this.lblUserName.Text = "ชื่อผู้ใช้";
             // 
             // txtConfirm
             // 
             this.txtConfirm.Location = new System.Drawing.Point(152, 122);
             this.txtConfirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtConfirm.MaxLength = 100;
             this.txtConfirm.Name = "txtConfirm";
             this.txtConfirm.Size = new System.Drawing.Size(174, 24);
             this.txtConfirm.TabIndex = 26;
@@ -95,6 +101,7 @@
             // 
             this.txtDetail.Location = new System.Drawing.Point(152, 154);
             this.txtDetail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDetail.MaxLength = 500;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.Size = new System.Drawing.Size(174, 101);
             this.txtDetail.TabIndex = 39;

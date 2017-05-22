@@ -91,7 +91,7 @@ namespace Application_Form
         {
             if (string.IsNullOrEmpty(txtEvidenceCode.Text))
             {
-                MessageBox.Show("Evidence Code is Empty", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("รหัสพยาน/หลักฐานไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
                 Success = false;
                 txtEvidenceCode.Focus();
                 return;
@@ -99,7 +99,7 @@ namespace Application_Form
 
             if (string.IsNullOrEmpty(txtEvidenceName.Text))
             {
-                MessageBox.Show("Evidence Name is Empty", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("ชื่อพยาน/หลักฐานไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
                 Success = false;
                 txtEvidenceName.Focus();
                 return;
@@ -131,7 +131,7 @@ namespace Application_Form
                                                                 tblEvidence.tbEvidence[0].EvidenceCode);
                 if (!Success)
                 {
-                    MessageBox.Show("Evidence Code is Duplicate", "คำเตือน", MessageBoxButtons.OK);
+                    MessageBox.Show("รหัสพยาน/หลักฐานไม่สามารถซ้ำได้ กรุณาป้อนข้อมูลใหม่", "คำเตือน", MessageBoxButtons.OK);
                     Success = false;
                     return;
                 }
@@ -143,7 +143,7 @@ namespace Application_Form
                                                   txtEvidenceCode.Text);
                 if (!Success)
                 {
-                    MessageBox.Show("Evidence Code is Duplicate", "คำเตือน", MessageBoxButtons.OK);
+                    MessageBox.Show("ชื่อพยาน/หลักฐานไม่สามารถซ้ำได้ กรุณาป้อนข้อมูลใหม่", "คำเตือน", MessageBoxButtons.OK);
                     Success = false;
                     return;
                 }
@@ -155,7 +155,7 @@ namespace Application_Form
             }
 
             #region
-            if (!string.IsNullOrEmpty(txtPath.Text))
+            if (string.IsNullOrEmpty(txtPath.Text))
             {
                 if (File.Exists(txtPath.Text))
                 {

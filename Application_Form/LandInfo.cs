@@ -362,7 +362,7 @@ namespace Application_Form
         {
             if (string.IsNullOrEmpty(txtVillageName.Text))
             {
-                MessageBox.Show("VillageName is Empty", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("ชื่อหมู่บ้านไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
                 Success = false;
                 txtVillageName.Focus();
                 return;
@@ -370,7 +370,7 @@ namespace Application_Form
 
             if (string.IsNullOrEmpty(txtVillageNo.Text))
             {
-                MessageBox.Show("VillageNo is Empty", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("หมู่ไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
                 Success = false;
                 txtVillageNo.Focus();
                 return;
@@ -378,7 +378,7 @@ namespace Application_Form
 
             if (string.IsNullOrEmpty(txtSubDistrict.Text))
             {
-                MessageBox.Show("SubDistrict is Empty", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("ตำบลไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
                 Success = false;
                 txtSubDistrict.Focus();
                 return;
@@ -386,7 +386,7 @@ namespace Application_Form
 
             if (string.IsNullOrEmpty(txtDistrict.Text))
             {
-                MessageBox.Show("District is Empty", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("อำเภอไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
                 Success = false;
                 txtDistrict.Focus();
                 return;
@@ -394,7 +394,7 @@ namespace Application_Form
 
             if (string.IsNullOrEmpty(txtProvince.Text))
             {
-                MessageBox.Show("Province is Empty", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("จังหวัดไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
                 Success = false;
                 txtProvince.Focus();
                 return;
@@ -461,36 +461,36 @@ namespace Application_Form
 
         private void dgvTimeLandHD_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex > -1)
             {
-            if (dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value != null)
-            {
-                ApplicationDS.tbTimeLineDTRow[] drTempSave = (ApplicationDS.tbTimeLineDTRow[])tdsTempDT.tbTimeLineDT.Select("");
-                if (drTempSave.Length > 0)
+                if (dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value != null)
                 {
-                    foreach (ApplicationDS.tbTimeLineDTRow drChk in drTempSave)
+                    ApplicationDS.tbTimeLineDTRow[] drTempSave = (ApplicationDS.tbTimeLineDTRow[])tdsTempDT.tbTimeLineDT.Select("");
+                    if (drTempSave.Length > 0)
                     {
-                        ApplicationDS.tbTimeLineDTRow[] drTempChk = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineDTID = '" + drChk.TimeLineDTID + "'");
-                        if (drTempChk.Length == 0)
+                        foreach (ApplicationDS.tbTimeLineDTRow drChk in drTempSave)
                         {
-                            tdsTempDTMain.tbTimeLineDT.ImportRow(drChk);
+                            ApplicationDS.tbTimeLineDTRow[] drTempChk = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineDTID = '" + drChk.TimeLineDTID + "'");
+                            if (drTempChk.Length == 0)
+                            {
+                                tdsTempDTMain.tbTimeLineDT.ImportRow(drChk);
+                            }
                         }
                     }
-                }
 
-                tdsTempDT.Clear();
-                TempTimeLineHDID = dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value.ToString();
+                    tdsTempDT.Clear();
+                    TempTimeLineHDID = dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value.ToString();
                     if (!string.IsNullOrEmpty(TempTimeLineHDID))
-                {
-                    ApplicationDS.tbTimeLineDTRow[] drTemp = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineHDID = '" + TempTimeLineHDID + "'");
-                        foreach (ApplicationDS.tbTimeLineDTRow dr in drTemp)
                     {
-                        tdsTempDT.tbTimeLineDT.ImportRow(dr);
+                        ApplicationDS.tbTimeLineDTRow[] drTemp = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineHDID = '" + TempTimeLineHDID + "'");
+                        foreach (ApplicationDS.tbTimeLineDTRow dr in drTemp)
+                        {
+                            tdsTempDT.tbTimeLineDT.ImportRow(dr);
+                        }
+                        dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
                     }
-                    dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
                 }
             }
-        }
         }
 
         private void btnPrint_Click(object sender, EventArgs e)

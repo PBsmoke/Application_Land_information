@@ -79,7 +79,7 @@ namespace Application_Form
         {
             if (string.IsNullOrEmpty(txtUserName.Text))
             {
-                MessageBox.Show("Username is Empty", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("ชื่อผู้ใช้ไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
                 Success = false;
                 txtUserName.Focus();
                 return;
@@ -87,7 +87,7 @@ namespace Application_Form
 
             if (string.IsNullOrEmpty(txtPassword.Text))
             {
-                MessageBox.Show("Password is Empty", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("รหัสผ่านไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
                 Success = false;
                 txtPassword.Focus();
                 return;
@@ -95,7 +95,7 @@ namespace Application_Form
 
             if (string.IsNullOrEmpty(txtConfirm.Text))
             {
-                MessageBox.Show("Confirm Password is Empty", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("ยืนยันรหัสผ่านไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
                 Success = false;
                 txtConfirm.Focus();
                 return;
@@ -103,7 +103,7 @@ namespace Application_Form
 
             if (txtConfirm.Text != txtPassword.Text)
             {
-                MessageBox.Show("Confirm Password incorrect", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("ยืนยันรหัสผ่านไม่ตรงกับรหัสผ่าน กรุณาตรวสอบข้อมูล", "Warning", MessageBoxButtons.OK);
                 Success = false;
                 txtConfirm.Focus();
                 return;
@@ -127,7 +127,7 @@ namespace Application_Form
                                                                 tblUser.tbUser[0].UserName);
                 if (!Success)
                 {
-                    MessageBox.Show("UserName is Duplicate", "คำเตือน", MessageBoxButtons.OK);
+                    MessageBox.Show("ชื่อผู้ใช้ไม่สามารถซ้ำได้ กรุณาป้อนข้อมูลใหม่", "คำเตือน", MessageBoxButtons.OK);
                     Success = false;
                     return;
                 }
@@ -139,7 +139,7 @@ namespace Application_Form
                                                   txtUserName.Text);
                 if (!Success)
                 {
-                    MessageBox.Show("UserName is Duplicate", "คำเตือน", MessageBoxButtons.OK);
+                    MessageBox.Show("ชื่อผู้ใช้ไม่สามารถซ้ำได้ กรุณาป้อนข้อมูลใหม่", "คำเตือน", MessageBoxButtons.OK);
                     Success = false;
                     return;
                 }

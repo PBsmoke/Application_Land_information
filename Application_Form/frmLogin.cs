@@ -27,7 +27,7 @@ namespace Application_Form
         ApplicationDS tblUser = new ApplicationDS();
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            dbConString.Chk_ConnectionState();
+            //dbConString.Chk_ConnectionState();
         }
 
         private void tsLogin_Click(object sender, EventArgs e)

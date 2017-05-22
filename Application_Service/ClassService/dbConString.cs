@@ -13,10 +13,10 @@ namespace Application_Service.ClassService
 {
     public sealed class dbConString
     {
-        public static string ServerName = @".\SQL2014";
-        public static string DBName = "DB_Dev";
-        public static string Sa = "sa";
-        public static string SaPassword = "1";
+        //public static string ServerName = @".\SQL2014";
+        //public static string DBName = "DB_Dev";
+        //public static string Sa = "sa";
+        //public static string SaPassword = "1";
         //public static string ServerName = @".\SQL2014";
         //public static string DBName = "iPOS";
         //public static string Sa = "sa";
@@ -25,6 +25,11 @@ namespace Application_Service.ClassService
         //public static string DBName = string.Empty;
         //public static string Sa = string.Empty;
         //public static string SaPassword = string.Empty;
+
+        public static string ServerName = "";
+        public static string DBName = "";
+        public static string Sa = "";
+        public static string SaPassword = "";
         
 
         
