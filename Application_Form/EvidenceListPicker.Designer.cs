@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbEvidenceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.applicationDS1 = new Application_Form.ApplicationData.ApplicationDS();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -65,16 +67,19 @@
             this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(713, 55);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox1.Size = new System.Drawing.Size(951, 63);
             this.groupBox1.TabIndex = 125;
             this.groupBox1.TabStop = false;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(603, 17);
+            this.btnSearch.Location = new System.Drawing.Point(804, 20);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(100, 27);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -82,9 +87,10 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(28, 19);
+            this.txtSearch.Location = new System.Drawing.Point(37, 22);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(569, 20);
+            this.txtSearch.Size = new System.Drawing.Size(757, 21);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -94,6 +100,14 @@
             this.dgvEvidenceList.AllowUserToDeleteRows = false;
             this.dgvEvidenceList.AutoGenerateColumns = false;
             this.dgvEvidenceList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEvidenceList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvEvidenceList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEvidenceList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colEvidenceID,
@@ -106,11 +120,12 @@
             this.colCreatedDate});
             this.dgvEvidenceList.DataSource = this.tbEvidenceBindingSource;
             this.dgvEvidenceList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEvidenceList.Location = new System.Drawing.Point(0, 55);
+            this.dgvEvidenceList.Location = new System.Drawing.Point(0, 63);
+            this.dgvEvidenceList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvEvidenceList.Name = "dgvEvidenceList";
             this.dgvEvidenceList.ReadOnly = true;
             this.dgvEvidenceList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEvidenceList.Size = new System.Drawing.Size(713, 380);
+            this.dgvEvidenceList.Size = new System.Drawing.Size(951, 439);
             this.dgvEvidenceList.TabIndex = 126;
             this.dgvEvidenceList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvidenceList_CellDoubleClick);
             // 
@@ -126,7 +141,7 @@
             // 
             this.colEvidenceCode.DataPropertyName = "EvidenceCode";
             this.colEvidenceCode.FillWeight = 30F;
-            this.colEvidenceCode.HeaderText = "EvidenceCode";
+            this.colEvidenceCode.HeaderText = "รหัสพยาน/หลักฐาน";
             this.colEvidenceCode.Name = "colEvidenceCode";
             this.colEvidenceCode.ReadOnly = true;
             // 
@@ -134,7 +149,7 @@
             // 
             this.colEvidenceName.DataPropertyName = "EvidenceName";
             this.colEvidenceName.FillWeight = 40F;
-            this.colEvidenceName.HeaderText = "EvidenceName";
+            this.colEvidenceName.HeaderText = "ชื่อพยาน/หลักฐาน";
             this.colEvidenceName.Name = "colEvidenceName";
             this.colEvidenceName.ReadOnly = true;
             // 
@@ -150,7 +165,9 @@
             // colDetail
             // 
             this.colDetail.DataPropertyName = "Detail";
-            this.colDetail.HeaderText = "Detail";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colDetail.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colDetail.HeaderText = "รายละเอียด";
             this.colDetail.Name = "colDetail";
             this.colDetail.ReadOnly = true;
             // 
@@ -180,13 +197,16 @@
             // 
             // EvidenceListPicker
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 435);
+            this.ClientSize = new System.Drawing.Size(951, 502);
             this.Controls.Add(this.dgvEvidenceList);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "EvidenceListPicker";
+            this.Text = "ค้นหา พยาน / หลักฐาน";
             this.Load += new System.EventHandler(this.EvidenceListPicker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tbEvidenceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationDS1)).EndInit();

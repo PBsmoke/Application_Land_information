@@ -155,23 +155,62 @@ namespace Application_Form
             }
 
             #region
-            if (string.IsNullOrEmpty(txtPath.Text))
+
+
+            if (!string.IsNullOrEmpty(txtPath.Text))
             {
                 if (File.Exists(txtPath.Text))
                 {
                     string sourcePath = Path.GetDirectoryName(txtPath.Text);
                     string destinationPath = dbConString.SettingPath + @"\" + txtEvidenceCode.Text + @"\";
                     string sourceFileName = Path.GetFileName(txtPath.Text);
-                    //string destinationFileName = DateTime.Now.ToString("yyyyMMddhhmmss") + ".xml"; // Don't mind this. I did this because I needed to name the copied files with respect to time.
                     string sourceFile = System.IO.Path.Combine(sourcePath, sourceFileName);
                     string destinationFile = System.IO.Path.Combine(destinationPath, sourceFileName);
                     txtPath.Text = dbConString.SettingPath + @"\" + txtEvidenceCode.Text + @"\" + sourceFileName;
+
 
                     if (!Directory.Exists(destinationPath))
                     {
                         Directory.CreateDirectory(destinationPath);
                     }
-                    File.Copy(sourceFile, destinationFile, true);
+                    if (!File.Exists(destinationFile))
+                        File.Copy(sourceFile, destinationFile, true);
+
+                    if (tblEvidence.tbEvidence.Rows.Count > 0)
+                    {
+                        if (txtEvidenceCode.Text != tblEvidence.tbEvidence[0].EvidenceCode)
+                        {
+                            DirectoryInfo di = new DirectoryInfo(sourcePath);
+
+                            foreach (FileInfo file in di.GetFiles())
+                            {
+                                file.Delete();
+                            }
+                            Directory.Delete(sourcePath);
+                        }
+                        else if (txtPath.Text != tblEvidence.tbEvidence[0].Path)
+                        {
+                            if (!File.Exists(tblEvidence.tbEvidence[0].Path))
+                                File.Delete(tblEvidence.tbEvidence[0].Path);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (tblEvidence.tbEvidence.Rows.Count > 0)
+                {
+                    if (string.IsNullOrEmpty(txtPath.Text) && !string.IsNullOrEmpty(tblEvidence.tbEvidence[0].Path))
+                    {
+                        string Temp_sourcePath = Path.GetDirectoryName(tblEvidence.tbEvidence[0].Path);
+                        DirectoryInfo di = new DirectoryInfo(Temp_sourcePath);
+
+                        foreach (FileInfo file in di.GetFiles())
+                        {
+                            file.Delete();
+                        }
+                        Directory.Delete(Temp_sourcePath);
+                    }
                 }
             }
             #endregion
