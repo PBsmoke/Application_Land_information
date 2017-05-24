@@ -124,14 +124,14 @@ namespace Application_Form
         {
             pnMain.Visible = true;
 
-            // Create a new instance of EvidenceInfoForm
+            // Create a new instance of SettingInfo
             SettingInfo SettingInfoForm = new SettingInfo();
 
             // Display the form as top most form.
             SettingInfoForm.TopMost = true;
 
             // Show the settings form
-            SettingInfoForm.Show();
+            SettingInfoForm.ShowDialog();
         }
 
         private void frmMain_MdiChildActivate(object sender, EventArgs e)

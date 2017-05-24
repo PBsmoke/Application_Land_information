@@ -220,6 +220,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Button-Delete-icon.png" />
+    <None Include="Button-Delete-icon16.png" />
     <Content Include="Script\uv_Address.sql" />
     <None Include="Resources\Preview.png" />
     <Content Include="ICON.ico" />

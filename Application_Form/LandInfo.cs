@@ -35,6 +35,8 @@ namespace Application_Form
         string sqlTmp = string.Empty;
         string TempTimeLineHDID = string.Empty;
         ReportDS dsReport = new ReportDS();
+        int SelectIndexHD = -1;
+        int SelectIndexDT = -1;
         public static ApplicationDS.tbEvidenceRow drEvidenceTemp
         { get; set; }
 
@@ -49,7 +51,8 @@ namespace Application_Form
             dgvTimeLandHD.DataSource = tdsLand.tbTimeLineHD;
             colTimeLineHDID.Visible = false;
             dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
-
+            btnDelDT.Enabled = false;
+            btnDelHD.Enabled = false;
             switch (FormState.ToLower())
             {
                 case "new":
@@ -290,6 +293,26 @@ namespace Application_Form
             }
         }
 
+        protected override void DoReset()
+        {
+            txtVillageName.Clear();
+            txtVillageNo.Clear();
+            txtSubDistrict.Clear();
+            txtDistrict.Clear();
+            txtProvince.Clear();
+            txtDistress.Clear();
+            txtHistory.Clear();
+
+            tdsLand.tbTimeLineHD.Clear();
+            tdsTempDTMain.tbTimeLineDT.Clear();
+            tdsTempDT.tbTimeLineDT.Clear();
+
+            dgvTimeLandHD.DataSource = tdsLand.tbTimeLineHD;
+            colTimeLineHDID.Visible = false;
+            dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
+            
+        }
+
         private void DoLoadData(string LandID)
         {
             #region ALL Data
@@ -419,7 +442,7 @@ namespace Application_Form
                     dgvTimeLandDT.Rows[e.RowIndex].Cells[colTimeLineDTID.Name].Value = TimeLineDTID;
                     dgvTimeLandDT.Rows[e.RowIndex].Cells[colEvidenceID.Name].Value = drEvidenceTemp.EvidenceID;
                     dgvTimeLandDT.Rows[e.RowIndex].Cells[colEvidenceCode.Name].Value = drEvidenceTemp.EvidenceCode;
-                    dgvTimeLandDT.Rows[e.RowIndex].Cells[colEvidenceType.Name].Value = drEvidenceTemp.EvidenceType;
+                    dgvTimeLandDT.Rows[e.RowIndex].Cells[colEvidenceName.Name].Value = drEvidenceTemp.EvidenceName;
                     dgvTimeLandDT.Rows[e.RowIndex].Cells[colDetail.Name].Value = drEvidenceTemp.Detail;
                     dgvTimeLandDT.NotifyCurrentCellDirty(true);
                     dgvTimeLandDT.EndEdit();
@@ -468,6 +491,7 @@ namespace Application_Form
         {
             if (e.RowIndex > -1)
             {
+                SelectIndexHD = e.RowIndex;
                 if (dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value != null)
                 {
                     ApplicationDS.tbTimeLineDTRow[] drTempSave = (ApplicationDS.tbTimeLineDTRow[])tdsTempDT.tbTimeLineDT.Select("");
@@ -494,6 +518,8 @@ namespace Application_Form
                         }
                         dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
                     }
+
+                    btnDelHD.Enabled = true;
                 }
             }
         }
@@ -603,38 +629,99 @@ namespace Application_Form
 
             if (e.RowIndex > -1)
             {
-                if (dgvTimeLandHD.Rows.Count > 0)
+                
+            }
+        }
+
+        private void btnDelHD_Click(object sender, EventArgs e)
+        {
+            string TimeLineHDID = string.Empty;
+
+            if (dgvTimeLandHD.Rows.Count > 0 && SelectIndexHD > -1)
+            {
+                if (dgvTimeLandHD.Rows[SelectIndexHD].Cells[colTimeLineHDID.Name].Value != null)
                 {
-                    if (dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value != null)
+                    TimeLineHDID = dgvTimeLandHD.Rows[SelectIndexHD].Cells[colTimeLineHDID.Name].Value.ToString();
+                    ApplicationDS.tbTimeLineHDRow[] drHD_Del = (ApplicationDS.tbTimeLineHDRow[])tdsLand.tbTimeLineHD.Select("TimeLineHDID = '" + TimeLineHDID + "'");
+                    ApplicationDS.tbTimeLineDTRow[] drDT_Del = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineHDID = '" + TimeLineHDID + "'");
+
+                    //Del HD
+                    if (drHD_Del.Length > 0)
                     {
-                        TimeLineHDID = dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value.ToString();
-                        ApplicationDS.tbTimeLineHDRow[] drHD_Del = (ApplicationDS.tbTimeLineHDRow[])tdsLand.tbTimeLineHD.Select("TimeLineHDID = '" + TimeLineHDID + "'");
-                        ApplicationDS.tbTimeLineDTRow[] drDT_Del = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineHDID = '" + TimeLineHDID + "'");
-
-                        //Del HD
-                        if (drHD_Del.Length > 0)
+                        foreach (ApplicationDS.tbTimeLineHDRow dr in drHD_Del)
                         {
-                            foreach (ApplicationDS.tbTimeLineHDRow dr in drHD_Del)
-                            {
-                                dr.Delete();
-                                dr.AcceptChanges();
-                            }
-                            //tdsLand.tbTimeLineHD.AcceptChanges();
-                            //dgvTimeLandHD.DataSource = tdsLand.tbTimeLineHD;
+                            dr.Delete();
+                            dr.AcceptChanges();
                         }
-
-                        //Del DT
-                        if (drDT_Del.Length > 0)
-                        {
-                            foreach (ApplicationDS.tbTimeLineDTRow dr in drDT_Del)
-                            {
-                                dr.Delete();
-                                dr.AcceptChanges();
-                            }
-                            //tdsTempDTMain.tbTimeLineDT.AcceptChanges();
-                        }
+                        //tdsLand.tbTimeLineHD.AcceptChanges();
+                        //dgvTimeLandHD.DataSource = tdsLand.tbTimeLineHD;
                     }
+
+                    //Del DT
+                    if (drDT_Del.Length > 0)
+                    {
+                        foreach (ApplicationDS.tbTimeLineDTRow dr in drDT_Del)
+                        {
+                            dr.Delete();
+                            dr.AcceptChanges();
+                        }
+                        //tdsTempDTMain.tbTimeLineDT.AcceptChanges();
+                    }
+
+                    tdsTempDT.Clear();
+                    dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
                 }
+            }
+        }
+
+        private void btnDelDT_Click(object sender, EventArgs e)
+        {
+            string TimeLineDTID = string.Empty;
+            string TimeLineHDID = string.Empty;
+
+            if (dgvTimeLandDT.Rows.Count > 0 && SelectIndexDT > -1)
+            {
+                if (dgvTimeLandDT.Rows[SelectIndexDT].Cells[colTimeLineDTID.Name].Value != null)
+                {
+                    TimeLineHDID = dgvTimeLandDT.Rows[SelectIndexDT].Cells[colTimeLineHDIDDT.Name].Value.ToString();
+                    TimeLineDTID = dgvTimeLandDT.Rows[SelectIndexDT].Cells[colTimeLineDTID.Name].Value.ToString();
+                    ApplicationDS.tbTimeLineDTRow[] drDT_Del = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineDTID = '" + TimeLineDTID + "'");
+
+                    //Del DT
+                    if (drDT_Del.Length > 0)
+                    {
+                        foreach (ApplicationDS.tbTimeLineDTRow dr in drDT_Del)
+                        {
+                            dr.Delete();
+                            dr.AcceptChanges();
+                        }
+                        //tdsTempDTMain.tbTimeLineDT.AcceptChanges();
+                    }
+
+                    tdsTempDT.Clear();
+                    if (!string.IsNullOrEmpty(TimeLineHDID))
+                    {
+                        ApplicationDS.tbTimeLineDTRow[] drDT_Show = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineHDID = '" + TimeLineHDID + "'");
+                        foreach (ApplicationDS.tbTimeLineDTRow dr in drDT_Show)
+                        {
+                            tdsTempDT.tbTimeLineDT.ImportRow(dr);
+                        }
+                        dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
+                    }
+
+                    btnDelDT.Enabled = false;
+
+                    
+                }
+            }
+        }
+
+        private void dgvTimeLandDT_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                SelectIndexDT = e.RowIndex;
+                btnDelDT.Enabled = true;
             }
         }
 

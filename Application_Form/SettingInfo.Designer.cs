@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Application_Service.BaseInfo));
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingInfo));
             this.txtPath = new System.Windows.Forms.TextBox();
             this.lblPath = new System.Windows.Forms.Label();
             this.btnSaveSetting = new System.Windows.Forms.Button();

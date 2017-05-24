@@ -114,11 +114,13 @@ namespace Application_Service
         private void tsBtuSearch_TextChanged(object sender, EventArgs e)
         {
             DoSearch();
+            btnStatus(true);
         }
 
         private void tsSearch_Click(object sender, EventArgs e)
         {
             DoSearch();
+            btnStatus(true);
         }
     }
 }

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">All</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>d75d2b66-ca3c-41ae-92a6-4bb7bb5f526f</ProjectGuid>
+    <OutputType>msi</OutputType>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>SetupProject.aip</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <IsWindowsApplication>True</IsWindowsApplication>
+    <AssemblyName>SetupProject</AssemblyName>
+    <Name>SetupProject</Name>
+    <RootNamespace>SetupProject</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'DefaultBuild' " />
+  <ItemGroup>
+    <Compile Include="SetupProject.aip">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application_Form\Application_Form.csproj">
+      <Name>Application_Form</Name>
+      <Project>{b7141a8c-1ce2-44cb-86c5-627b966b2bf0}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PrimaryOutput;References</OutputsToImport>
+    </ProjectReference>
+    <ProjectReference Include="..\Application_Report\Application_Report.csproj">
+      <Name>Application_Report</Name>
+      <Project>{20bfffb2-bcfb-4fb5-bb8c-0ab25f1b5029}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PrimaryOutput;References</OutputsToImport>
+    </ProjectReference>
+    <ProjectReference Include="..\Application_Service\Application_Service.csproj">
+      <Name>Application_Service</Name>
+      <Project>{4ebfa1c0-b754-49b8-9c8d-ec3d2e701bf6}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PrimaryOutput;References</OutputsToImport>
+    </ProjectReference>
+    <ProjectReference Include="..\DocExp\DocExp.csproj">
+      <Name>DocExp</Name>
+      <Project>{6a02b115-6a45-4e42-8c53-6050ed6538f0}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PrimaryOutput;References</OutputsToImport>
+    </ProjectReference>
+    <ProjectReference Include="..\GenericDataGridView\GenericDataGridView.csproj">
+      <Name>GenericDataGridView</Name>
+      <Project>{662ff9ce-25fb-4e58-a911-1970a9181444}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PrimaryOutput</OutputsToImport>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Caphyon\Advanced Installer\AdvInstExtTasks.Targets" />
+</Project>

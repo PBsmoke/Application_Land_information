@@ -174,8 +174,10 @@ namespace Application_Form
                         Directory.CreateDirectory(destinationPath);
                     }
                     if (!File.Exists(destinationFile))
+                    {
                         File.Copy(sourceFile, destinationFile, true);
-
+                        
+                    }   
                     if (tblEvidence.tbEvidence.Rows.Count > 0)
                     {
                         if (txtEvidenceCode.Text != tblEvidence.tbEvidence[0].EvidenceCode)
@@ -184,14 +186,17 @@ namespace Application_Form
 
                             foreach (FileInfo file in di.GetFiles())
                             {
+                                System.GC.Collect();
+                                System.GC.WaitForPendingFinalizers(); 
                                 file.Delete();
                             }
                             Directory.Delete(sourcePath);
                         }
                         else if (txtPath.Text != tblEvidence.tbEvidence[0].Path)
                         {
-                            if (!File.Exists(tblEvidence.tbEvidence[0].Path))
-                                File.Delete(tblEvidence.tbEvidence[0].Path);
+                            if(!string.IsNullOrEmpty(tblEvidence.tbEvidence[0].Path))
+                                if (!File.Exists(tblEvidence.tbEvidence[0].Path))
+                                    File.Delete(tblEvidence.tbEvidence[0].Path);
                         }
                     }
                 }

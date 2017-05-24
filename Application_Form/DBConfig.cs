@@ -51,7 +51,7 @@ namespace Application_Form
                         tblLogin.DBProfile.AddDBProfileRow(dr);
                     }
                     ProfileConfig.Save(tblLogin);
-                    MessageBox.Show("บันทึกข้อูลตั้งค่า ระบบฐานข้อมูล", "Land_information", MessageBoxButtons.OK);
+                    MessageBox.Show("บันทึกข้อูลตั้งค่า ระบบฐานข้อมูล", "ข้อความแจ้งเตือน", MessageBoxButtons.OK);
                 }                
             }
             catch

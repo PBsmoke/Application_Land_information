@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">All</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>393012c2-408a-46f8-b3ea-30735dc1ab72</ProjectGuid>
+    <OutputType>msi</OutputType>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>Setup_advinst.aip</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <IsWindowsApplication>True</IsWindowsApplication>
+    <AssemblyName>Setup_advinst</AssemblyName>
+    <Name>Setup_advinst</Name>
+    <RootNamespace>Setup_advinst</RootNamespace>
+    <ImportedProject>{1044f9f3-d9a1-4571-b3a8-ad2f2de6847d}</ImportedProject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'All' ">
+    <DebugSymbols>false</DebugSymbols>
+    <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' " />
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' " />
+  <ItemGroup>
+    <Compile Include="Setup_advinst.aip">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Caphyon\Advanced Installer\AdvInstExtTasks.Targets" />
+</Project>

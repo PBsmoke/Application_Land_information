@@ -13,10 +13,10 @@ namespace Application_Service.ClassService
 {
     public sealed class dbConString
     {
-        //public static string ServerName = @".\SQL2014";
-        //public static string DBName = "DB_Dev";
-        //public static string Sa = "sa";
-        //public static string SaPassword = "1";
+        public static string ServerName = @".\SQL2014";
+        public static string DBName = "DB_Dev";
+        public static string Sa = "sa";
+        public static string SaPassword = "1";
         //public static string ServerName = @".\SQL2014";
         //public static string DBName = "iPOS";
         //public static string Sa = "sa";
@@ -26,10 +26,10 @@ namespace Application_Service.ClassService
         //public static string Sa = string.Empty;
         //public static string SaPassword = string.Empty;
 
-        public static string ServerName = "";
-        public static string DBName = "";
-        public static string Sa = "";
-        public static string SaPassword = "";
+        //public static string ServerName = "";
+        //public static string DBName = "";
+        //public static string Sa = "";
+        //public static string SaPassword = "";
         
 
         
@@ -55,7 +55,6 @@ namespace Application_Service.ClassService
         public static double TaxRate = 0.0f;
         public static string Tel = "";
         public static string Fax = "";
-
 
         #region TestConnection
         /// <summary>
@@ -150,6 +149,11 @@ namespace Application_Service.ClassService
                     RichTextBox textBox = (RichTextBox)control;
                     textBox.Text = null;                
                 }
+
+                if (control is TabControl)
+                {
+                    TabControlResetAll((TabControl)control);
+                }
             }
         }
 
@@ -186,6 +190,49 @@ namespace Application_Service.ClassService
                 {
                     DataGrid DataGrid = (DataGrid)ctrl;
                     //DataGrid.
+                }
+            }
+        }
+
+        public static void TabControlResetAll(TabControl TabC)
+        {
+            foreach (Control ctrl in TabC.Controls)
+            {
+                if (ctrl is TabPage)
+                {
+                    foreach (Control CtrlPage in ctrl.Controls)
+                    {
+                        if (ctrl is TextBox)
+                        {
+                            TextBox textBox = (TextBox)ctrl;
+                            textBox.Text = null;
+                        }
+                        if (ctrl is ComboBox)
+                        {
+                            ComboBox comboBox = (ComboBox)ctrl;
+                            comboBox.SelectedIndex = -1;
+                        }
+                        if (ctrl is CheckBox)
+                        {
+                            CheckBox checkBox = (CheckBox)ctrl;
+                            checkBox.Checked = false;
+                        }
+                        if (ctrl is RadioButton)
+                        {
+                            RadioButton radioButton = (RadioButton)ctrl;
+                            radioButton.Checked = false;
+                        }
+                        if (ctrl is ListBox)
+                        {
+                            ListBox listBox = (ListBox)ctrl;
+                            listBox.ClearSelected();
+                        }
+                        if (ctrl is DataGrid)
+                        {
+                            DataGrid DataGrid = (DataGrid)ctrl;
+                            //DataGrid.
+                        }
+                    }
                 }
             }
         }
