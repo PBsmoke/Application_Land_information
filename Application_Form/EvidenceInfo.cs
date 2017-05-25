@@ -12,8 +12,7 @@ using System.Windows.Forms;
 using Application_Form.ApplicationData;
 using Application_Service;
 using Application_Service.ClassService;
-using DocExp;
-    
+
 namespace Application_Form
 {
     public partial class EvidenceInfo : BaseInfo
@@ -322,9 +321,9 @@ namespace Application_Form
             {
                 if (File.Exists(txtPath.Text))
                 {
-                    frmPerview frm = new frmPerview();
-                    frm.strPath = txtPath.Text;
-                    frm.ShowDialog();
+                    //frmPerview frm = new frmPerview();
+                    //frm.strPath = txtPath.Text;
+                    //frm.ShowDialog();
                     btnPerview.Enabled = true;
                 }
                 else
