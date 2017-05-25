@@ -200,39 +200,44 @@ namespace Application_Service.ClassService
             {
                 if (ctrl is TabPage)
                 {
-                    foreach (Control CtrlPage in ctrl.Controls)
-                    {
-                        if (ctrl is TextBox)
-                        {
-                            TextBox textBox = (TextBox)ctrl;
-                            textBox.Text = null;
-                        }
-                        if (ctrl is ComboBox)
-                        {
-                            ComboBox comboBox = (ComboBox)ctrl;
-                            comboBox.SelectedIndex = -1;
-                        }
-                        if (ctrl is CheckBox)
-                        {
-                            CheckBox checkBox = (CheckBox)ctrl;
-                            checkBox.Checked = false;
-                        }
-                        if (ctrl is RadioButton)
-                        {
-                            RadioButton radioButton = (RadioButton)ctrl;
-                            radioButton.Checked = false;
-                        }
-                        if (ctrl is ListBox)
-                        {
-                            ListBox listBox = (ListBox)ctrl;
-                            listBox.ClearSelected();
-                        }
-                        if (ctrl is DataGrid)
-                        {
-                            DataGrid DataGrid = (DataGrid)ctrl;
-                            //DataGrid.
-                        }
-                    }
+                    TabPageResetAll((TabPage)ctrl);
+                }
+            }
+        }
+
+        public static void TabPageResetAll(TabPage TabC)
+        {
+            foreach (Control ctrl in TabC.Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                    TextBox textBox = (TextBox)ctrl;
+                    textBox.Text = null;
+                }
+                if (ctrl is ComboBox)
+                {
+                    ComboBox comboBox = (ComboBox)ctrl;
+                    comboBox.SelectedIndex = -1;
+                }
+                if (ctrl is CheckBox)
+                {
+                    CheckBox checkBox = (CheckBox)ctrl;
+                    checkBox.Checked = false;
+                }
+                if (ctrl is RadioButton)
+                {
+                    RadioButton radioButton = (RadioButton)ctrl;
+                    radioButton.Checked = false;
+                }
+                if (ctrl is ListBox)
+                {
+                    ListBox listBox = (ListBox)ctrl;
+                    listBox.ClearSelected();
+                }
+                if (ctrl is DataGrid)
+                {
+                    DataGrid DataGrid = (DataGrid)ctrl;
+                    //DataGrid.
                 }
             }
         }

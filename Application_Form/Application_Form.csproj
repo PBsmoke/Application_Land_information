@@ -222,6 +222,7 @@
   <ItemGroup>
     <None Include="Button-Delete-icon.png" />
     <None Include="Button-Delete-icon16.png" />
+    <Content Include="Script\SumScript.sql" />
     <Content Include="Script\uv_Address.sql" />
     <None Include="Resources\Preview.png" />
     <Content Include="ICON.ico" />
@@ -236,10 +237,6 @@
     <ProjectReference Include="..\Application_Service\Application_Service.csproj">
       <Project>{4ebfa1c0-b754-49b8-9c8d-ec3d2e701bf6}</Project>
       <Name>Application_Service</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DocExp\DocExp.csproj">
-      <Project>{6a02b115-6a45-4e42-8c53-6050ed6538f0}</Project>
-      <Name>DocExp</Name>
     </ProjectReference>
     <ProjectReference Include="..\GenericDataGridView\GenericDataGridView.csproj">
       <Project>{662FF9CE-25FB-4E58-A911-1970A9181444}</Project>

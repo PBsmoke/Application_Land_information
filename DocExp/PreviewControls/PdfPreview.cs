@@ -6,13 +6,13 @@ using DocExp.Interfaces;
 
 namespace DocExp.PreviewControls
 {
-    public class PdfPreview : AxAcroPDFLib.AxAcroPDF, IPreview
+    public class PdfPreview : AcroPDFLib.AcroPDF, IPreview
     {
         #region IPreview Members
 
         public void Preview(string path)
         {
-            this.src = path;
+            this.Preview(path);
         }
 
         #endregion
