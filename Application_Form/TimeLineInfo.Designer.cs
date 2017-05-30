@@ -43,7 +43,7 @@
             this.tabEvidence = new System.Windows.Forms.TabPage();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelDT = new System.Windows.Forms.Button();
-            this.dgvTimeLandDT = new GenericDataGridView.GenericDataGridView(this.components);
+            this.dgvTimeLandDT = new System.Windows.Forms.DataGridView();
             this.colEvidenceCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEvidenceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -235,11 +235,7 @@
             this.colEvidenceType,
             this.colCreatedBy,
             this.colCreatedDate});
-            this.dgvTimeLandDT.DataColumns = null;
-            this.dgvTimeLandDT.DataColumnsTable = null;
-            this.dgvTimeLandDT.DataConnection = null;
             this.dgvTimeLandDT.DataSource = this.tbTimeLineDTBindingSource;
-            this.dgvTimeLandDT.DBDateFormat = null;
             this.dgvTimeLandDT.Location = new System.Drawing.Point(11, 44);
             this.dgvTimeLandDT.Name = "dgvTimeLandDT";
             this.dgvTimeLandDT.ReadOnly = true;
@@ -375,7 +371,7 @@
         private System.Windows.Forms.TextBox txtTitleEvent;
         private System.Windows.Forms.Label lblRemark;
         private System.Windows.Forms.TextBox txtRemark;
-        private GenericDataGridView.GenericDataGridView dgvTimeLandDT;
+        private System.Windows.Forms.DataGridView dgvTimeLandDT;
         private System.Windows.Forms.BindingSource tbTimeLineDTBindingSource;
         private ApplicationData.ApplicationDS applicationDS;
         private System.Windows.Forms.Label label9;
