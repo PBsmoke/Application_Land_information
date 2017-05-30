@@ -1196,6 +1196,8 @@ namespace Application_Form.ApplicationData {
             
             private global::System.Data.DataColumn columnCreatedDate;
             
+            private global::System.Data.DataColumn columnLandCode;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public tbLandDataTable() {
@@ -1311,6 +1313,14 @@ namespace Application_Form.ApplicationData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LandCodeColumn {
+                get {
+                    return this.columnLandCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1346,7 +1356,7 @@ namespace Application_Form.ApplicationData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbLandRow AddtbLandRow(string LandID, string VillageName, string VillageNo, string SubDistrict, string District, string Province, string History, string Distress, string CreatedBy, System.DateTime CreatedDate) {
+            public tbLandRow AddtbLandRow(string LandID, string VillageName, string VillageNo, string SubDistrict, string District, string Province, string History, string Distress, string CreatedBy, System.DateTime CreatedDate, string LandCode) {
                 tbLandRow rowtbLandRow = ((tbLandRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         LandID,
@@ -1358,7 +1368,8 @@ namespace Application_Form.ApplicationData {
                         History,
                         Distress,
                         CreatedBy,
-                        CreatedDate};
+                        CreatedDate,
+                        LandCode};
                 rowtbLandRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbLandRow);
                 return rowtbLandRow;
@@ -1391,6 +1402,7 @@ namespace Application_Form.ApplicationData {
                 this.columnDistress = base.Columns["Distress"];
                 this.columnCreatedBy = base.Columns["CreatedBy"];
                 this.columnCreatedDate = base.Columns["CreatedDate"];
+                this.columnLandCode = base.Columns["LandCode"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1416,6 +1428,8 @@ namespace Application_Form.ApplicationData {
                 base.Columns.Add(this.columnCreatedBy);
                 this.columnCreatedDate = new global::System.Data.DataColumn("CreatedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreatedDate);
+                this.columnLandCode = new global::System.Data.DataColumn("LandCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLandCode);
                 this.columnLandID.AllowDBNull = false;
                 this.columnLandID.DefaultValue = ((string)(""));
                 this.columnLandID.MaxLength = 36;
@@ -1435,6 +1449,7 @@ namespace Application_Form.ApplicationData {
                 this.columnDistress.MaxLength = 500;
                 this.columnCreatedBy.DefaultValue = ((string)(""));
                 this.columnCreatedBy.MaxLength = 36;
+                this.columnLandCode.DefaultValue = ((string)(""));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3506,6 +3521,22 @@ namespace Application_Form.ApplicationData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string LandCode {
+                get {
+                    if (this.IsLandCodeNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tabletbLand.LandCodeColumn]));
+                    }
+                }
+                set {
+                    this[this.tabletbLand.LandCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsVillageNameNull() {
                 return this.IsNull(this.tabletbLand.VillageNameColumn);
             }
@@ -3610,6 +3641,18 @@ namespace Application_Form.ApplicationData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCreatedDateNull() {
                 this[this.tabletbLand.CreatedDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLandCodeNull() {
+                return this.IsNull(this.tabletbLand.LandCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLandCodeNull() {
+                this[this.tabletbLand.LandCodeColumn] = global::System.Convert.DBNull;
             }
         }
         

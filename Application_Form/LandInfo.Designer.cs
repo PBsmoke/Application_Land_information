@@ -43,18 +43,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtVillageNo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtVillageName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvTimeLandHD = new System.Windows.Forms.DataGridView();
-            this.tbTimeLineHDBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.applicationDS2 = new Application_Form.ApplicationData.ApplicationDS();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnSearch = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnDel = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.colTimeLineDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTitleEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTimeLineEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +53,18 @@
             this.colRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbTimeLineHDBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.applicationDS2 = new Application_Form.ApplicationData.ApplicationDS();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnDel = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtVillageName = new System.Windows.Forms.TextBox();
+            this.txtLandCode = new System.Windows.Forms.TextBox();
+            this.lblLandCode = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -86,6 +88,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txtLandCode);
+            this.tabPage1.Controls.Add(this.lblLandCode);
             this.tabPage1.Controls.Add(this.txtDistress);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.txtHistory);
@@ -111,18 +115,18 @@
             // 
             // txtDistress
             // 
-            this.txtDistress.Location = new System.Drawing.Point(412, 154);
+            this.txtDistress.Location = new System.Drawing.Point(443, 155);
             this.txtDistress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDistress.MaxLength = 500;
             this.txtDistress.Name = "txtDistress";
-            this.txtDistress.Size = new System.Drawing.Size(364, 287);
+            this.txtDistress.Size = new System.Drawing.Size(407, 287);
             this.txtDistress.TabIndex = 41;
             this.txtDistress.Text = "";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(409, 133);
+            this.label7.Location = new System.Drawing.Point(440, 133);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(192, 17);
             this.label7.TabIndex = 39;
@@ -134,7 +138,7 @@
             this.txtHistory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtHistory.MaxLength = 500;
             this.txtHistory.Name = "txtHistory";
-            this.txtHistory.Size = new System.Drawing.Size(386, 287);
+            this.txtHistory.Size = new System.Drawing.Size(417, 287);
             this.txtHistory.TabIndex = 37;
             this.txtHistory.Text = "";
             // 
@@ -149,7 +153,7 @@
             // 
             // txtProvince
             // 
-            this.txtProvince.Location = new System.Drawing.Point(91, 79);
+            this.txtProvince.Location = new System.Drawing.Point(401, 83);
             this.txtProvince.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtProvince.MaxLength = 100;
             this.txtProvince.Name = "txtProvince";
@@ -160,7 +164,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.DarkRed;
-            this.label5.Location = new System.Drawing.Point(17, 87);
+            this.label5.Location = new System.Drawing.Point(340, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 17);
             this.label5.TabIndex = 34;
@@ -168,7 +172,7 @@
             // 
             // txtDistrict
             // 
-            this.txtDistrict.Location = new System.Drawing.Point(412, 47);
+            this.txtDistrict.Location = new System.Drawing.Point(93, 83);
             this.txtDistrict.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDistrict.MaxLength = 100;
             this.txtDistrict.Name = "txtDistrict";
@@ -179,7 +183,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.DarkRed;
-            this.label4.Location = new System.Drawing.Point(338, 50);
+            this.label4.Location = new System.Drawing.Point(19, 86);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 17);
             this.label4.TabIndex = 32;
@@ -187,18 +191,18 @@
             // 
             // txtSubDistrict
             // 
-            this.txtSubDistrict.Location = new System.Drawing.Point(91, 47);
+            this.txtSubDistrict.Location = new System.Drawing.Point(493, 51);
             this.txtSubDistrict.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSubDistrict.MaxLength = 100;
             this.txtSubDistrict.Name = "txtSubDistrict";
-            this.txtSubDistrict.Size = new System.Drawing.Size(233, 24);
+            this.txtSubDistrict.Size = new System.Drawing.Size(141, 24);
             this.txtSubDistrict.TabIndex = 31;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.DarkRed;
-            this.label3.Location = new System.Drawing.Point(17, 50);
+            this.label3.Location = new System.Drawing.Point(445, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 17);
             this.label3.TabIndex = 30;
@@ -206,41 +210,22 @@
             // 
             // txtVillageNo
             // 
-            this.txtVillageNo.Location = new System.Drawing.Point(412, 15);
+            this.txtVillageNo.Location = new System.Drawing.Point(371, 51);
             this.txtVillageNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtVillageNo.MaxLength = 5;
             this.txtVillageNo.Name = "txtVillageNo";
-            this.txtVillageNo.Size = new System.Drawing.Size(233, 24);
+            this.txtVillageNo.Size = new System.Drawing.Size(68, 24);
             this.txtVillageNo.TabIndex = 29;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
-            this.label2.Location = new System.Drawing.Point(338, 18);
+            this.label2.Location = new System.Drawing.Point(340, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 17);
             this.label2.TabIndex = 28;
             this.label2.Text = "หมู่";
-            // 
-            // txtVillageName
-            // 
-            this.txtVillageName.Location = new System.Drawing.Point(91, 15);
-            this.txtVillageName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtVillageName.MaxLength = 50;
-            this.txtVillageName.Name = "txtVillageName";
-            this.txtVillageName.Size = new System.Drawing.Size(233, 24);
-            this.txtVillageName.TabIndex = 27;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.DarkRed;
-            this.label1.Location = new System.Drawing.Point(17, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 17);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "ชื่อหมู่บ้าน";
             // 
             // tabPage3
             // 
@@ -280,6 +265,69 @@
             this.dgvTimeLandHD.TabIndex = 125;
             this.dgvTimeLandHD.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandHD_CellMouseDoubleClick);
             this.dgvTimeLandHD.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandHD_CellMouseUp);
+            // 
+            // colTimeLineDate
+            // 
+            this.colTimeLineDate.DataPropertyName = "TimeLineDate";
+            this.colTimeLineDate.FillWeight = 30F;
+            this.colTimeLineDate.HeaderText = "วันที่";
+            this.colTimeLineDate.Name = "colTimeLineDate";
+            this.colTimeLineDate.ReadOnly = true;
+            // 
+            // colTitleEvent
+            // 
+            this.colTitleEvent.DataPropertyName = "TitleEvent";
+            this.colTitleEvent.HeaderText = "TitleEvent";
+            this.colTitleEvent.Name = "colTitleEvent";
+            this.colTitleEvent.ReadOnly = true;
+            // 
+            // colTimeLineEvent
+            // 
+            this.colTimeLineEvent.DataPropertyName = "TimeLineEvent";
+            this.colTimeLineEvent.HeaderText = "TimeLineEvent";
+            this.colTimeLineEvent.Name = "colTimeLineEvent";
+            this.colTimeLineEvent.ReadOnly = true;
+            this.colTimeLineEvent.Visible = false;
+            // 
+            // colTimeLineHDID
+            // 
+            this.colTimeLineHDID.DataPropertyName = "TimeLineHDID";
+            this.colTimeLineHDID.HeaderText = "TimeLineHDID";
+            this.colTimeLineHDID.Name = "colTimeLineHDID";
+            this.colTimeLineHDID.ReadOnly = true;
+            this.colTimeLineHDID.Visible = false;
+            // 
+            // colLandID
+            // 
+            this.colLandID.DataPropertyName = "LandID";
+            this.colLandID.HeaderText = "LandID";
+            this.colLandID.Name = "colLandID";
+            this.colLandID.ReadOnly = true;
+            this.colLandID.Visible = false;
+            // 
+            // colRemark
+            // 
+            this.colRemark.DataPropertyName = "Remark";
+            this.colRemark.HeaderText = "Remark";
+            this.colRemark.Name = "colRemark";
+            this.colRemark.ReadOnly = true;
+            this.colRemark.Visible = false;
+            // 
+            // colCreatedBy
+            // 
+            this.colCreatedBy.DataPropertyName = "CreatedBy";
+            this.colCreatedBy.HeaderText = "CreatedBy";
+            this.colCreatedBy.Name = "colCreatedBy";
+            this.colCreatedBy.ReadOnly = true;
+            this.colCreatedBy.Visible = false;
+            // 
+            // colCreatedDate
+            // 
+            this.colCreatedDate.DataPropertyName = "CreatedDate";
+            this.colCreatedDate.HeaderText = "CreatedDate";
+            this.colCreatedDate.Name = "colCreatedDate";
+            this.colCreatedDate.ReadOnly = true;
+            this.colCreatedDate.Visible = false;
             // 
             // tbTimeLineHDBindingSource
             // 
@@ -366,68 +414,43 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // colTimeLineDate
+            // label1
             // 
-            this.colTimeLineDate.DataPropertyName = "TimeLineDate";
-            this.colTimeLineDate.FillWeight = 30F;
-            this.colTimeLineDate.HeaderText = "วันที่";
-            this.colTimeLineDate.Name = "colTimeLineDate";
-            this.colTimeLineDate.ReadOnly = true;
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.DarkRed;
+            this.label1.Location = new System.Drawing.Point(19, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 17);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "ชื่อหมู่บ้าน";
             // 
-            // colTitleEvent
+            // txtVillageName
             // 
-            this.colTitleEvent.DataPropertyName = "TitleEvent";
-            this.colTitleEvent.HeaderText = "TitleEvent";
-            this.colTitleEvent.Name = "colTitleEvent";
-            this.colTitleEvent.ReadOnly = true;
+            this.txtVillageName.Location = new System.Drawing.Point(93, 51);
+            this.txtVillageName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtVillageName.MaxLength = 50;
+            this.txtVillageName.Name = "txtVillageName";
+            this.txtVillageName.Size = new System.Drawing.Size(233, 24);
+            this.txtVillageName.TabIndex = 27;
             // 
-            // colTimeLineEvent
+            // txtLandCode
             // 
-            this.colTimeLineEvent.DataPropertyName = "TimeLineEvent";
-            this.colTimeLineEvent.HeaderText = "TimeLineEvent";
-            this.colTimeLineEvent.Name = "colTimeLineEvent";
-            this.colTimeLineEvent.ReadOnly = true;
-            this.colTimeLineEvent.Visible = false;
+            this.txtLandCode.Location = new System.Drawing.Point(92, 19);
+            this.txtLandCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtLandCode.MaxLength = 50;
+            this.txtLandCode.Name = "txtLandCode";
+            this.txtLandCode.Size = new System.Drawing.Size(233, 24);
+            this.txtLandCode.TabIndex = 43;
             // 
-            // colTimeLineHDID
+            // lblLandCode
             // 
-            this.colTimeLineHDID.DataPropertyName = "TimeLineHDID";
-            this.colTimeLineHDID.HeaderText = "TimeLineHDID";
-            this.colTimeLineHDID.Name = "colTimeLineHDID";
-            this.colTimeLineHDID.ReadOnly = true;
-            this.colTimeLineHDID.Visible = false;
-            // 
-            // colLandID
-            // 
-            this.colLandID.DataPropertyName = "LandID";
-            this.colLandID.HeaderText = "LandID";
-            this.colLandID.Name = "colLandID";
-            this.colLandID.ReadOnly = true;
-            this.colLandID.Visible = false;
-            // 
-            // colRemark
-            // 
-            this.colRemark.DataPropertyName = "Remark";
-            this.colRemark.HeaderText = "Remark";
-            this.colRemark.Name = "colRemark";
-            this.colRemark.ReadOnly = true;
-            this.colRemark.Visible = false;
-            // 
-            // colCreatedBy
-            // 
-            this.colCreatedBy.DataPropertyName = "CreatedBy";
-            this.colCreatedBy.HeaderText = "CreatedBy";
-            this.colCreatedBy.Name = "colCreatedBy";
-            this.colCreatedBy.ReadOnly = true;
-            this.colCreatedBy.Visible = false;
-            // 
-            // colCreatedDate
-            // 
-            this.colCreatedDate.DataPropertyName = "CreatedDate";
-            this.colCreatedDate.HeaderText = "CreatedDate";
-            this.colCreatedDate.Name = "colCreatedDate";
-            this.colCreatedDate.ReadOnly = true;
-            this.colCreatedDate.Visible = false;
+            this.lblLandCode.AutoSize = true;
+            this.lblLandCode.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblLandCode.Location = new System.Drawing.Point(19, 22);
+            this.lblLandCode.Name = "lblLandCode";
+            this.lblLandCode.Size = new System.Drawing.Size(61, 17);
+            this.lblLandCode.TabIndex = 42;
+            this.lblLandCode.Text = "รหัสพื้นที่";
             // 
             // LandInfo
             // 
@@ -467,8 +490,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtVillageNo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtVillageName;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox txtDistress;
         private System.Windows.Forms.Label label7;
@@ -504,5 +525,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colRemark;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedDate;
+        private System.Windows.Forms.TextBox txtLandCode;
+        private System.Windows.Forms.Label lblLandCode;
+        private System.Windows.Forms.TextBox txtVillageName;
+        private System.Windows.Forms.Label label1;
     }
 }

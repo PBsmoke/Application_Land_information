@@ -31,7 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvLandList = new System.Windows.Forms.DataGridView();
+            this.tbLandBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.applicationDS = new Application_Form.ApplicationData.ApplicationDS();
             this.colLandID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLandCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colVillageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colVillageNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubDistrict = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,8 +44,6 @@
             this.colDistress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbLandBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.applicationDS = new Application_Form.ApplicationData.ApplicationDS();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLandList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbLandBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationDS)).BeginInit();
@@ -65,6 +66,7 @@
             this.dgvLandList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLandList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colLandID,
+            this.colLandCode,
             this.colVillageName,
             this.colVillageNo,
             this.colSubDistrict,
@@ -87,6 +89,16 @@
             this.dgvLandList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvLandList_CellMouseDoubleClick);
             this.dgvLandList.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvLandList_CellMouseUp);
             // 
+            // tbLandBindingSource
+            // 
+            this.tbLandBindingSource.DataMember = "tbLand";
+            this.tbLandBindingSource.DataSource = this.applicationDS;
+            // 
+            // applicationDS
+            // 
+            this.applicationDS.DataSetName = "ApplicationDS";
+            this.applicationDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // colLandID
             // 
             this.colLandID.DataPropertyName = "LandID";
@@ -94,6 +106,13 @@
             this.colLandID.Name = "colLandID";
             this.colLandID.ReadOnly = true;
             this.colLandID.Visible = false;
+            // 
+            // colLandCode
+            // 
+            this.colLandCode.DataPropertyName = "LandCode";
+            this.colLandCode.HeaderText = "LandCode";
+            this.colLandCode.Name = "colLandCode";
+            this.colLandCode.ReadOnly = true;
             // 
             // colVillageName
             // 
@@ -162,16 +181,6 @@
             this.colCreatedDate.ReadOnly = true;
             this.colCreatedDate.Visible = false;
             // 
-            // tbLandBindingSource
-            // 
-            this.tbLandBindingSource.DataMember = "tbLand";
-            this.tbLandBindingSource.DataSource = this.applicationDS;
-            // 
-            // applicationDS
-            // 
-            this.applicationDS.DataSetName = "ApplicationDS";
-            this.applicationDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // LandList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,6 +203,7 @@
         private System.Windows.Forms.BindingSource tbLandBindingSource;
         private ApplicationData.ApplicationDS applicationDS;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLandID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLandCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn colVillageName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colVillageNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSubDistrict;

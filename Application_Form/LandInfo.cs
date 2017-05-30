@@ -88,7 +88,7 @@ namespace Application_Form
                             StringBuilder StringBd = new StringBuilder();
                             StringBd.Clear();
                             sqlTmp = string.Empty;
-                            StringBd.Append("INSERT INTO tbLand VALUES (@LandID,@VillageName,@VillageNo,@SubDistrict,@District,@Province,@History,@Distress,@CreatedBy,GETDATE())");
+                            StringBd.Append("INSERT INTO tbLand VALUES (@LandID,@LandCode,@VillageName,@VillageNo,@SubDistrict,@District,@Province,@History,@Distress,@CreatedBy,GETDATE())");
                             sqlTmp = "";
                             sqlTmp = StringBd.ToString();
 
@@ -99,6 +99,7 @@ namespace Application_Form
                             dbConString.Com.Transaction = dbConString.Transaction;
                             dbConString.Com.Parameters.Clear();
                             dbConString.Com.Parameters.Add("@LandID", SqlDbType.VarChar).Value = LandID;
+                            dbConString.Com.Parameters.Add("@LandCode", SqlDbType.VarChar).Value = txtLandCode.Text;
                             dbConString.Com.Parameters.Add("@VillageName", SqlDbType.VarChar).Value = txtVillageName.Text;
                             dbConString.Com.Parameters.Add("@VillageNo", SqlDbType.VarChar).Value = txtVillageNo.Text;
                             dbConString.Com.Parameters.Add("@SubDistrict", SqlDbType.VarChar).Value = txtSubDistrict.Text;
@@ -137,7 +138,7 @@ namespace Application_Form
                             StringBuilder StringBd = new StringBuilder();
                             StringBd.Clear();
                             sqlTmp = string.Empty;
-                            StringBd.Append("UPDATE tbLand SET VillageName = @VillageName,VillageNo = @VillageNo,SubDistrict = @SubDistrict,District = @District,");
+                            StringBd.Append("UPDATE tbLand SET LandCode = @LandCode, VillageName = @VillageName,VillageNo = @VillageNo,SubDistrict = @SubDistrict,District = @District,");
                             StringBd.Append(" Province = @Province,History = @History,Distress = @Distress,CreatedBy = @CreatedBy WHERE LandID = @LandID; ");
                             sqlTmp = "";
                             sqlTmp = StringBd.ToString();
@@ -149,6 +150,7 @@ namespace Application_Form
                             dbConString.Com.Transaction = dbConString.Transaction;
                             dbConString.Com.Parameters.Clear();
                             dbConString.Com.Parameters.Add("@LandID", SqlDbType.VarChar).Value = LandID;
+                            dbConString.Com.Parameters.Add("@LandCode", SqlDbType.VarChar).Value = txtLandCode.Text;
                             dbConString.Com.Parameters.Add("@VillageName", SqlDbType.VarChar).Value = txtVillageName.Text;
                             dbConString.Com.Parameters.Add("@VillageNo", SqlDbType.VarChar).Value = txtVillageNo.Text;
                             dbConString.Com.Parameters.Add("@SubDistrict", SqlDbType.VarChar).Value = txtSubDistrict.Text;
@@ -216,6 +218,7 @@ namespace Application_Form
             if (tdsLand.tbLand.Rows.Count > 0)
             {
                 LandID = tdsLand.tbLand[0].LandID;
+                txtLandCode.Text = tdsLand.tbLand[0].LandCode;
                 txtVillageName.Text = tdsLand.tbLand[0].VillageName;
                 txtVillageNo.Text = tdsLand.tbLand[0].VillageNo;
                 txtSubDistrict.Text = tdsLand.tbLand[0].SubDistrict;
