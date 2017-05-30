@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using Application_Form.ApplicationData;
 using Application_Service;
 using Application_Service.ClassService;
-
+    
 namespace Application_Form
 {
     public partial class EvidenceInfo : BaseInfo
