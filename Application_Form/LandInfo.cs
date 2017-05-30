@@ -30,13 +30,13 @@ namespace Application_Form
         public string LandID = string.Empty;
         ApplicationDS tdsLand = new ApplicationDS();
         ApplicationDS tdsAddress = new ApplicationDS();
-        ApplicationDS tdsTempDT = new ApplicationDS();
-        ApplicationDS tdsTempDTMain = new ApplicationDS();
+        ApplicationDS tdsTimeLineHD = new ApplicationDS();
+
         string sqlTmp = string.Empty;
         string TempTimeLineHDID = string.Empty;
         ReportDS dsReport = new ReportDS();
-        int SelectIndexHD = -1;
-        int SelectIndexDT = -1;
+        int SelectRowIndex = -1;
+
         public static ApplicationDS.tbEvidenceRow drEvidenceTemp
         { get; set; }
 
@@ -48,11 +48,6 @@ namespace Application_Form
         protected override void DoLoadForm()
         {
             LoadProvince();
-            dgvTimeLandHD.DataSource = tdsLand.tbTimeLineHD;
-            colTimeLineHDID.Visible = false;
-            dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
-            btnDelDT.Enabled = false;
-            btnDelHD.Enabled = false;
             switch (FormState.ToLower())
             {
                 case "new":
@@ -78,19 +73,6 @@ namespace Application_Form
                 return;
             }
 
-            dgvTimeLandDT.RefreshEdit();
-            ApplicationDS.tbTimeLineDTRow[] drTempSave = (ApplicationDS.tbTimeLineDTRow[])tdsTempDT.tbTimeLineDT.Select("");
-            if (drTempSave.Length > 0)
-            {
-                foreach (ApplicationDS.tbTimeLineDTRow drChk in drTempSave)
-                {
-                    ApplicationDS.tbTimeLineDTRow[] drTempChk = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineDTID = '" + drChk.TimeLineDTID + "'");
-                    if (drTempChk.Length == 0)
-                    {
-                        tdsTempDTMain.tbTimeLineDT.ImportRow(drChk);
-                    }
-                }
-            }
 
             switch (FormState.ToLower())
             {
@@ -129,52 +111,6 @@ namespace Application_Form
                             
                             #endregion
 
-                            #region
-                            foreach (ApplicationDS.tbTimeLineHDRow drHD in tdsLand.tbTimeLineHD.Select(""))
-                            {
-                                StringBd.Clear();
-                                sqlTmp = string.Empty;
-                                StringBd.Append("INSERT INTO tbTimeLineHD VALUES (@TimeLineHDID,@LandID,@TimeLineDate,@TimeLineEvent,@Remark,@CreatedBy,GETDATE())");
-                                sqlTmp = "";
-                                sqlTmp = StringBd.ToString();
-                                dbConString.Com = new SqlCommand();
-                                dbConString.Com.CommandText = sqlTmp;
-                                dbConString.Com.CommandType = CommandType.Text;
-                                dbConString.Com.Connection = dbConString.mySQLConn;
-                                dbConString.Com.Transaction = dbConString.Transaction;
-                                dbConString.Com.Parameters.Clear();
-                                dbConString.Com.Parameters.Add("@TimeLineHDID", SqlDbType.VarChar).Value = drHD.TimeLineHDID;
-                                dbConString.Com.Parameters.Add("@LandID", SqlDbType.VarChar).Value = LandID;
-                                dbConString.Com.Parameters.Add("@TimeLineDate", SqlDbType.DateTime).Value = drHD.TimeLineDate;
-                                dbConString.Com.Parameters.Add("@TimeLineEvent", SqlDbType.VarChar).Value = drHD.TimeLineEvent;
-                                dbConString.Com.Parameters.Add("@Remark", SqlDbType.VarChar).Value = drHD.Remark;
-                                dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = string.Empty;
-                                dbConString.Com.ExecuteNonQuery();
-                            }
-                            #endregion
-
-                            #region
-                            foreach (ApplicationDS.tbTimeLineDTRow drDT in tdsTempDTMain.tbTimeLineDT.Select(""))
-                            {
-                                StringBd.Clear();
-                                sqlTmp = string.Empty;
-                                StringBd.Append("INSERT INTO tbTimeLineDT VALUES (@TimeLineDTID,@TimeLineHDID,@EvidenceID,@CreatedBy,GETDATE())");
-                                sqlTmp = "";
-                                sqlTmp = StringBd.ToString();
-                                dbConString.Com = new SqlCommand();
-                                dbConString.Com.CommandText = sqlTmp;
-                                dbConString.Com.CommandType = CommandType.Text;
-                                dbConString.Com.Connection = dbConString.mySQLConn;
-                                dbConString.Com.Transaction = dbConString.Transaction;
-                                dbConString.Com.Parameters.Clear();
-                                dbConString.Com.Parameters.Add("@TimeLineDTID", SqlDbType.VarChar).Value = drDT.TimeLineDTID;
-                                dbConString.Com.Parameters.Add("@TimeLineHDID", SqlDbType.VarChar).Value = drDT.TimeLineHDID;
-                                dbConString.Com.Parameters.Add("@EvidenceID", SqlDbType.VarChar).Value = drDT.EvidenceID;
-                                dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = string.Empty;
-                                dbConString.Com.ExecuteNonQuery();
-                            }
-                            #endregion
-
                             dbConString.Transaction.Commit();
                             FormState = "edit";
                             MessageBox.Show("บันทึกค่าเรียบร้อย", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -196,15 +132,13 @@ namespace Application_Form
                     {
                         try
                         {
-                            #region tbUser
+                            
                             dbConString.Transaction = dbConString.mySQLConn.BeginTransaction();
                             StringBuilder StringBd = new StringBuilder();
                             StringBd.Clear();
                             sqlTmp = string.Empty;
                             StringBd.Append("UPDATE tbLand SET VillageName = @VillageName,VillageNo = @VillageNo,SubDistrict = @SubDistrict,District = @District,");
                             StringBd.Append(" Province = @Province,History = @History,Distress = @Distress,CreatedBy = @CreatedBy WHERE LandID = @LandID; ");
-                            StringBd.Append(" DELETE DT FROM tbTimeLineDT AS DT  LEFT JOIN tbTimeLineHD AS HD ON DT.TimeLineHDID = HD.TimeLineHDID  WHERE HD.LandID = @LandID;");
-                            StringBd.Append(" DELETE tbTimeLineHD WHERE LandID = @LandID;");
                             sqlTmp = "";
                             sqlTmp = StringBd.ToString();
 
@@ -224,58 +158,8 @@ namespace Application_Form
                             dbConString.Com.Parameters.Add("@Distress", SqlDbType.VarChar).Value = txtDistress.Text;
                             dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = string.Empty;
                             dbConString.Com.ExecuteNonQuery();
-
-
-                            #region
-                            foreach (ApplicationDS.tbTimeLineHDRow drHD in tdsLand.tbTimeLineHD.Select(""))
-                            {
-                                StringBd.Clear();
-                                sqlTmp = string.Empty;
-                                StringBd.Append("INSERT INTO tbTimeLineHD VALUES (@TimeLineHDID,@LandID,@TimeLineDate,@TimeLineEvent,@Remark,@CreatedBy,GETDATE())");
-                                sqlTmp = "";
-                                sqlTmp = StringBd.ToString();
-                                dbConString.Com = new SqlCommand();
-                                dbConString.Com.CommandText = sqlTmp;
-                                dbConString.Com.CommandType = CommandType.Text;
-                                dbConString.Com.Connection = dbConString.mySQLConn;
-                                dbConString.Com.Transaction = dbConString.Transaction;
-                                dbConString.Com.Parameters.Clear();
-                                dbConString.Com.Parameters.Add("@TimeLineHDID", SqlDbType.VarChar).Value = drHD.TimeLineHDID;
-                                dbConString.Com.Parameters.Add("@LandID", SqlDbType.VarChar).Value = LandID;
-                                dbConString.Com.Parameters.Add("@TimeLineDate", SqlDbType.DateTime).Value = drHD.TimeLineDate;
-                                dbConString.Com.Parameters.Add("@TimeLineEvent", SqlDbType.VarChar).Value = drHD.TimeLineEvent;
-                                dbConString.Com.Parameters.Add("@Remark", SqlDbType.VarChar).Value = drHD.Remark;
-                                dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = string.Empty;
-                                dbConString.Com.ExecuteNonQuery();
-                            }
-                            #endregion
-
-                            #region
-                            foreach (ApplicationDS.tbTimeLineDTRow drDT in tdsTempDTMain.tbTimeLineDT.Select(""))
-                            {
-                                StringBd.Clear();
-                                sqlTmp = string.Empty;
-                                StringBd.Append("INSERT INTO tbTimeLineDT VALUES (@TimeLineDTID,@TimeLineHDID,@EvidenceID,@CreatedBy,GETDATE())");
-                                sqlTmp = "";
-                                sqlTmp = StringBd.ToString();
-                                dbConString.Com = new SqlCommand();
-                                dbConString.Com.CommandText = sqlTmp;
-                                dbConString.Com.CommandType = CommandType.Text;
-                                dbConString.Com.Connection = dbConString.mySQLConn;
-                                dbConString.Com.Transaction = dbConString.Transaction;
-                                dbConString.Com.Parameters.Clear();
-                                dbConString.Com.Parameters.Add("@TimeLineDTID", SqlDbType.VarChar).Value = drDT.TimeLineDTID;
-                                dbConString.Com.Parameters.Add("@TimeLineHDID", SqlDbType.VarChar).Value = drDT.TimeLineHDID;
-                                dbConString.Com.Parameters.Add("@EvidenceID", SqlDbType.VarChar).Value = drDT.EvidenceID;
-                                dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = string.Empty;
-                                dbConString.Com.ExecuteNonQuery();
-                            }
-                            #endregion
-
-
-
                             dbConString.Transaction.Commit();
-                            #endregion
+
                             MessageBox.Show("บันทึกค่าเรียบร้อย", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             //this.Close();
                         }
@@ -301,16 +185,7 @@ namespace Application_Form
             txtDistrict.Clear();
             txtProvince.Clear();
             txtDistress.Clear();
-            txtHistory.Clear();
-
-            tdsLand.tbTimeLineHD.Clear();
-            tdsTempDTMain.tbTimeLineDT.Clear();
-            tdsTempDT.tbTimeLineDT.Clear();
-
-            dgvTimeLandHD.DataSource = tdsLand.tbTimeLineHD;
-            colTimeLineHDID.Visible = false;
-            dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
-            
+            txtHistory.Clear();            
         }
 
         private void DoLoadData(string LandID)
@@ -331,33 +206,6 @@ namespace Application_Form
                 tdsLand.Clear();
                 da.Fill(tdsLand, "tbLand");
                 da.Dispose();
-
-                sqlTmp = "";
-                sqlTmp = "SELECT * FROM tbTimeLineHD WHERE LandID = '" + LandID + "'";
-                Ds = new DataSet();
-                dbConString.Com = new SqlCommand();
-                dbConString.Com.CommandType = CommandType.Text;
-                dbConString.Com.CommandText = sqlTmp;
-                dbConString.Com.Connection = dbConString.mySQLConn;
-                dbConString.Com.Parameters.Clear();
-                cmd = new SqlCommand(sqlTmp, dbConString.mySQLConn);
-                da = new SqlDataAdapter(cmd);
-                da.Fill(tdsLand, "tbTimeLineHD");
-                da.Dispose();
-
-                sqlTmp = "";
-                sqlTmp = "SELECT DT.*,EV.EvidenceCode,EV.EvidenceName,EV.EvidenceType,EV.Detail,EV.Path FROM tbTimeLineDT AS DT LEFT JOIN tbTimeLineHD AS HD ON DT.TimeLineHDID = HD.TimeLineHDID LEFT JOIN tbEvidence AS EV ON DT.EvidenceID = EV.EvidenceID WHERE HD.LandID = '" + LandID + "'";
-                Ds = new DataSet();
-                dbConString.Com = new SqlCommand();
-                dbConString.Com.CommandType = CommandType.Text;
-                dbConString.Com.CommandText = sqlTmp;
-                dbConString.Com.Connection = dbConString.mySQLConn;
-                dbConString.Com.Parameters.Clear();
-                cmd = new SqlCommand(sqlTmp, dbConString.mySQLConn);
-                da = new SqlDataAdapter(cmd);
-                tdsTempDTMain.Clear();
-                da.Fill(tdsTempDTMain, "tbTimeLineDT");
-                da.Dispose();
             }
             catch (Exception ex)
             {
@@ -375,9 +223,7 @@ namespace Application_Form
                 txtProvince.Text = tdsLand.tbLand[0].Province;
                 txtHistory.Text = tdsLand.tbLand[0].History;
                 txtDistress.Text = tdsLand.tbLand[0].Distress;
-                //
-                dgvTimeLandHD.DataSource = tdsLand.tbTimeLineHD;
-                colTimeLineHDID.Visible = false;
+                SearchTimeLineHD(LandID);
             }
         }
 
@@ -421,106 +267,6 @@ namespace Application_Form
                 Success = false;
                 txtProvince.Focus();
                 return;
-            }
-        }
-
-        private void dgvTimeLandDT_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var senderGrid = (DataGridView)sender;
-            string TimeLineDTID = Guid.NewGuid().ToString();
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
-            {
-                //TODO - Button Clicked - Execute Code Here
-                EvidenceListPicker frm = new EvidenceListPicker();
-                frm.ShowDialog();
-                drEvidenceTemp = frm.drEvidence;
-                if (drEvidenceTemp != null)
-                {
-                    dgvTimeLandDT.BeginEdit(true);
-                    dgvTimeLandDT.Rows[e.RowIndex].Cells[colTimeLineHDIDDT.Name].Value = TempTimeLineHDID;
-                    dgvTimeLandDT.Rows[e.RowIndex].Cells[colTimeLineDTID.Name].Value = TimeLineDTID;
-                    dgvTimeLandDT.Rows[e.RowIndex].Cells[colEvidenceID.Name].Value = drEvidenceTemp.EvidenceID;
-                    dgvTimeLandDT.Rows[e.RowIndex].Cells[colEvidenceCode.Name].Value = drEvidenceTemp.EvidenceCode;
-                    dgvTimeLandDT.Rows[e.RowIndex].Cells[colEvidenceName.Name].Value = drEvidenceTemp.EvidenceName;
-                    dgvTimeLandDT.Rows[e.RowIndex].Cells[colDetail.Name].Value = drEvidenceTemp.Detail;
-                    dgvTimeLandDT.NotifyCurrentCellDirty(true);
-                    dgvTimeLandDT.EndEdit();
-                    dgvTimeLandDT.NotifyCurrentCellDirty(false);
-
-                    ApplicationDS.tbTimeLineDTRow drTmpTimeLane = null;
-                    drTmpTimeLane = tdsTempDT.tbTimeLineDT.NewtbTimeLineDTRow();
-                    drTmpTimeLane.TimeLineHDID = TempTimeLineHDID;
-                    drTmpTimeLane.TimeLineDTID = TimeLineDTID;
-                    drTmpTimeLane.EvidenceID = drEvidenceTemp.EvidenceID;
-                    drTmpTimeLane.EvidenceCode = drEvidenceTemp.EvidenceCode;
-                    drTmpTimeLane.Detail= drEvidenceTemp.Detail;
-
-                    ApplicationDS.tbTimeLineDTRow[] drTempChk = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineDTID = '" + TimeLineDTID + "'");
-                    if (drTempChk.Length == 0)
-                    {
-                        tdsTempDTMain.tbTimeLineDT.ImportRow(drTmpTimeLane);
-                        tdsTempDTMain.tbTimeLineDT.AcceptChanges();
-                    }
-                        
-                }
-                dgvTimeLandDT.Refresh();
-
-                dgvTimeLandDT.Focus();
-                dgvTimeLandDT.CurrentCell = dgvTimeLandDT.Rows[0].Cells[colbtnADD.Name];
-                
-            }
-        }
-
-        private void dgvTimeLandHD_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            if (e.RowIndex > 0)
-            {
-                if (dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value == null
-                    || dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value == "")
-                {
-                    dgvTimeLandHD.Rows[e.RowIndex-1].Cells[colTimeLineHDID.Name].Value = Guid.NewGuid().ToString();
-                    dgvTimeLandHD.Refresh();
-                    dgvTimeLandHD.Focus();
-                    dgvTimeLandHD.CurrentCell = dgvTimeLandHD.Rows[dgvTimeLandHD.Rows.Count - 1].Cells[colTimeLineDate.Name];
-                }
-            }
-        }
-
-        private void dgvTimeLandHD_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex > -1)
-            {
-                SelectIndexHD = e.RowIndex;
-                if (dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value != null)
-                {
-                    ApplicationDS.tbTimeLineDTRow[] drTempSave = (ApplicationDS.tbTimeLineDTRow[])tdsTempDT.tbTimeLineDT.Select("");
-                    if (drTempSave.Length > 0)
-                    {
-                        foreach (ApplicationDS.tbTimeLineDTRow drChk in drTempSave)
-                        {
-                            ApplicationDS.tbTimeLineDTRow[] drTempChk = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineDTID = '" + drChk.TimeLineDTID + "'");
-                            if (drTempChk.Length == 0)
-                            {
-                                tdsTempDTMain.tbTimeLineDT.ImportRow(drChk);
-                            }
-                        }
-                    }
-
-                    tdsTempDT.Clear();
-                    TempTimeLineHDID = dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value.ToString();
-                    if (!string.IsNullOrEmpty(TempTimeLineHDID))
-                    {
-                        ApplicationDS.tbTimeLineDTRow[] drTemp = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineHDID = '" + TempTimeLineHDID + "'");
-                        foreach (ApplicationDS.tbTimeLineDTRow dr in drTemp)
-                        {
-                            tdsTempDT.tbTimeLineDT.ImportRow(dr);
-                        }
-                        dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
-                    }
-
-                    btnDelHD.Enabled = true;
-                }
             }
         }
 
@@ -623,106 +369,161 @@ namespace Application_Form
             txtSubDistrict.AutoCompleteCustomSource = namesCollection;
         }
 
-        private void dgvTimeLandHD_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        private void btnStatus(bool xStatus)//สถานะปุ่ม
         {
-            string TimeLineHDID = string.Empty;
-
-            if (e.RowIndex > -1)
+            if (xStatus == true)
             {
-                
+                //tsSave.Enabled = true;
+                btnEdit.Enabled = false;
+                btnDel.Enabled = false;
+            }
+            else if (xStatus == false)
+            {
+                //tsSave.Enabled = false;
+                btnEdit.Enabled = true;
+                btnDel.Enabled = true;
             }
         }
 
-        private void btnDelHD_Click(object sender, EventArgs e)
+        private void SearchTimeLineHD(string LandIDTemp)
         {
-            string TimeLineHDID = string.Empty;
-
-            if (dgvTimeLandHD.Rows.Count > 0 && SelectIndexHD > -1)
+            if (!string.IsNullOrEmpty(LandIDTemp))
             {
-                if (dgvTimeLandHD.Rows[SelectIndexHD].Cells[colTimeLineHDID.Name].Value != null)
+                string Whereclause = string.Empty;
+                if (!string.IsNullOrEmpty(txtSearch.Text))
                 {
-                    TimeLineHDID = dgvTimeLandHD.Rows[SelectIndexHD].Cells[colTimeLineHDID.Name].Value.ToString();
-                    ApplicationDS.tbTimeLineHDRow[] drHD_Del = (ApplicationDS.tbTimeLineHDRow[])tdsLand.tbTimeLineHD.Select("TimeLineHDID = '" + TimeLineHDID + "'");
-                    ApplicationDS.tbTimeLineDTRow[] drDT_Del = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineHDID = '" + TimeLineHDID + "'");
+                    Whereclause = txtSearch.Text;
+                }
+                else
+                {
+                    Whereclause = string.Empty;
+                }
 
-                    //Del HD
-                    if (drHD_Del.Length > 0)
+                try
+                {
+                    string sqlTmp = "";
+                    sqlTmp = "SELECT * FROM tbTimeLineHD ";
+                    if (!string.IsNullOrEmpty(Whereclause))
                     {
-                        foreach (ApplicationDS.tbTimeLineHDRow dr in drHD_Del)
-                        {
-                            dr.Delete();
-                            dr.AcceptChanges();
-                        }
-                        //tdsLand.tbTimeLineHD.AcceptChanges();
-                        //dgvTimeLandHD.DataSource = tdsLand.tbTimeLineHD;
+                        sqlTmp += " WHERE LandID = '" + LandIDTemp + "' TimeLineDate LIKE '%" + Whereclause + "%' OR TitleEvent LIKE '%" + Whereclause + "%' ";
                     }
+                    sqlTmp += " ORDER BY TimeLineDate";
+                    DataSet Ds = new DataSet();
+                    dbConString.Com = new SqlCommand();
+                    dbConString.Com.CommandType = CommandType.Text;
+                    dbConString.Com.CommandText = sqlTmp;
+                    dbConString.Com.Connection = dbConString.mySQLConn;
+                    SqlCommand cmd = new SqlCommand(sqlTmp, dbConString.mySQLConn);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    tdsTimeLineHD.Clear();
+                    da.Fill(tdsTimeLineHD, "tbTimeLineHD");
+                    da.Dispose();
+                    dgvTimeLandHD.DataSource = tdsTimeLineHD.tbTimeLineHD;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                SelectRowIndex = -1;
+            }
+        }
 
-                    //Del DT
-                    if (drDT_Del.Length > 0)
-                    {
-                        foreach (ApplicationDS.tbTimeLineDTRow dr in drDT_Del)
-                        {
-                            dr.Delete();
-                            dr.AcceptChanges();
-                        }
-                        //tdsTempDTMain.tbTimeLineDT.AcceptChanges();
-                    }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(LandID))
+            {
+                TimeLineInfo frmForm = new TimeLineInfo();
+                frmForm.LandID = LandID;
+                frmForm.FormState = "new";
+                frmForm.ShowDialog();
+                btnStatus(true);
+                SearchTimeLineHD(LandID);
+            }
+        }
 
-                    tdsTempDT.Clear();
-                    dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvTimeLandHD.RowCount > 0)
+            {
+                TimeLineInfo frmForm = new TimeLineInfo();
+                frmForm.FormState = "edit";
+                frmForm.LandID = LandID;
+                frmForm.TimeLineHDID = dgvTimeLandHD.Rows[SelectRowIndex].Cells[colTimeLineHDID.Name].Value.ToString();
+                frmForm.ShowDialog();
+                btnStatus(true);
+            }
+            SearchTimeLineHD(LandID);
+        }
+
+        private void dgvTimeLandHD_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dgvTimeLandHD.RowCount > 0)
+            {
+                TimeLineInfo frmForm = new TimeLineInfo();
+                frmForm.FormState = "edit";
+                frmForm.LandID = LandID;
+                frmForm.TimeLineHDID = dgvTimeLandHD.Rows[SelectRowIndex].Cells[colTimeLineHDID.Name].Value.ToString();
+                frmForm.ShowDialog();
+                btnStatus(true);
+            }
+            SearchTimeLineHD(LandID);
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            if (SelectRowIndex > -1)
+            {
+                if (MessageBox.Show("คุณต้องการลบข้อมูล ใช่หรือไม่ ?", dbConString.xMessage, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                {
+                    return;
+                }
+            
+                string TimeLineHDID = dgvTimeLandHD.Rows[SelectRowIndex].Cells[colTimeLineHDID.Name].Value.ToString();
+
+                try
+                {
+                    dbConString.Transaction = dbConString.mySQLConn.BeginTransaction();
+                    StringBuilder StringBd = new StringBuilder();
+                    //dbConString.Transaction = new SqlTransaction();
+                    string sqlTmp = string.Empty;
+                    StringBd.Append(" DELETE tbTimeLineDT WHERE TimeLineHDID = @TimeLineHDID;");
+                    StringBd.Append(" DELETE tbTimeLineHD WHERE TimeLineHDID = @LandID;");
+                    sqlTmp = "";
+                    sqlTmp = StringBd.ToString();
+                    dbConString.Com = new SqlCommand();
+                    dbConString.Com.CommandText = sqlTmp;
+                    dbConString.Com.CommandType = CommandType.Text;
+                    dbConString.Com.Connection = dbConString.mySQLConn;
+                    dbConString.Com.Transaction = dbConString.Transaction;
+                    dbConString.Com.Parameters.Clear();
+                    dbConString.Com.Parameters.Add("@TimeLineHDID", SqlDbType.VarChar).Value = TimeLineHDID;
+                    dbConString.Com.ExecuteNonQuery();
+                    dbConString.Transaction.Commit();
+                    MessageBox.Show("บันทึกค่าเรียบร้อย", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnStatus(true);
+                    SearchTimeLineHD(LandID);
+                }
+                catch
+                {
+                    dbConString.Transaction.Rollback();
                 }
             }
         }
 
-        private void btnDelDT_Click(object sender, EventArgs e)
+        private void BtnSearch_Click(object sender, EventArgs e)
         {
-            string TimeLineDTID = string.Empty;
-            string TimeLineHDID = string.Empty;
-
-            if (dgvTimeLandDT.Rows.Count > 0 && SelectIndexDT > -1)
-            {
-                if (dgvTimeLandDT.Rows[SelectIndexDT].Cells[colTimeLineDTID.Name].Value != null)
-                {
-                    TimeLineHDID = dgvTimeLandDT.Rows[SelectIndexDT].Cells[colTimeLineHDIDDT.Name].Value.ToString();
-                    TimeLineDTID = dgvTimeLandDT.Rows[SelectIndexDT].Cells[colTimeLineDTID.Name].Value.ToString();
-                    ApplicationDS.tbTimeLineDTRow[] drDT_Del = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineDTID = '" + TimeLineDTID + "'");
-
-                    //Del DT
-                    if (drDT_Del.Length > 0)
-                    {
-                        foreach (ApplicationDS.tbTimeLineDTRow dr in drDT_Del)
-                        {
-                            dr.Delete();
-                            dr.AcceptChanges();
-                        }
-                        //tdsTempDTMain.tbTimeLineDT.AcceptChanges();
-                    }
-
-                    tdsTempDT.Clear();
-                    if (!string.IsNullOrEmpty(TimeLineHDID))
-                    {
-                        ApplicationDS.tbTimeLineDTRow[] drDT_Show = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineHDID = '" + TimeLineHDID + "'");
-                        foreach (ApplicationDS.tbTimeLineDTRow dr in drDT_Show)
-                        {
-                            tdsTempDT.tbTimeLineDT.ImportRow(dr);
-                        }
-                        dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
-                    }
-
-                    btnDelDT.Enabled = false;
-
-                    
-                }
-            }
+            SearchTimeLineHD(LandID);
         }
 
-        private void dgvTimeLandDT_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            SearchTimeLineHD(LandID);
+        }
+
+        private void dgvTimeLandHD_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex > -1)
-            {
-                SelectIndexDT = e.RowIndex;
-                btnDelDT.Enabled = true;
-            }
+                SelectRowIndex = e.RowIndex;
         }
 
     }

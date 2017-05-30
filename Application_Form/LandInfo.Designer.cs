@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtDistress = new System.Windows.Forms.RichTextBox();
@@ -49,42 +46,30 @@
             this.txtVillageName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnDelDT = new System.Windows.Forms.Button();
-            this.btnDelHD = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.dgvTimeLandDT = new GenericDataGridView.GenericDataGridView(this.components);
-            this.colbtnADD = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colEvidenceCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEvidenceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTimeLineDTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTimeLineHDIDDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEvidenceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreatedByDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedDateDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbTimeLineDTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvTimeLandHD = new System.Windows.Forms.DataGridView();
+            this.tbTimeLineHDBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.applicationDS2 = new Application_Form.ApplicationData.ApplicationDS();
-            this.dgvTimeLandHD = new GenericDataGridView.GenericDataGridView(this.components);
-            this.colTimeLineDate = new GenericDataGridView.GenericDataGridView.CalendarColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnDel = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.colTimeLineDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTitleEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTimeLineEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTimeLineHDID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLandID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreatedByHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreatedDateHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbTimeLineHDBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.colRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTimeLandDT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbTimeLineDTBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.applicationDS2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimeLandHD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTimeLineHDBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.applicationDS2)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -96,7 +81,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(792, 479);
+            this.tabControl1.Size = new System.Drawing.Size(866, 479);
             this.tabControl1.TabIndex = 26;
             // 
             // tabPage1
@@ -119,7 +104,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Size = new System.Drawing.Size(784, 450);
+            this.tabPage1.Size = new System.Drawing.Size(858, 450);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ข้อมูลพื้นที่";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -259,242 +244,157 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.btnDelDT);
-            this.tabPage3.Controls.Add(this.btnDelHD);
-            this.tabPage3.Controls.Add(this.btnPrint);
-            this.tabPage3.Controls.Add(this.dgvTimeLandDT);
             this.tabPage3.Controls.Add(this.dgvTimeLandHD);
-            this.tabPage3.Controls.Add(this.label9);
-            this.tabPage3.Controls.Add(this.label8);
-            this.tabPage3.Controls.Add(this.button2);
-            this.tabPage3.Controls.Add(this.textBox6);
+            this.tabPage3.Controls.Add(this.panel1);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(784, 450);
+            this.tabPage3.Size = new System.Drawing.Size(858, 450);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "ลำดับเหตุการณ์";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // btnDelDT
+            // dgvTimeLandHD
             // 
-            this.btnDelDT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelDT.Image = global::Application_Form.Properties.Resources.Button_Delete_icon16;
-            this.btnDelDT.Location = new System.Drawing.Point(752, 261);
-            this.btnDelDT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnDelDT.Name = "btnDelDT";
-            this.btnDelDT.Size = new System.Drawing.Size(24, 24);
-            this.btnDelDT.TabIndex = 44;
-            this.btnDelDT.UseVisualStyleBackColor = true;
-            this.btnDelDT.Click += new System.EventHandler(this.btnDelDT_Click);
+            this.dgvTimeLandHD.AllowUserToAddRows = false;
+            this.dgvTimeLandHD.AllowUserToDeleteRows = false;
+            this.dgvTimeLandHD.AutoGenerateColumns = false;
+            this.dgvTimeLandHD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTimeLandHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTimeLandHD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colTimeLineDate,
+            this.colTitleEvent,
+            this.colTimeLineEvent,
+            this.colTimeLineHDID,
+            this.colLandID,
+            this.colRemark,
+            this.colCreatedBy,
+            this.colCreatedDate});
+            this.dgvTimeLandHD.DataSource = this.tbTimeLineHDBindingSource;
+            this.dgvTimeLandHD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTimeLandHD.Location = new System.Drawing.Point(3, 45);
+            this.dgvTimeLandHD.Name = "dgvTimeLandHD";
+            this.dgvTimeLandHD.ReadOnly = true;
+            this.dgvTimeLandHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTimeLandHD.Size = new System.Drawing.Size(852, 402);
+            this.dgvTimeLandHD.TabIndex = 125;
+            this.dgvTimeLandHD.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandHD_CellMouseDoubleClick);
+            this.dgvTimeLandHD.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandHD_CellMouseUp);
             // 
-            // btnDelHD
+            // tbTimeLineHDBindingSource
             // 
-            this.btnDelHD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelHD.Image = global::Application_Form.Properties.Resources.Button_Delete_icon16;
-            this.btnDelHD.Location = new System.Drawing.Point(752, 43);
-            this.btnDelHD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnDelHD.Name = "btnDelHD";
-            this.btnDelHD.Size = new System.Drawing.Size(24, 24);
-            this.btnDelHD.TabIndex = 43;
-            this.btnDelHD.UseVisualStyleBackColor = true;
-            this.btnDelHD.Click += new System.EventHandler(this.btnDelHD_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.Location = new System.Drawing.Point(9, 7);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(87, 28);
-            this.btnPrint.TabIndex = 42;
-            this.btnPrint.Text = "พิมพ์";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // dgvTimeLandDT
-            // 
-            this.dgvTimeLandDT.AllowUserToDeleteRows = false;
-            this.dgvTimeLandDT.AutoGenerateColumns = false;
-            this.dgvTimeLandDT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTimeLandDT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvTimeLandDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTimeLandDT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colbtnADD,
-            this.colEvidenceCode,
-            this.colEvidenceName,
-            this.colDetail,
-            this.colTimeLineDTID,
-            this.colTimeLineHDIDDT,
-            this.colEvidenceID,
-            this.colCreatedByDT,
-            this.CreatedDateDT});
-            this.dgvTimeLandDT.DataColumns = null;
-            this.dgvTimeLandDT.DataColumnsTable = null;
-            this.dgvTimeLandDT.DataConnection = null;
-            this.dgvTimeLandDT.DataSource = this.tbTimeLineDTBindingSource;
-            this.dgvTimeLandDT.DBDateFormat = null;
-            this.dgvTimeLandDT.Location = new System.Drawing.Point(8, 289);
-            this.dgvTimeLandDT.Name = "dgvTimeLandDT";
-            this.dgvTimeLandDT.ReadOnly = true;
-            this.dgvTimeLandDT.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dgvTimeLandDT.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.dgvTimeLandDT.Size = new System.Drawing.Size(768, 155);
-            this.dgvTimeLandDT.TabIndex = 41;
-            this.dgvTimeLandDT.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTimeLandDT_CellContentClick);
-            this.dgvTimeLandDT.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandDT_CellMouseUp);
-            // 
-            // colbtnADD
-            // 
-            this.colbtnADD.FillWeight = 20F;
-            this.colbtnADD.HeaderText = "ADD";
-            this.colbtnADD.Name = "colbtnADD";
-            this.colbtnADD.ReadOnly = true;
-            // 
-            // colEvidenceCode
-            // 
-            this.colEvidenceCode.DataPropertyName = "EvidenceCode";
-            this.colEvidenceCode.FillWeight = 40F;
-            this.colEvidenceCode.HeaderText = "รหัสพยาน/หลักฐาน";
-            this.colEvidenceCode.Name = "colEvidenceCode";
-            this.colEvidenceCode.ReadOnly = true;
-            // 
-            // colEvidenceName
-            // 
-            this.colEvidenceName.DataPropertyName = "EvidenceName";
-            this.colEvidenceName.FillWeight = 40F;
-            this.colEvidenceName.HeaderText = "ชื่อพยาน/หลักฐาน";
-            this.colEvidenceName.Name = "colEvidenceName";
-            this.colEvidenceName.ReadOnly = true;
-            // 
-            // colDetail
-            // 
-            this.colDetail.DataPropertyName = "Detail";
-            this.colDetail.HeaderText = "รายละเอียด";
-            this.colDetail.Name = "colDetail";
-            this.colDetail.ReadOnly = true;
-            // 
-            // colTimeLineDTID
-            // 
-            this.colTimeLineDTID.DataPropertyName = "TimeLineDTID";
-            this.colTimeLineDTID.HeaderText = "TimeLineDTID";
-            this.colTimeLineDTID.Name = "colTimeLineDTID";
-            this.colTimeLineDTID.ReadOnly = true;
-            this.colTimeLineDTID.Visible = false;
-            // 
-            // colTimeLineHDIDDT
-            // 
-            this.colTimeLineHDIDDT.DataPropertyName = "TimeLineHDID";
-            this.colTimeLineHDIDDT.HeaderText = "TimeLineHDID";
-            this.colTimeLineHDIDDT.Name = "colTimeLineHDIDDT";
-            this.colTimeLineHDIDDT.ReadOnly = true;
-            this.colTimeLineHDIDDT.Visible = false;
-            // 
-            // colEvidenceID
-            // 
-            this.colEvidenceID.DataPropertyName = "EvidenceID";
-            this.colEvidenceID.HeaderText = "EvidenceID";
-            this.colEvidenceID.Name = "colEvidenceID";
-            this.colEvidenceID.ReadOnly = true;
-            this.colEvidenceID.Visible = false;
-            // 
-            // colCreatedByDT
-            // 
-            this.colCreatedByDT.DataPropertyName = "CreatedBy";
-            this.colCreatedByDT.HeaderText = "CreatedBy";
-            this.colCreatedByDT.Name = "colCreatedByDT";
-            this.colCreatedByDT.ReadOnly = true;
-            this.colCreatedByDT.Visible = false;
-            // 
-            // CreatedDateDT
-            // 
-            this.CreatedDateDT.DataPropertyName = "CreatedDate";
-            this.CreatedDateDT.HeaderText = "CreatedDate";
-            this.CreatedDateDT.Name = "CreatedDateDT";
-            this.CreatedDateDT.ReadOnly = true;
-            this.CreatedDateDT.Visible = false;
-            // 
-            // tbTimeLineDTBindingSource
-            // 
-            this.tbTimeLineDTBindingSource.DataMember = "tbTimeLineDT";
-            this.tbTimeLineDTBindingSource.DataSource = this.applicationDS2;
+            this.tbTimeLineHDBindingSource.DataMember = "tbTimeLineHD";
+            this.tbTimeLineHDBindingSource.DataSource = this.applicationDS2;
             // 
             // applicationDS2
             // 
             this.applicationDS2.DataSetName = "ApplicationDS";
             this.applicationDS2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dgvTimeLandHD
+            // panel1
             // 
-            this.dgvTimeLandHD.AllowUserToDeleteRows = false;
-            this.dgvTimeLandHD.AutoGenerateColumns = false;
-            this.dgvTimeLandHD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTimeLandHD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvTimeLandHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTimeLandHD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colTimeLineDate,
-            this.colTimeLineEvent,
-            this.colRemark,
-            this.colTimeLineHDID,
-            this.colLandID,
-            this.colCreatedByHD,
-            this.colCreatedDateHD});
-            this.dgvTimeLandHD.DataColumns = null;
-            this.dgvTimeLandHD.DataColumnsTable = null;
-            this.dgvTimeLandHD.DataConnection = null;
-            this.dgvTimeLandHD.DataSource = this.tbTimeLineHDBindingSource;
-            this.dgvTimeLandHD.DBDateFormat = null;
-            this.dgvTimeLandHD.Location = new System.Drawing.Point(8, 70);
-            this.dgvTimeLandHD.Name = "dgvTimeLandHD";
-            this.dgvTimeLandHD.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dgvTimeLandHD.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.dgvTimeLandHD.Size = new System.Drawing.Size(768, 181);
-            this.dgvTimeLandHD.TabIndex = 40;
-            this.dgvTimeLandHD.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandHD_CellMouseUp);
-            this.dgvTimeLandHD.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvTimeLandHD_RowsAdded);
+            this.panel1.Controls.Add(this.BtnSearch);
+            this.panel1.Controls.Add(this.txtSearch);
+            this.panel1.Controls.Add(this.btnDel);
+            this.panel1.Controls.Add(this.btnEdit);
+            this.panel1.Controls.Add(this.btnAdd);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(852, 42);
+            this.panel1.TabIndex = 1;
+            // 
+            // BtnSearch
+            // 
+            this.BtnSearch.Image = global::Application_Form.Properties.Resources.Delete;
+            this.BtnSearch.Location = new System.Drawing.Point(676, 3);
+            this.BtnSearch.Name = "BtnSearch";
+            this.BtnSearch.Size = new System.Drawing.Size(79, 35);
+            this.BtnSearch.TabIndex = 29;
+            this.BtnSearch.Text = "ค้นหา";
+            this.BtnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.BtnSearch.UseVisualStyleBackColor = true;
+            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(239, 9);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearch.MaxLength = 50;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(431, 24);
+            this.txtSearch.TabIndex = 28;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // btnDel
+            // 
+            this.btnDel.Image = global::Application_Form.Properties.Resources.Delete;
+            this.btnDel.Location = new System.Drawing.Point(161, 3);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(72, 35);
+            this.btnDel.TabIndex = 2;
+            this.btnDel.Text = "ลบ";
+            this.btnDel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDel.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Image = global::Application_Form.Properties.Resources.Edit;
+            this.btnEdit.Location = new System.Drawing.Point(83, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(72, 35);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "แก้ไข";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = global::Application_Form.Properties.Resources.Add1;
+            this.btnAdd.Location = new System.Drawing.Point(5, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(72, 35);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "เพิ่ม";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // colTimeLineDate
             // 
             this.colTimeLineDate.DataPropertyName = "TimeLineDate";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colTimeLineDate.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colTimeLineDate.FillWeight = 37F;
-            this.colTimeLineDate.HeaderText = "วัน/เดือน/ปี ที่เกิดเหตุการณ์";
+            this.colTimeLineDate.FillWeight = 30F;
+            this.colTimeLineDate.HeaderText = "วันที่";
             this.colTimeLineDate.Name = "colTimeLineDate";
-            this.colTimeLineDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colTimeLineDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colTimeLineDate.ReadOnly = true;
+            // 
+            // colTitleEvent
+            // 
+            this.colTitleEvent.DataPropertyName = "TitleEvent";
+            this.colTitleEvent.HeaderText = "TitleEvent";
+            this.colTitleEvent.Name = "colTitleEvent";
+            this.colTitleEvent.ReadOnly = true;
             // 
             // colTimeLineEvent
             // 
             this.colTimeLineEvent.DataPropertyName = "TimeLineEvent";
-            this.colTimeLineEvent.HeaderText = "เหตุการณ์";
+            this.colTimeLineEvent.HeaderText = "TimeLineEvent";
             this.colTimeLineEvent.Name = "colTimeLineEvent";
-            // 
-            // colRemark
-            // 
-            this.colRemark.DataPropertyName = "Remark";
-            this.colRemark.HeaderText = "หมายเหตุ";
-            this.colRemark.Name = "colRemark";
+            this.colTimeLineEvent.ReadOnly = true;
+            this.colTimeLineEvent.Visible = false;
             // 
             // colTimeLineHDID
             // 
             this.colTimeLineHDID.DataPropertyName = "TimeLineHDID";
             this.colTimeLineHDID.HeaderText = "TimeLineHDID";
             this.colTimeLineHDID.Name = "colTimeLineHDID";
+            this.colTimeLineHDID.ReadOnly = true;
             this.colTimeLineHDID.Visible = false;
             // 
             // colLandID
@@ -502,70 +402,38 @@
             this.colLandID.DataPropertyName = "LandID";
             this.colLandID.HeaderText = "LandID";
             this.colLandID.Name = "colLandID";
+            this.colLandID.ReadOnly = true;
             this.colLandID.Visible = false;
             // 
-            // colCreatedByHD
+            // colRemark
             // 
-            this.colCreatedByHD.DataPropertyName = "CreatedBy";
-            this.colCreatedByHD.HeaderText = "CreatedBy";
-            this.colCreatedByHD.Name = "colCreatedByHD";
-            this.colCreatedByHD.Visible = false;
+            this.colRemark.DataPropertyName = "Remark";
+            this.colRemark.HeaderText = "Remark";
+            this.colRemark.Name = "colRemark";
+            this.colRemark.ReadOnly = true;
+            this.colRemark.Visible = false;
             // 
-            // colCreatedDateHD
+            // colCreatedBy
             // 
-            this.colCreatedDateHD.DataPropertyName = "CreatedDate";
-            this.colCreatedDateHD.HeaderText = "CreatedDate";
-            this.colCreatedDateHD.Name = "colCreatedDateHD";
-            this.colCreatedDateHD.Visible = false;
+            this.colCreatedBy.DataPropertyName = "CreatedBy";
+            this.colCreatedBy.HeaderText = "CreatedBy";
+            this.colCreatedBy.Name = "colCreatedBy";
+            this.colCreatedBy.ReadOnly = true;
+            this.colCreatedBy.Visible = false;
             // 
-            // tbTimeLineHDBindingSource
+            // colCreatedDate
             // 
-            this.tbTimeLineHDBindingSource.DataMember = "tbTimeLineHD";
-            this.tbTimeLineHDBindingSource.DataSource = this.applicationDS2;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 261);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 17);
-            this.label9.TabIndex = 38;
-            this.label9.Text = "พยาน / หลักฐาน";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 42);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 17);
-            this.label8.TabIndex = 37;
-            this.label8.Text = "ลำดับเหตุการณ์";
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(689, 7);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 28);
-            this.button2.TabIndex = 35;
-            this.button2.Text = "ค้นหา";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Location = new System.Drawing.Point(373, 10);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(310, 24);
-            this.textBox6.TabIndex = 34;
+            this.colCreatedDate.DataPropertyName = "CreatedDate";
+            this.colCreatedDate.HeaderText = "CreatedDate";
+            this.colCreatedDate.Name = "colCreatedDate";
+            this.colCreatedDate.ReadOnly = true;
+            this.colCreatedDate.Visible = false;
             // 
             // LandInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 518);
+            this.ClientSize = new System.Drawing.Size(866, 518);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.MinimumSize = new System.Drawing.Size(532, 427);
@@ -577,12 +445,11 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTimeLandDT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbTimeLineDTBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.applicationDS2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimeLandHD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTimeLineHDBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.applicationDS2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -618,34 +485,24 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label9;
         private ApplicationData.ApplicationDS applicationDS1;
-        private GenericDataGridView.GenericDataGridView dgvTimeLandDT;
-        private GenericDataGridView.GenericDataGridView dgvTimeLandHD;
-        private System.Windows.Forms.BindingSource tbTimeLineDTBindingSource;
         private ApplicationData.ApplicationDS applicationDS2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.DataGridView dgvTimeLandHD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubject;
         private System.Windows.Forms.BindingSource tbTimeLineHDBindingSource;
-        private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.Button btnDelDT;
-        private System.Windows.Forms.Button btnDelHD;
-        private System.Windows.Forms.DataGridViewButtonColumn colbtnADD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDetail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLineDTID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLineHDIDDT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedByDT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDateDT;
-        private GenericDataGridView.GenericDataGridView.CalendarColumn colTimeLineDate;
+        private System.Windows.Forms.Button BtnSearch;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLineDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTitleEvent;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLineEvent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRemark;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLineHDID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLandID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedByHD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedDateHD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRemark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedBy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedDate;
     }
 }

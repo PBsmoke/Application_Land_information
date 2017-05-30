@@ -139,6 +139,18 @@
     <Compile Include="SettingInfo.Designer.cs">
       <DependentUpon>SettingInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="TimeLineInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimeLineInfo.Designer.cs">
+      <DependentUpon>TimeLineInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeLineList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeLineList.Designer.cs">
+      <DependentUpon>TimeLineList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +200,12 @@
     <EmbeddedResource Include="SettingInfo.resx">
       <DependentUpon>SettingInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TimeLineInfo.resx">
+      <DependentUpon>TimeLineInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeLineList.resx">
+      <DependentUpon>TimeLineList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserInfo.resx">
       <DependentUpon>UserInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +240,12 @@
   <ItemGroup>
     <None Include="Button-Delete-icon.png" />
     <None Include="Button-Delete-icon16.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\forbidden.png" />
+    <None Include="Resources\Add1.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\Edit.png" />
+    <None Include="Resources\Search.png" />
     <Content Include="Script\SumScript.sql" />
     <Content Include="Script\uv_Address.sql" />
     <None Include="Resources\Preview.png" />
@@ -237,10 +261,6 @@
     <ProjectReference Include="..\Application_Service\Application_Service.csproj">
       <Project>{4ebfa1c0-b754-49b8-9c8d-ec3d2e701bf6}</Project>
       <Name>Application_Service</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GenericDataGridView\GenericDataGridView.csproj">
-      <Project>{662FF9CE-25FB-4E58-A911-1970A9181444}</Project>
-      <Name>GenericDataGridView</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

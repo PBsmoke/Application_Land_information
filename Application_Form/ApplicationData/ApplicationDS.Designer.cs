@@ -2264,6 +2264,8 @@ namespace Application_Form.ApplicationData {
             
             private global::System.Data.DataColumn columnCreatedDate;
             
+            private global::System.Data.DataColumn columnTitleEvent;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public tbTimeLineHDDataTable() {
@@ -2355,6 +2357,14 @@ namespace Application_Form.ApplicationData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TitleEventColumn {
+                get {
+                    return this.columnTitleEvent;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2390,7 +2400,7 @@ namespace Application_Form.ApplicationData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbTimeLineHDRow AddtbTimeLineHDRow(string TimeLineHDID, string LandID, System.DateTime TimeLineDate, string TimeLineEvent, string Remark, string CreatedBy, System.DateTime CreatedDate) {
+            public tbTimeLineHDRow AddtbTimeLineHDRow(string TimeLineHDID, string LandID, System.DateTime TimeLineDate, string TimeLineEvent, string Remark, string CreatedBy, System.DateTime CreatedDate, string TitleEvent) {
                 tbTimeLineHDRow rowtbTimeLineHDRow = ((tbTimeLineHDRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TimeLineHDID,
@@ -2399,7 +2409,8 @@ namespace Application_Form.ApplicationData {
                         TimeLineEvent,
                         Remark,
                         CreatedBy,
-                        CreatedDate};
+                        CreatedDate,
+                        TitleEvent};
                 rowtbTimeLineHDRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbTimeLineHDRow);
                 return rowtbTimeLineHDRow;
@@ -2429,6 +2440,7 @@ namespace Application_Form.ApplicationData {
                 this.columnRemark = base.Columns["Remark"];
                 this.columnCreatedBy = base.Columns["CreatedBy"];
                 this.columnCreatedDate = base.Columns["CreatedDate"];
+                this.columnTitleEvent = base.Columns["TitleEvent"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2448,6 +2460,8 @@ namespace Application_Form.ApplicationData {
                 base.Columns.Add(this.columnCreatedBy);
                 this.columnCreatedDate = new global::System.Data.DataColumn("CreatedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreatedDate);
+                this.columnTitleEvent = new global::System.Data.DataColumn("TitleEvent", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitleEvent);
                 this.columnTimeLineHDID.AllowDBNull = false;
                 this.columnTimeLineHDID.DefaultValue = ((string)(""));
                 this.columnTimeLineHDID.MaxLength = 36;
@@ -2459,6 +2473,7 @@ namespace Application_Form.ApplicationData {
                 this.columnRemark.MaxLength = 500;
                 this.columnCreatedBy.DefaultValue = ((string)(""));
                 this.columnCreatedBy.MaxLength = 36;
+                this.columnTitleEvent.DefaultValue = ((string)(""));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4109,6 +4124,22 @@ namespace Application_Form.ApplicationData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TitleEvent {
+                get {
+                    if (this.IsTitleEventNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tabletbTimeLineHD.TitleEventColumn]));
+                    }
+                }
+                set {
+                    this[this.tabletbTimeLineHD.TitleEventColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsLandIDNull() {
                 return this.IsNull(this.tabletbTimeLineHD.LandIDColumn);
             }
@@ -4177,6 +4208,18 @@ namespace Application_Form.ApplicationData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCreatedDateNull() {
                 this[this.tabletbTimeLineHD.CreatedDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitleEventNull() {
+                return this.IsNull(this.tabletbTimeLineHD.TitleEventColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitleEventNull() {
+                this[this.tabletbTimeLineHD.TitleEventColumn] = global::System.Convert.DBNull;
             }
         }
         

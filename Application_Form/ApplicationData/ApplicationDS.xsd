@@ -290,6 +290,7 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="CreatedDate" msprop:Generator_ColumnVarNameInTable="columnCreatedDate" msprop:Generator_ColumnPropNameInRow="CreatedDate" msprop:Generator_ColumnPropNameInTable="CreatedDateColumn" msprop:Generator_UserColumnName="CreatedDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TitleEvent" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="TitleEvent" msprop:Generator_ColumnVarNameInTable="columnTitleEvent" msprop:Generator_ColumnPropNameInTable="TitleEventColumn" msprop:Generator_UserColumnName="TitleEvent" type="xs:string" default="" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

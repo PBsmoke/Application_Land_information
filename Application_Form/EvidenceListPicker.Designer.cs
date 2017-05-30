@@ -77,12 +77,14 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Image = global::Application_Form.Properties.Resources.Search;
             this.btnSearch.Location = new System.Drawing.Point(704, 20);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(88, 27);
+            this.btnSearch.Size = new System.Drawing.Size(88, 37);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "ค้นหา";
+            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
