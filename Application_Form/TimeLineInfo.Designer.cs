@@ -44,7 +44,11 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelDT = new System.Windows.Forms.Button();
             this.dgvTimeLandDT = new System.Windows.Forms.DataGridView();
+            this.tbTimeLineDTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.applicationDS = new Application_Form.ApplicationData.ApplicationDS();
+            this.label9 = new System.Windows.Forms.Label();
             this.colEvidenceCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEvidenceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTimeLineDTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,9 +57,6 @@
             this.colEvidenceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbTimeLineDTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.applicationDS = new Application_Form.ApplicationData.ApplicationDS();
-            this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabInfo.SuspendLayout();
             this.tabEvidence.SuspendLayout();
@@ -227,6 +228,7 @@
             this.dgvTimeLandDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTimeLandDT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colEvidenceCode,
+            this.colPath,
             this.colEvidenceName,
             this.colDetail,
             this.colTimeLineDTID,
@@ -244,7 +246,27 @@
             this.dgvTimeLandDT.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTimeLandDT.Size = new System.Drawing.Size(750, 321);
             this.dgvTimeLandDT.TabIndex = 43;
+            this.dgvTimeLandDT.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandDT_CellMouseDoubleClick);
             this.dgvTimeLandDT.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandDT_CellMouseUp);
+            // 
+            // tbTimeLineDTBindingSource
+            // 
+            this.tbTimeLineDTBindingSource.DataMember = "tbTimeLineDT";
+            this.tbTimeLineDTBindingSource.DataSource = this.applicationDS;
+            // 
+            // applicationDS
+            // 
+            this.applicationDS.DataSetName = "ApplicationDS";
+            this.applicationDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 13);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(105, 17);
+            this.label9.TabIndex = 42;
+            this.label9.Text = "พยาน / หลักฐาน";
             // 
             // colEvidenceCode
             // 
@@ -253,6 +275,14 @@
             this.colEvidenceCode.HeaderText = "รหัสพยาน/หลักฐาน";
             this.colEvidenceCode.Name = "colEvidenceCode";
             this.colEvidenceCode.ReadOnly = true;
+            // 
+            // colPath
+            // 
+            this.colPath.DataPropertyName = "Path";
+            this.colPath.HeaderText = "Path";
+            this.colPath.Name = "colPath";
+            this.colPath.ReadOnly = true;
+            this.colPath.Visible = false;
             // 
             // colEvidenceName
             // 
@@ -317,25 +347,6 @@
             this.colCreatedDate.ReadOnly = true;
             this.colCreatedDate.Visible = false;
             // 
-            // tbTimeLineDTBindingSource
-            // 
-            this.tbTimeLineDTBindingSource.DataMember = "tbTimeLineDT";
-            this.tbTimeLineDTBindingSource.DataSource = this.applicationDS;
-            // 
-            // applicationDS
-            // 
-            this.applicationDS.DataSetName = "ApplicationDS";
-            this.applicationDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 13);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 17);
-            this.label9.TabIndex = 42;
-            this.label9.Text = "พยาน / หลักฐาน";
-            // 
             // TimeLineInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -375,7 +386,10 @@
         private System.Windows.Forms.BindingSource tbTimeLineDTBindingSource;
         private ApplicationData.ApplicationDS applicationDS;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDelDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPath;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLineDTID;
@@ -384,7 +398,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedDate;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnDelDT;
     }
 }

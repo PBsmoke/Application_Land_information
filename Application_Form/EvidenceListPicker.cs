@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
+using System.Diagnostics;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -122,6 +124,29 @@ namespace Application_Form
         private void btnSearch_Click(object sender, EventArgs e)
         {
             DoSearch();
+        }
+
+        private void btnPerview_Click(object sender, EventArgs e)
+        {
+            if (SelectRowIndex > -1)
+            {
+                string PathTemp = dgvEvidenceList.Rows[SelectRowIndex].Cells[colPath.Name].Value.ToString();
+                if (File.Exists(PathTemp))
+                {
+                    Process.Start(PathTemp);
+                    btnPerview.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("ไม่พบ File ", dbConString.xMessage, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void dgvEvidenceList_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex > -1)
+                SelectRowIndex = e.RowIndex;
         }
     }
 }

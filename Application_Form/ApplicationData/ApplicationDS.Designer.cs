@@ -1913,6 +1913,8 @@ namespace Application_Form.ApplicationData {
             
             private global::System.Data.DataColumn columnEvidenceName;
             
+            private global::System.Data.DataColumn columnPath;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public tbTimeLineDTDataTable() {
@@ -2020,6 +2022,14 @@ namespace Application_Form.ApplicationData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PathColumn {
+                get {
+                    return this.columnPath;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2055,7 +2065,7 @@ namespace Application_Form.ApplicationData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbTimeLineDTRow AddtbTimeLineDTRow(string TimeLineDTID, string TimeLineHDID, string EvidenceID, string EvidenceCode, string Detail, string EvidenceType, string CreatedBy, System.DateTime CreatedDate, string EvidenceName) {
+            public tbTimeLineDTRow AddtbTimeLineDTRow(string TimeLineDTID, string TimeLineHDID, string EvidenceID, string EvidenceCode, string Detail, string EvidenceType, string CreatedBy, System.DateTime CreatedDate, string EvidenceName, string Path) {
                 tbTimeLineDTRow rowtbTimeLineDTRow = ((tbTimeLineDTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TimeLineDTID,
@@ -2066,7 +2076,8 @@ namespace Application_Form.ApplicationData {
                         EvidenceType,
                         CreatedBy,
                         CreatedDate,
-                        EvidenceName};
+                        EvidenceName,
+                        Path};
                 rowtbTimeLineDTRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbTimeLineDTRow);
                 return rowtbTimeLineDTRow;
@@ -2098,6 +2109,7 @@ namespace Application_Form.ApplicationData {
                 this.columnCreatedBy = base.Columns["CreatedBy"];
                 this.columnCreatedDate = base.Columns["CreatedDate"];
                 this.columnEvidenceName = base.Columns["EvidenceName"];
+                this.columnPath = base.Columns["Path"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2121,6 +2133,8 @@ namespace Application_Form.ApplicationData {
                 base.Columns.Add(this.columnCreatedDate);
                 this.columnEvidenceName = new global::System.Data.DataColumn("EvidenceName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEvidenceName);
+                this.columnPath = new global::System.Data.DataColumn("Path", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPath);
                 this.columnTimeLineDTID.AllowDBNull = false;
                 this.columnTimeLineDTID.DefaultValue = ((string)(""));
                 this.columnTimeLineDTID.MaxLength = 36;
@@ -2132,6 +2146,7 @@ namespace Application_Form.ApplicationData {
                 this.columnDetail.DefaultValue = ((string)(""));
                 this.columnEvidenceType.DefaultValue = ((string)(""));
                 this.columnCreatedBy.DefaultValue = ((string)(""));
+                this.columnPath.DefaultValue = ((string)(""));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3949,6 +3964,22 @@ namespace Application_Form.ApplicationData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Path {
+                get {
+                    if (this.IsPathNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tabletbTimeLineDT.PathColumn]));
+                    }
+                }
+                set {
+                    this[this.tabletbTimeLineDT.PathColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTimeLineHDIDNull() {
                 return this.IsNull(this.tabletbTimeLineDT.TimeLineHDIDColumn);
             }
@@ -4041,6 +4072,18 @@ namespace Application_Form.ApplicationData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetEvidenceNameNull() {
                 this[this.tabletbTimeLineDT.EvidenceNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPathNull() {
+                return this.IsNull(this.tabletbTimeLineDT.PathColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPathNull() {
+                this[this.tabletbTimeLineDT.PathColumn] = global::System.Convert.DBNull;
             }
         }
         

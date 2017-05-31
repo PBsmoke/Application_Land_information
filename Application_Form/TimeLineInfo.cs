@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
+using System.Diagnostics;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -320,6 +322,22 @@ namespace Application_Form
                 txtTitleEvent.Focus();
                 return;
             }           
+        }
+
+        private void dgvTimeLandDT_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (SelectIndexDT > -1)
+            {
+                string PathTemp = dgvTimeLandDT.Rows[SelectIndexDT].Cells[colPath.Name].Value.ToString();
+                if (File.Exists(PathTemp))
+                {
+                    Process.Start(PathTemp);
+                }
+                else
+                {
+                    MessageBox.Show("ไม่พบ File ", dbConString.xMessage, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
     }
 }

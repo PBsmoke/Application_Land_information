@@ -46,6 +46,7 @@
             this.colPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPerview = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tbEvidenceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationDS1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -64,6 +65,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnPerview);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -78,7 +80,7 @@
             // btnSearch
             // 
             this.btnSearch.Image = global::Application_Form.Properties.Resources.Search;
-            this.btnSearch.Location = new System.Drawing.Point(704, 20);
+            this.btnSearch.Location = new System.Drawing.Point(590, 14);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(88, 37);
@@ -93,7 +95,7 @@
             this.txtSearch.Location = new System.Drawing.Point(32, 22);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(663, 21);
+            this.txtSearch.Size = new System.Drawing.Size(550, 21);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -131,6 +133,7 @@
             this.dgvEvidenceList.Size = new System.Drawing.Size(832, 439);
             this.dgvEvidenceList.TabIndex = 126;
             this.dgvEvidenceList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvidenceList_CellDoubleClick);
+            this.dgvEvidenceList.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvEvidenceList_CellMouseUp);
             // 
             // colEvidenceID
             // 
@@ -198,6 +201,19 @@
             this.colCreatedDate.ReadOnly = true;
             this.colCreatedDate.Visible = false;
             // 
+            // btnPerview
+            // 
+            this.btnPerview.Image = global::Application_Form.Properties.Resources.Search;
+            this.btnPerview.Location = new System.Drawing.Point(686, 14);
+            this.btnPerview.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnPerview.Name = "btnPerview";
+            this.btnPerview.Size = new System.Drawing.Size(88, 37);
+            this.btnPerview.TabIndex = 2;
+            this.btnPerview.Text = "แสดง";
+            this.btnPerview.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnPerview.UseVisualStyleBackColor = true;
+            this.btnPerview.Click += new System.EventHandler(this.btnPerview_Click);
+            // 
             // EvidenceListPicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -239,6 +255,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPath;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedDate;
+        private System.Windows.Forms.Button btnPerview;
 
     }
 }
