@@ -275,17 +275,45 @@ namespace Application_Form
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            if (dsReport.tbLand.Rows.Count == 0)
+            if (!string.IsNullOrEmpty(LandID))
             {
-                ReportDS.tbLandRow drLand = dsReport.tbLand.NewtbLandRow();
-                drLand.LandID = Guid.NewGuid().ToString();
-                drLand.VillageName = txtVillageName.Text;
-                drLand.VillageNo = txtVillageNo.Text;
-                drLand.SubDistrict = txtSubDistrict.Text;
-                drLand.District = txtDistrict.Text;
-                drLand.Province = txtProvince.Text;
-                dsReport.tbLand.AddtbLandRow(drLand);
+                string Whereclause = string.Empty;
+                if (!string.IsNullOrEmpty(txtSearch.Text))
+                {
+                    Whereclause = txtSearch.Text;
+                }
+                else
+                {
+                    Whereclause = string.Empty;
+                }
+
+                try
+                {
+                    string sqlTmp = "";
+                    sqlTmp = "SELECT * FROM uv_TimelineALL ";
+                    if (!string.IsNullOrEmpty(Whereclause))
+                    {
+                        sqlTmp += " WHERE LandID = '" + LandID + "' TimeLineDate LIKE '%" + Whereclause + "%' OR TitleEvent LIKE '%" + Whereclause + "%' ";
+                    }
+                    sqlTmp += " ORDER BY TimeLineDate";
+                    DataSet Ds = new DataSet();
+                    dbConString.Com = new SqlCommand();
+                    dbConString.Com.CommandType = CommandType.Text;
+                    dbConString.Com.CommandText = sqlTmp;
+                    dbConString.Com.Connection = dbConString.mySQLConn;
+                    SqlCommand cmd = new SqlCommand(sqlTmp, dbConString.mySQLConn);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    dsReport.Clear();
+                    da.Fill(dsReport, "uv_TimelineALL");
+                    da.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
+
+            dsReport.Merge(tdsLand);
 
             // Create a new instance of EvidenceInfoForm
             ReportPreview ReportPreviewForm = new ReportPreview();
