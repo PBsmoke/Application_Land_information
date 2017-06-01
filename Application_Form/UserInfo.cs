@@ -178,7 +178,7 @@ namespace Application_Form
                             dbConString.Com.Parameters.Add("@UserName", SqlDbType.VarChar).Value = txtUserName.Text;
                             dbConString.Com.Parameters.Add("@Password", SqlDbType.VarChar).Value = txtConfirm.Text;
                             dbConString.Com.Parameters.Add("@Detail", SqlDbType.VarChar).Value = txtDetail.Text;
-                            dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = string.Empty;
+                            dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = dbConString.UserID;
                             dbConString.Com.ExecuteNonQuery();
                             dbConString.Transaction.Commit();
                             #endregion

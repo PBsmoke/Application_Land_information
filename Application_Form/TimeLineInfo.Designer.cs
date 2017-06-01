@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.tabTimeLine = new System.Windows.Forms.TabControl();
             this.tabInfo = new System.Windows.Forms.TabPage();
             this.lblRemark = new System.Windows.Forms.Label();
             this.txtRemark = new System.Windows.Forms.TextBox();
@@ -44,9 +44,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelDT = new System.Windows.Forms.Button();
             this.dgvTimeLandDT = new System.Windows.Forms.DataGridView();
-            this.tbTimeLineDTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.applicationDS = new Application_Form.ApplicationData.ApplicationDS();
-            this.label9 = new System.Windows.Forms.Label();
             this.colEvidenceCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEvidenceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +54,10 @@
             this.colEvidenceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabControl1.SuspendLayout();
+            this.tbTimeLineDTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.applicationDS = new Application_Form.ApplicationData.ApplicationDS();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tabTimeLine.SuspendLayout();
             this.tabInfo.SuspendLayout();
             this.tabEvidence.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimeLandDT)).BeginInit();
@@ -65,18 +65,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.applicationDS)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabTimeLine
             // 
-            this.tabControl1.Controls.Add(this.tabInfo);
-            this.tabControl1.Controls.Add(this.tabEvidence);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.ItemSize = new System.Drawing.Size(120, 21);
-            this.tabControl1.Location = new System.Drawing.Point(0, 39);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(777, 402);
-            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabControl1.TabIndex = 122;
+            this.tabTimeLine.Controls.Add(this.tabInfo);
+            this.tabTimeLine.Controls.Add(this.tabEvidence);
+            this.tabTimeLine.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabTimeLine.ItemSize = new System.Drawing.Size(120, 21);
+            this.tabTimeLine.Location = new System.Drawing.Point(0, 39);
+            this.tabTimeLine.Name = "tabTimeLine";
+            this.tabTimeLine.SelectedIndex = 0;
+            this.tabTimeLine.Size = new System.Drawing.Size(777, 402);
+            this.tabTimeLine.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabTimeLine.TabIndex = 122;
             // 
             // tabInfo
             // 
@@ -93,7 +93,7 @@
             this.tabInfo.Padding = new System.Windows.Forms.Padding(3);
             this.tabInfo.Size = new System.Drawing.Size(769, 373);
             this.tabInfo.TabIndex = 0;
-            this.tabInfo.Text = "tabPage1";
+            this.tabInfo.Text = "เหตุการณ์";
             this.tabInfo.UseVisualStyleBackColor = true;
             // 
             // lblRemark
@@ -124,7 +124,7 @@
             this.txtEvent.Multiline = true;
             this.txtEvent.Name = "txtEvent";
             this.txtEvent.Size = new System.Drawing.Size(640, 193);
-            this.txtEvent.TabIndex = 34;
+            this.txtEvent.TabIndex = 2;
             // 
             // lblEvent
             // 
@@ -143,7 +143,7 @@
             this.txtTitleEvent.MaxLength = 100;
             this.txtTitleEvent.Name = "txtTitleEvent";
             this.txtTitleEvent.Size = new System.Drawing.Size(640, 24);
-            this.txtTitleEvent.TabIndex = 32;
+            this.txtTitleEvent.TabIndex = 1;
             // 
             // lblSubject
             // 
@@ -151,9 +151,9 @@
             this.lblSubject.ForeColor = System.Drawing.Color.DarkRed;
             this.lblSubject.Location = new System.Drawing.Point(16, 50);
             this.lblSubject.Name = "lblSubject";
-            this.lblSubject.Size = new System.Drawing.Size(68, 17);
+            this.lblSubject.Size = new System.Drawing.Size(41, 17);
             this.lblSubject.TabIndex = 28;
-            this.lblSubject.Text = "TitleEvent";
+            this.lblSubject.Text = "หัวข้อ";
             // 
             // label1
             // 
@@ -217,14 +217,14 @@
             this.dgvTimeLandDT.AllowUserToDeleteRows = false;
             this.dgvTimeLandDT.AutoGenerateColumns = false;
             this.dgvTimeLandDT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTimeLandDT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTimeLandDT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTimeLandDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTimeLandDT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colEvidenceCode,
@@ -248,25 +248,6 @@
             this.dgvTimeLandDT.TabIndex = 43;
             this.dgvTimeLandDT.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandDT_CellMouseDoubleClick);
             this.dgvTimeLandDT.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandDT_CellMouseUp);
-            // 
-            // tbTimeLineDTBindingSource
-            // 
-            this.tbTimeLineDTBindingSource.DataMember = "tbTimeLineDT";
-            this.tbTimeLineDTBindingSource.DataSource = this.applicationDS;
-            // 
-            // applicationDS
-            // 
-            this.applicationDS.DataSetName = "ApplicationDS";
-            this.applicationDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 13);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 17);
-            this.label9.TabIndex = 42;
-            this.label9.Text = "พยาน / หลักฐาน";
             // 
             // colEvidenceCode
             // 
@@ -347,16 +328,37 @@
             this.colCreatedDate.ReadOnly = true;
             this.colCreatedDate.Visible = false;
             // 
+            // tbTimeLineDTBindingSource
+            // 
+            this.tbTimeLineDTBindingSource.DataMember = "tbTimeLineDT";
+            this.tbTimeLineDTBindingSource.DataSource = this.applicationDS;
+            // 
+            // applicationDS
+            // 
+            this.applicationDS.DataSetName = "ApplicationDS";
+            this.applicationDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 13);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(105, 17);
+            this.label9.TabIndex = 42;
+            this.label9.Text = "พยาน / หลักฐาน";
+            // 
             // TimeLineInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(777, 441);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabTimeLine);
+            this.MaximumSize = new System.Drawing.Size(793, 480);
+            this.MinimumSize = new System.Drawing.Size(793, 480);
             this.Name = "TimeLineInfo";
-            this.Text = "TimeLineInfo";
-            this.Controls.SetChildIndex(this.tabControl1, 0);
-            this.tabControl1.ResumeLayout(false);
+            this.Text = "เหตุการณ์";
+            this.Controls.SetChildIndex(this.tabTimeLine, 0);
+            this.tabTimeLine.ResumeLayout(false);
             this.tabInfo.ResumeLayout(false);
             this.tabInfo.PerformLayout();
             this.tabEvidence.ResumeLayout(false);
@@ -371,7 +373,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabTimeLine;
         private System.Windows.Forms.TabPage tabInfo;
         private System.Windows.Forms.TabPage tabEvidence;
         private System.Windows.Forms.DateTimePicker dtpTimeLineDate;

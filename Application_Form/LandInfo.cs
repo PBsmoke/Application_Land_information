@@ -42,7 +42,59 @@ namespace Application_Form
 
         private void btnAreaPrint_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(LandID))
+            {
+                string Whereclause = string.Empty;
+                if (!string.IsNullOrEmpty(txtSearch.Text))
+                {
+                    Whereclause = txtSearch.Text;
+                }
+                else
+                {
+                    Whereclause = string.Empty;
+                }
+
+                try
+                {
+                    string sqlTmp = "";
+                    sqlTmp = "SELECT * FROM uv_TimelineALL ";
+                    if (!string.IsNullOrEmpty(Whereclause))
+                    {
+                        sqlTmp += " WHERE LandID = '" + LandID + "' TimeLineDate LIKE '%" + Whereclause + "%' OR TitleEvent LIKE '%" + Whereclause + "%' ";
+                    }
+                    else
+                    {
+                        sqlTmp += " WHERE LandID = '" + LandID + "'";
+                    }
+                    sqlTmp += " ORDER BY TimeLineDate";
+                    DataSet Ds = new DataSet();
+                    dbConString.Com = new SqlCommand();
+                    dbConString.Com.CommandType = CommandType.Text;
+                    dbConString.Com.CommandText = sqlTmp;
+                    dbConString.Com.Connection = dbConString.mySQLConn;
+                    SqlCommand cmd = new SqlCommand(sqlTmp, dbConString.mySQLConn);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    dsReport.Clear();
+                    da.Fill(dsReport, "uv_TimelineALL");
+                    da.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+
+            dsReport.Merge(tdsLand);
+
             // Create a new instance of EvidenceInfoForm
+            ReportPreview ReportPreviewForm = new ReportPreview();
+            // Pass Dataset to PreviewReport From
+            ReportPreviewForm.GetDataSet = dsReport;
+            // Display the form as top most form.
+            ReportPreviewForm.TopMost = true;
+
+            // Show the settings form
+            ReportPreviewForm.Show();
         }
 
         protected override void DoLoadForm()
@@ -67,6 +119,36 @@ namespace Application_Form
         {
             Success = true;
             DoCheckData();
+
+            if (!Success)
+                return;
+
+            //Check Duplicate
+            if (Success == true && tdsLand.tbLand.Rows.Count > 0)
+            {
+                Success = Utilities.CheckDuplicateNotInOldValues(tdsLand.tbLand.TableName,
+                                                                tdsLand.tbLand.LandCodeColumn.ColumnName,
+                                                                txtLandCode.Text,
+                                                                tdsLand.tbLand[0].LandCode);
+                if (!Success)
+                {
+                    MessageBox.Show("รหัสพื้นที่ไม่สามารถซ้ำได้ กรุณาป้อนข้อมูลใหม่", "คำเตือน", MessageBoxButtons.OK);
+                    Success = false;
+                    return;
+                }
+            }
+            else
+            {
+                Success = Utilities.CheckDuplicate(tdsLand.tbLand.TableName,
+                                                  tdsLand.tbLand.LandCodeColumn.ColumnName,
+                                                  txtLandCode.Text);
+                if (!Success)
+                {
+                    MessageBox.Show("ชื่อพยาน/หลักฐานไม่สามารถซ้ำได้ กรุณาป้อนข้อมูลใหม่", "คำเตือน", MessageBoxButtons.OK);
+                    Success = false;
+                    return;
+                }
+            }
 
             if (MessageBox.Show("คุณต้องการบันทึกข้อมูล ใช่หรือไม่ ?", dbConString.xMessage, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
             {
@@ -107,7 +189,7 @@ namespace Application_Form
                             dbConString.Com.Parameters.Add("@Province", SqlDbType.VarChar).Value = txtProvince.Text;
                             dbConString.Com.Parameters.Add("@History", SqlDbType.VarChar).Value = txtHistory.Text;
                             dbConString.Com.Parameters.Add("@Distress", SqlDbType.VarChar).Value = txtDistress.Text;
-                            dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = string.Empty;
+                            dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = dbConString.UserID;
                             dbConString.Com.ExecuteNonQuery();
                             
                             #endregion
@@ -158,7 +240,7 @@ namespace Application_Form
                             dbConString.Com.Parameters.Add("@Province", SqlDbType.VarChar).Value = txtProvince.Text;
                             dbConString.Com.Parameters.Add("@History", SqlDbType.VarChar).Value = txtHistory.Text;
                             dbConString.Com.Parameters.Add("@Distress", SqlDbType.VarChar).Value = txtDistress.Text;
-                            dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = string.Empty;
+                            dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = dbConString.UserID;
                             dbConString.Com.ExecuteNonQuery();
                             dbConString.Transaction.Commit();
 
@@ -181,13 +263,17 @@ namespace Application_Form
 
         protected override void DoReset()
         {
+            txtLandCode.Clear();
             txtVillageName.Clear();
             txtVillageNo.Clear();
             txtSubDistrict.Clear();
             txtDistrict.Clear();
             txtProvince.Clear();
             txtDistress.Clear();
-            txtHistory.Clear();            
+            txtHistory.Clear();
+
+            tdsTimeLineHD.Clear();
+            dgvTimeLandHD.DataSource = tdsTimeLineHD.tbTimeLineHD;
         }
 
         private void DoLoadData(string LandID)
@@ -232,6 +318,14 @@ namespace Application_Form
 
         private void DoCheckData()
         {
+            if (string.IsNullOrEmpty(txtLandCode.Text))
+            {
+                MessageBox.Show("รหัสพื้นที่ไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
+                Success = false;
+                txtLandCode.Focus();
+                return;
+            }
+
             if (string.IsNullOrEmpty(txtVillageName.Text))
             {
                 MessageBox.Show("ชื่อหมู่บ้านไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
@@ -294,6 +388,10 @@ namespace Application_Form
                     if (!string.IsNullOrEmpty(Whereclause))
                     {
                         sqlTmp += " WHERE LandID = '" + LandID + "' TimeLineDate LIKE '%" + Whereclause + "%' OR TitleEvent LIKE '%" + Whereclause + "%' ";
+                    }
+                    else
+                    {
+                        sqlTmp += " WHERE LandID = '" + LandID + "'";
                     }
                     sqlTmp += " ORDER BY TimeLineDate";
                     DataSet Ds = new DataSet();
@@ -438,6 +536,10 @@ namespace Application_Form
                     {
                         sqlTmp += " WHERE LandID = '" + LandIDTemp + "' TimeLineDate LIKE '%" + Whereclause + "%' OR TitleEvent LIKE '%" + Whereclause + "%' ";
                     }
+                    else
+                    {
+                        sqlTmp += " WHERE LandID = '" + LandIDTemp + "'";
+                    }
                     sqlTmp += " ORDER BY TimeLineDate";
                     DataSet Ds = new DataSet();
                     dbConString.Com = new SqlCommand();
@@ -461,6 +563,7 @@ namespace Application_Form
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            CallSave();
             if (!string.IsNullOrEmpty(LandID))
             {
                 TimeLineInfo frmForm = new TimeLineInfo();
@@ -476,6 +579,7 @@ namespace Application_Form
         {
             if (dgvTimeLandHD.RowCount > 0)
             {
+                CallSave();
                 TimeLineInfo frmForm = new TimeLineInfo();
                 frmForm.FormState = "edit";
                 frmForm.LandID = LandID;
@@ -490,6 +594,7 @@ namespace Application_Form
         {
             if (dgvTimeLandHD.RowCount > 0)
             {
+                CallSave();
                 TimeLineInfo frmForm = new TimeLineInfo();
                 frmForm.FormState = "edit";
                 frmForm.LandID = LandID;

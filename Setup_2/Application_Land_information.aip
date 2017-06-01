@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="14.0.2" version="14.0.2" Modules="professional" RootPath="." Language="en" Id="{502933C3-5E75-478F-B256-614CD8CBB8B1}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="AppXProductDetailsComponent;AppXDependenciesComponent;AppXAppDetailsComponent;AppXVisualAssetsComponent;AppXCapabilitiesComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;MsiJavaComponent;MsiDriverPackagesComponent;UserAccountsComponent;ScheduledTasksComponent;SqlConnectionComponent;AutorunComponent;FirewallExceptionComponent;GameUxComponent;MsiDirectEditorComponent;SharePointSlnComponent;SilverlightSlnComponent;MultipleInstancesComponent;SccmComponent;ActSyncAppComponent"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="Manufacturer" Value="BANSolution"/>
+    <ROW Property="ProductCode" Value="1033:{62273E17-71AC-49A1-84A4-0B665DB3E071} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="Application_Land_information"/>
+    <ROW Property="ProductVersion" Value="1.0.0" Type="32"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="UpgradeCode" Value="{53A63E05-329C-4B64-ACB5-8643073804A1}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_ExePath" ComponentId="{8FDF7E31-B9D0-4770-8192-0380ADB48004}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
+    <ROW Component="Application_Form.exe" ComponentId="{74FB2B38-C2ED-4A97-AE56-42A7CDADF375}" Directory_="APPDIR" Attributes="0" KeyPath="Application_Form.pdb" Type="4"/>
+    <ROW Component="Application_Form.exe.config" ComponentId="{4849C35F-041E-4128-8A0D-BBC1A494C13F}" Directory_="APPDIR" Attributes="0" KeyPath="Application_Form.exe.config" Type="0"/>
+    <ROW Component="Application_Form.exe_1" ComponentId="{A3CB4EF2-8FEA-413B-993A-7939B58575CC}" Directory_="APPDIR" Attributes="0" KeyPath="Application_Form.exe_1"/>
+    <ROW Component="Application_Form.vshost.exe" ComponentId="{7E65F36C-0314-44BF-BC3D-0C9FA97E1624}" Directory_="APPDIR" Attributes="0" KeyPath="Application_Form.vshost.exe"/>
+    <ROW Component="Application_Land_information.exe" ComponentId="{4BC61D3B-C55C-4899-96EA-AC8E8A85BE48}" Directory_="DesktopFolder" Attributes="0" KeyPath="Application_Land_information.exe"/>
+    <ROW Component="Application_Report.dll" ComponentId="{33BA9307-21BD-42FE-B662-A3EBC6F41608}" Directory_="APPDIR" Attributes="0" KeyPath="Application_Report.dll"/>
+    <ROW Component="Application_Service.dll" ComponentId="{CBE0B6EB-8195-41AA-9795-BFB1812E04D9}" Directory_="APPDIR" Attributes="0" KeyPath="Application_Service.dll"/>
+    <ROW Component="CrystalDecisions.CrystalReports.Engine.d" ComponentId="{FA40369B-161A-4453-AF3E-D86B9FD16138}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.CrystalReports.Engine.dll"/>
+    <ROW Component="CrystalDecisions.ReportAppServer.ClientD" ComponentId="{5CBCB400-FA13-414A-8B97-A9A8D86A0CAE}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.ReportAppServer.ClientDoc.dll"/>
+    <ROW Component="CrystalDecisions.ReportAppServer.CommLay" ComponentId="{E5BBDFF0-A33B-4DA1-8696-8DA538B36E6C}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.ReportAppServer.CommLayer.dll"/>
+    <ROW Component="CrystalDecisions.ReportAppServer.CommonC" ComponentId="{1B4E1059-447D-4B53-A95B-280D46B57804}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.ReportAppServer.CommonControls.dll"/>
+    <ROW Component="CrystalDecisions.ReportAppServer.CommonO" ComponentId="{EE254A95-B49E-4767-B684-AA0138E49453}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.ReportAppServer.CommonObjectModel.dll"/>
+    <ROW Component="CrystalDecisions.ReportAppServer.Control" ComponentId="{9A7A6C59-22C6-476C-9DC7-7440BD2415D4}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.ReportAppServer.Controllers.dll"/>
+    <ROW Component="CrystalDecisions.ReportAppServer.CubeDef" ComponentId="{89E7292F-00CC-48BB-8C99-F4BB0A87CA81}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.ReportAppServer.CubeDefModel.dll"/>
+    <ROW Component="CrystalDecisions.ReportAppServer.DataDef" ComponentId="{EBF44F74-EEF3-49C8-8241-9D71FDAA7029}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.ReportAppServer.DataDefModel.dll"/>
+    <ROW Component="CrystalDecisions.ReportAppServer.DataSet" ComponentId="{71D2A2BC-DAD2-418A-9948-7F2A3A593711}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.ReportAppServer.DataSetConversion.dll"/>
+    <ROW Component="CrystalDecisions.ReportAppServer.ObjectF" ComponentId="{904253D9-C82E-4E11-A538-50BE9924D2AB}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.ReportAppServer.ObjectFactory.dll"/>
+    <ROW Component="CrystalDecisions.ReportAppServer.Prompti" ComponentId="{E294E5C0-A848-48D2-BE45-DE1121FD4934}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.ReportAppServer.Prompting.dll"/>
+    <ROW Component="CrystalDecisions.ReportAppServer.ReportD" ComponentId="{D444E000-6D5F-4625-904A-62F9E7EC800C}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.ReportAppServer.ReportDefModel.dll"/>
+    <ROW Component="CrystalDecisions.ReportAppServer.XmlSeri" ComponentId="{557FBA20-0A91-409A-ACB1-E3550B64763B}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.ReportAppServer.XmlSerialize.dll"/>
+    <ROW Component="CrystalDecisions.ReportSource.dll" ComponentId="{0824B768-06A5-43FE-90E0-135DCAB73621}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.ReportSource.dll"/>
+    <ROW Component="CrystalDecisions.Shared.dll" ComponentId="{4B620B26-42B6-4DE1-B226-D3071EE17EAA}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.Shared.dll"/>
+    <ROW Component="CrystalDecisions.Windows.Forms.dll" ComponentId="{17873143-2D65-434A-BDA8-1B61F204E7DE}" Directory_="APPDIR" Attributes="0" KeyPath="CrystalDecisions.Windows.Forms.dll"/>
+    <ROW Component="DevComponents.DotNetBar.SuperGrid.dll" ComponentId="{79DBF750-475E-494C-B084-23282B0DD1EE}" Directory_="APPDIR" Attributes="0" KeyPath="DevComponents.DotNetBar.SuperGrid.dll"/>
+    <ROW Component="DevComponents.DotNetBar2.dll" ComponentId="{04F30588-520B-4A26-8FC2-F1980E2DC56B}" Directory_="APPDIR" Attributes="0" KeyPath="DevComponents.DotNetBar2.dll"/>
+    <ROW Component="DevComponents.Instrumentation.dll" ComponentId="{84DE963C-6608-4E49-83E5-ADBB4856008F}" Directory_="APPDIR" Attributes="0" KeyPath="DevComponents.Instrumentation.dll"/>
+    <ROW Component="FlashControlV71.dll" ComponentId="{AA3B900E-88DE-40B1-BE21-EC5493C560A9}" Directory_="APPDIR" Attributes="0" KeyPath="FlashControlV71.dll"/>
+    <ROW Component="ProductInformation" ComponentId="{46C2DEAE-AB4C-42ED-A666-D33BEB39C6D3}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="ShockwaveFlashObjects.dll" ComponentId="{3317E60D-88E8-484F-9FDF-192CCA62EE6A}" Directory_="APPDIR" Attributes="0" KeyPath="ShockwaveFlashObjects.dll"/>
+    <ROW Component="stdole.dll" ComponentId="{523A6CB0-2C2F-4C0B-BEB5-E4CC175F8628}" Directory_="APPDIR" Attributes="0" KeyPath="stdole.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_ExePath Application_Form.exe Application_Form.exe.config Application_Form.exe_1 Application_Form.vshost.exe Application_Land_information.exe Application_Report.dll Application_Service.dll CrystalDecisions.CrystalReports.Engine.d CrystalDecisions.ReportAppServer.ClientD CrystalDecisions.ReportAppServer.CommLay CrystalDecisions.ReportAppServer.CommonC CrystalDecisions.ReportAppServer.CommonO CrystalDecisions.ReportAppServer.Control CrystalDecisions.ReportAppServer.CubeDef CrystalDecisions.ReportAppServer.DataDef CrystalDecisions.ReportAppServer.DataSet CrystalDecisions.ReportAppServer.ObjectF CrystalDecisions.ReportAppServer.Prompti CrystalDecisions.ReportAppServer.ReportD CrystalDecisions.ReportAppServer.XmlSeri CrystalDecisions.ReportSource.dll CrystalDecisions.Shared.dll CrystalDecisions.Windows.Forms.dll DevComponents.DotNetBar.SuperGrid.dll DevComponents.DotNetBar2.dll DevComponents.Instrumentation.dll FlashControlV71.dll ProductInformation ShockwaveFlashObjects.dll stdole.dll"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="Application_Form.exe.config" Component_="Application_Form.exe.config" FileName="APPLIC~1.CON|Application_Form.exe.config" Attributes="0" SourcePath="..\Application_Form\bin\Release\Application_Form.exe.config" SelfReg="false" NextFile="Application_Form.pdb"/>
+    <ROW File="Application_Form.exe_1" Component_="Application_Form.exe_1" FileName="APPLIC~1.EXE|Application_Form.exe" Attributes="0" SourcePath="..\Application_Form\bin\Release\Application_Form.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="Application_Form.pdb" Component_="Application_Form.exe" FileName="APPLIC~1.PDB|Application_Form.pdb" Attributes="0" SourcePath="..\Application_Form\bin\Release\Application_Form.pdb" SelfReg="false" NextFile="Application_Form.vshost.exe"/>
+    <ROW File="Application_Form.vshost.exe" Component_="Application_Form.vshost.exe" FileName="APPLIC~2.EXE|Application_Form.vshost.exe" Attributes="0" SourcePath="..\Application_Form\bin\Release\Application_Form.vshost.exe" SelfReg="false" NextFile="Application_Form.vshost.exe.config" DigSign="true"/>
+    <ROW File="Application_Form.vshost.exe.config" Component_="Application_Form.exe.config" FileName="APPLIC~2.CON|Application_Form.vshost.exe.config" Attributes="0" SourcePath="..\Application_Form\bin\Release\Application_Form.vshost.exe.config" SelfReg="false" NextFile="Application_Form.vshost.exe.manifest"/>
+    <ROW File="Application_Form.vshost.exe.manifest" Component_="Application_Form.exe.config" FileName="APPLIC~1.MAN|Application_Form.vshost.exe.manifest" Attributes="0" SourcePath="..\Application_Form\bin\Release\Application_Form.vshost.exe.manifest" SelfReg="false" NextFile="Application_Report.dll"/>
+    <ROW File="Application_Land_information.exe" Component_="Application_Land_information.exe" FileName="APPLIC~1.EXE|Application_Land_information.exe" Attributes="0" SourcePath="..\Application_Form\bin\Release\Application_Form.exe" SelfReg="false" NextFile="Application_Form.exe_1" DigSign="true"/>
+    <ROW File="Application_Report.dll" Component_="Application_Report.dll" FileName="APPLIC~1.DLL|Application_Report.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\Application_Report.dll" SelfReg="false" NextFile="Application_Report.pdb"/>
+    <ROW File="Application_Report.pdb" Component_="Application_Report.dll" FileName="APPLIC~2.PDB|Application_Report.pdb" Attributes="0" SourcePath="..\Application_Form\bin\Release\Application_Report.pdb" SelfReg="false" NextFile="Application_Service.dll"/>
+    <ROW File="Application_Service.dll" Component_="Application_Service.dll" FileName="APPLIC~2.DLL|Application_Service.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\Application_Service.dll" SelfReg="false" NextFile="Application_Service.pdb"/>
+    <ROW File="Application_Service.pdb" Component_="Application_Service.dll" FileName="APPLIC~3.PDB|Application_Service.pdb" Attributes="0" SourcePath="..\Application_Form\bin\Release\Application_Service.pdb" SelfReg="false" NextFile="CrystalDecisions.CrystalReports.Engine.dll"/>
+    <ROW File="CrystalDecisions.CrystalReports.Engine.dll" Component_="CrystalDecisions.CrystalReports.Engine.d" FileName="CRYSTA~1.DLL|CrystalDecisions.CrystalReports.Engine.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.CrystalReports.Engine.dll" SelfReg="false" NextFile="CrystalDecisions.ReportAppServer.ClientDoc.dll"/>
+    <ROW File="CrystalDecisions.ReportAppServer.ClientDoc.dll" Component_="CrystalDecisions.ReportAppServer.ClientD" FileName="CRYSTA~2.DLL|CrystalDecisions.ReportAppServer.ClientDoc.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.ReportAppServer.ClientDoc.dll" SelfReg="false" NextFile="CrystalDecisions.ReportAppServer.CommLayer.dll"/>
+    <ROW File="CrystalDecisions.ReportAppServer.CommLayer.dll" Component_="CrystalDecisions.ReportAppServer.CommLay" FileName="CRYSTA~3.DLL|CrystalDecisions.ReportAppServer.CommLayer.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.ReportAppServer.CommLayer.dll" SelfReg="false" NextFile="CrystalDecisions.ReportAppServer.CommonControls.dll"/>
+    <ROW File="CrystalDecisions.ReportAppServer.CommonControls.dll" Component_="CrystalDecisions.ReportAppServer.CommonC" FileName="CRYSTA~4.DLL|CrystalDecisions.ReportAppServer.CommonControls.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.ReportAppServer.CommonControls.dll" SelfReg="false" NextFile="CrystalDecisions.ReportAppServer.CommonObjectModel.dll"/>
+    <ROW File="CrystalDecisions.ReportAppServer.CommonObjectModel.dll" Component_="CrystalDecisions.ReportAppServer.CommonO" FileName="CRYSTA~5.DLL|CrystalDecisions.ReportAppServer.CommonObjectModel.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.ReportAppServer.CommonObjectModel.dll" SelfReg="false" NextFile="CrystalDecisions.ReportAppServer.Controllers.dll"/>
+    <ROW File="CrystalDecisions.ReportAppServer.Controllers.dll" Component_="CrystalDecisions.ReportAppServer.Control" FileName="CRYSTA~6.DLL|CrystalDecisions.ReportAppServer.Controllers.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.ReportAppServer.Controllers.dll" SelfReg="false" NextFile="CrystalDecisions.ReportAppServer.CubeDefModel.dll"/>
+    <ROW File="CrystalDecisions.ReportAppServer.CubeDefModel.dll" Component_="CrystalDecisions.ReportAppServer.CubeDef" FileName="CRYSTA~7.DLL|CrystalDecisions.ReportAppServer.CubeDefModel.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.ReportAppServer.CubeDefModel.dll" SelfReg="false" NextFile="CrystalDecisions.ReportAppServer.DataDefModel.dll"/>
+    <ROW File="CrystalDecisions.ReportAppServer.DataDefModel.dll" Component_="CrystalDecisions.ReportAppServer.DataDef" FileName="CRYSTA~8.DLL|CrystalDecisions.ReportAppServer.DataDefModel.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.ReportAppServer.DataDefModel.dll" SelfReg="false" NextFile="CrystalDecisions.ReportAppServer.DataSetConversion.dll"/>
+    <ROW File="CrystalDecisions.ReportAppServer.DataSetConversion.dll" Component_="CrystalDecisions.ReportAppServer.DataSet" FileName="CRYSTA~9.DLL|CrystalDecisions.ReportAppServer.DataSetConversion.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.ReportAppServer.DataSetConversion.dll" SelfReg="false" NextFile="CrystalDecisions.ReportAppServer.ObjectFactory.dll"/>
+    <ROW File="CrystalDecisions.ReportAppServer.ObjectFactory.dll" Component_="CrystalDecisions.ReportAppServer.ObjectF" FileName="CRYST~10.DLL|CrystalDecisions.ReportAppServer.ObjectFactory.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.ReportAppServer.ObjectFactory.dll" SelfReg="false" NextFile="CrystalDecisions.ReportAppServer.Prompting.dll"/>
+    <ROW File="CrystalDecisions.ReportAppServer.Prompting.dll" Component_="CrystalDecisions.ReportAppServer.Prompti" FileName="CRYST~11.DLL|CrystalDecisions.ReportAppServer.Prompting.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.ReportAppServer.Prompting.dll" SelfReg="false" NextFile="CrystalDecisions.ReportAppServer.ReportDefModel.dll"/>
+    <ROW File="CrystalDecisions.ReportAppServer.ReportDefModel.dll" Component_="CrystalDecisions.ReportAppServer.ReportD" FileName="CRYST~12.DLL|CrystalDecisions.ReportAppServer.ReportDefModel.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.ReportAppServer.ReportDefModel.dll" SelfReg="false" NextFile="CrystalDecisions.ReportAppServer.XmlSerialize.dll"/>
+    <ROW File="CrystalDecisions.ReportAppServer.XmlSerialize.dll" Component_="CrystalDecisions.ReportAppServer.XmlSeri" FileName="CRYST~13.DLL|CrystalDecisions.ReportAppServer.XmlSerialize.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.ReportAppServer.XmlSerialize.dll" SelfReg="false" NextFile="CrystalDecisions.ReportSource.dll"/>
+    <ROW File="CrystalDecisions.ReportSource.dll" Component_="CrystalDecisions.ReportSource.dll" FileName="CRYST~14.DLL|CrystalDecisions.ReportSource.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.ReportSource.dll" SelfReg="false" NextFile="CrystalDecisions.Shared.dll"/>
+    <ROW File="CrystalDecisions.Shared.dll" Component_="CrystalDecisions.Shared.dll" FileName="CRYST~15.DLL|CrystalDecisions.Shared.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.Shared.dll" SelfReg="false" NextFile="CrystalDecisions.Windows.Forms.dll"/>
+    <ROW File="CrystalDecisions.Windows.Forms.dll" Component_="CrystalDecisions.Windows.Forms.dll" FileName="CRYST~16.DLL|CrystalDecisions.Windows.Forms.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\CrystalDecisions.Windows.Forms.dll" SelfReg="false" NextFile="DevComponents.DotNetBar.SuperGrid.dll"/>
+    <ROW File="DevComponents.DotNetBar.SuperGrid.dll" Component_="DevComponents.DotNetBar.SuperGrid.dll" FileName="DEVCOM~1.DLL|DevComponents.DotNetBar.SuperGrid.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\DevComponents.DotNetBar.SuperGrid.dll" SelfReg="false" NextFile="DevComponents.DotNetBar.SuperGrid.xml"/>
+    <ROW File="DevComponents.DotNetBar.SuperGrid.xml" Component_="Application_Form.exe.config" FileName="DEVCOM~1.XML|DevComponents.DotNetBar.SuperGrid.xml" Attributes="0" SourcePath="..\Application_Form\bin\Release\DevComponents.DotNetBar.SuperGrid.xml" SelfReg="false" NextFile="DevComponents.DotNetBar2.dll"/>
+    <ROW File="DevComponents.DotNetBar2.dll" Component_="DevComponents.DotNetBar2.dll" FileName="DEVCOM~2.DLL|DevComponents.DotNetBar2.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\DevComponents.DotNetBar2.dll" SelfReg="false" NextFile="DevComponents.DotNetBar2.xml"/>
+    <ROW File="DevComponents.DotNetBar2.xml" Component_="Application_Form.exe.config" FileName="DEVCOM~2.XML|DevComponents.DotNetBar2.xml" Attributes="0" SourcePath="..\Application_Form\bin\Release\DevComponents.DotNetBar2.xml" SelfReg="false" NextFile="DevComponents.Instrumentation.dll"/>
+    <ROW File="DevComponents.Instrumentation.dll" Component_="DevComponents.Instrumentation.dll" FileName="DEVCOM~3.DLL|DevComponents.Instrumentation.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\DevComponents.Instrumentation.dll" SelfReg="false" NextFile="DevComponents.Instrumentation.xml"/>
+    <ROW File="DevComponents.Instrumentation.xml" Component_="Application_Form.exe.config" FileName="DEVCOM~3.XML|DevComponents.Instrumentation.xml" Attributes="0" SourcePath="..\Application_Form\bin\Release\DevComponents.Instrumentation.xml" SelfReg="false" NextFile="FlashControlV71.dll"/>
+    <ROW File="FlashControlV71.dll" Component_="FlashControlV71.dll" FileName="FLASHC~1.DLL|FlashControlV71.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\FlashControlV71.dll" SelfReg="false" NextFile="Profile.xml"/>
+    <ROW File="Profile.xml" Component_="Application_Form.exe.config" FileName="Profile.xml" Attributes="0" SourcePath="..\Application_Form\bin\Release\Profile.xml" SelfReg="false" NextFile="ShockwaveFlashObjects.dll"/>
+    <ROW File="ShockwaveFlashObjects.dll" Component_="ShockwaveFlashObjects.dll" FileName="SHOCKW~1.DLL|ShockwaveFlashObjects.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\ShockwaveFlashObjects.dll" SelfReg="false" NextFile="stdole.dll"/>
+    <ROW File="stdole.dll" Component_="stdole.dll" FileName="stdole.dll" Attributes="0" SourcePath="..\Application_Form\bin\Release\stdole.dll" SelfReg="false" NextFile="Application_Land_information.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" UseLargeSchema="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractFiles" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="AI_ExtractFiles" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_EstimateExtractFiles" Type="1" Source="Prereq.dll" Target="EstimateExtractFiles"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1025" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractFiles" Sequence="3998" Builds="DefaultBuild"/>
+    <ROW Action="AI_DATA_SETTER" Sequence="3997"/>
+    <ROW Action="AI_EstimateExtractFiles" Sequence="3999" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT64 OR ((VersionNT &lt;&gt; 501) OR (ServicePackLevel = 3))) AND ((VersionNT &lt;&gt; 502) OR (ServicePackLevel = 2))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SynchronizedFolderComponent">
+    <ROW Directory_="APPDIR" SourcePath="..\Application_Form\bin\Release" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6"/>
+  </COMPONENT>
+</DOCUMENT>

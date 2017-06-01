@@ -35,6 +35,7 @@
             this.tbEvidenceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.applicationDS1 = new Application_Form.ApplicationData.ApplicationDS();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPerview = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvEvidenceList = new System.Windows.Forms.DataGridView();
@@ -46,7 +47,6 @@
             this.colPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPerview = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tbEvidenceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationDS1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -73,9 +73,22 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(832, 63);
+            this.groupBox1.Size = new System.Drawing.Size(783, 63);
             this.groupBox1.TabIndex = 125;
             this.groupBox1.TabStop = false;
+            // 
+            // btnPerview
+            // 
+            this.btnPerview.Image = global::Application_Form.Properties.Resources.preview;
+            this.btnPerview.Location = new System.Drawing.Point(686, 14);
+            this.btnPerview.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnPerview.Name = "btnPerview";
+            this.btnPerview.Size = new System.Drawing.Size(88, 37);
+            this.btnPerview.TabIndex = 2;
+            this.btnPerview.Text = "แสดง";
+            this.btnPerview.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnPerview.UseVisualStyleBackColor = true;
+            this.btnPerview.Click += new System.EventHandler(this.btnPerview_Click);
             // 
             // btnSearch
             // 
@@ -130,7 +143,7 @@
             this.dgvEvidenceList.Name = "dgvEvidenceList";
             this.dgvEvidenceList.ReadOnly = true;
             this.dgvEvidenceList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEvidenceList.Size = new System.Drawing.Size(832, 439);
+            this.dgvEvidenceList.Size = new System.Drawing.Size(783, 439);
             this.dgvEvidenceList.TabIndex = 126;
             this.dgvEvidenceList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvidenceList_CellDoubleClick);
             this.dgvEvidenceList.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvEvidenceList_CellMouseUp);
@@ -201,32 +214,21 @@
             this.colCreatedDate.ReadOnly = true;
             this.colCreatedDate.Visible = false;
             // 
-            // btnPerview
-            // 
-            this.btnPerview.Image = global::Application_Form.Properties.Resources.Search;
-            this.btnPerview.Location = new System.Drawing.Point(686, 14);
-            this.btnPerview.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnPerview.Name = "btnPerview";
-            this.btnPerview.Size = new System.Drawing.Size(88, 37);
-            this.btnPerview.TabIndex = 2;
-            this.btnPerview.Text = "แสดง";
-            this.btnPerview.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnPerview.UseVisualStyleBackColor = true;
-            this.btnPerview.Click += new System.EventHandler(this.btnPerview_Click);
-            // 
             // EvidenceListPicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 502);
+            this.ClientSize = new System.Drawing.Size(783, 502);
             this.Controls.Add(this.dgvEvidenceList);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MaximumSize = new System.Drawing.Size(848, 541);
+            this.MaximumSize = new System.Drawing.Size(799, 541);
+            this.MinimumSize = new System.Drawing.Size(799, 541);
             this.Name = "EvidenceListPicker";
+            this.ShowInTaskbar = false;
             this.Text = "ค้นหา พยาน / หลักฐาน";
             this.Load += new System.EventHandler(this.EvidenceListPicker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tbEvidenceBindingSource)).EndInit();

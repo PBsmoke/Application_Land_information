@@ -110,7 +110,7 @@
             // colLandCode
             // 
             this.colLandCode.DataPropertyName = "LandCode";
-            this.colLandCode.HeaderText = "LandCode";
+            this.colLandCode.HeaderText = "รหัสพื้นที่";
             this.colLandCode.Name = "colLandCode";
             this.colLandCode.ReadOnly = true;
             // 

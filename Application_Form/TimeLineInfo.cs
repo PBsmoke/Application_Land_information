@@ -70,6 +70,10 @@ namespace Application_Form
                             #region
                             dbConString.Transaction = dbConString.mySQLConn.BeginTransaction();
                             StringBuilder StringBd = new StringBuilder();
+
+                            if (string.IsNullOrEmpty(TimeLineHDID))
+                                TimeLineHDID = Guid.NewGuid().ToString();
+
                             StringBd.Clear();
                             sqlTmp = string.Empty;
                             StringBd.Append("INSERT INTO tbTimeLineHD VALUES (@TimeLineHDID,@LandID,@TimeLineDate,@TitleEvent,@TimeLineEvent,@Remark,@CreatedBy,GETDATE())");
@@ -87,7 +91,7 @@ namespace Application_Form
                             dbConString.Com.Parameters.Add("@TitleEvent", SqlDbType.VarChar).Value = txtTitleEvent.Text;
                             dbConString.Com.Parameters.Add("@TimeLineEvent", SqlDbType.VarChar).Value = txtEvent.Text;
                             dbConString.Com.Parameters.Add("@Remark", SqlDbType.VarChar).Value = txtRemark.Text;
-                            dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = string.Empty;
+                            dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = dbConString.UserID;
                             dbConString.Com.ExecuteNonQuery();
 
                             #endregion
@@ -109,7 +113,7 @@ namespace Application_Form
                                 dbConString.Com.Parameters.Add("@TimeLineDTID", SqlDbType.VarChar).Value = drDT.TimeLineDTID;
                                 dbConString.Com.Parameters.Add("@TimeLineHDID", SqlDbType.VarChar).Value = drDT.TimeLineHDID;
                                 dbConString.Com.Parameters.Add("@EvidenceID", SqlDbType.VarChar).Value = drDT.EvidenceID;
-                                dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = string.Empty;
+                                dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = dbConString.UserID;
                                 dbConString.Com.ExecuteNonQuery();
                             }
                             #endregion
@@ -158,7 +162,7 @@ namespace Application_Form
                             dbConString.Com.Parameters.Add("@TitleEvent", SqlDbType.VarChar).Value = txtTitleEvent.Text;
                             dbConString.Com.Parameters.Add("@TimeLineEvent", SqlDbType.VarChar).Value = txtEvent.Text;
                             dbConString.Com.Parameters.Add("@Remark", SqlDbType.VarChar).Value = txtRemark.Text;
-                            dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = string.Empty;
+                            dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = dbConString.UserID;
                             dbConString.Com.ExecuteNonQuery();
                             #endregion
 
@@ -179,7 +183,7 @@ namespace Application_Form
                                 dbConString.Com.Parameters.Add("@TimeLineDTID", SqlDbType.VarChar).Value = drDT.TimeLineDTID;
                                 dbConString.Com.Parameters.Add("@TimeLineHDID", SqlDbType.VarChar).Value = drDT.TimeLineHDID;
                                 dbConString.Com.Parameters.Add("@EvidenceID", SqlDbType.VarChar).Value = drDT.EvidenceID;
-                                dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = string.Empty;
+                                dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = dbConString.UserID;
                                 dbConString.Com.ExecuteNonQuery();
                             }
                             #endregion
@@ -201,6 +205,12 @@ namespace Application_Form
                     
                     break;
             }
+        }
+
+        protected override void DoReset()
+        {
+            tdsTimeLine.Clear();
+            dgvTimeLandDT.DataSource = tdsTimeLine.tbTimeLineDT;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -240,7 +250,6 @@ namespace Application_Form
                         foreach (ApplicationDS.tbTimeLineDTRow dr in drDT_Del)
                         {
                             dr.Delete();
-                            dr.AcceptChanges();
                         }
                         //tdsTempDTMain.tbTimeLineDT.AcceptChanges();
                     }
@@ -317,7 +326,7 @@ namespace Application_Form
         {
             if (string.IsNullOrEmpty(txtTitleEvent.Text))
             {
-                MessageBox.Show("Subjectไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("หัวข้อ ไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
                 Success = false;
                 txtTitleEvent.Focus();
                 return;

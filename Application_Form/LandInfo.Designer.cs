@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtLandCode = new System.Windows.Forms.TextBox();
+            this.lblLandCode = new System.Windows.Forms.Label();
             this.txtDistress = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtHistory = new System.Windows.Forms.RichTextBox();
@@ -43,6 +46,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtVillageNo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtVillageName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvTimeLandHD = new System.Windows.Forms.DataGridView();
             this.colTimeLineDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,15 +61,12 @@
             this.tbTimeLineHDBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.applicationDS2 = new Application_Form.ApplicationData.ApplicationDS();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtVillageName = new System.Windows.Forms.TextBox();
-            this.txtLandCode = new System.Windows.Forms.TextBox();
-            this.lblLandCode = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -83,7 +85,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(866, 479);
+            this.tabControl1.Size = new System.Drawing.Size(870, 349);
             this.tabControl1.TabIndex = 26;
             // 
             // tabPage1
@@ -108,10 +110,29 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Size = new System.Drawing.Size(858, 450);
+            this.tabPage1.Size = new System.Drawing.Size(862, 320);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ข้อมูลพื้นที่";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtLandCode
+            // 
+            this.txtLandCode.Location = new System.Drawing.Point(92, 19);
+            this.txtLandCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtLandCode.MaxLength = 50;
+            this.txtLandCode.Name = "txtLandCode";
+            this.txtLandCode.Size = new System.Drawing.Size(345, 24);
+            this.txtLandCode.TabIndex = 1;
+            // 
+            // lblLandCode
+            // 
+            this.lblLandCode.AutoSize = true;
+            this.lblLandCode.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblLandCode.Location = new System.Drawing.Point(19, 22);
+            this.lblLandCode.Name = "lblLandCode";
+            this.lblLandCode.Size = new System.Drawing.Size(61, 17);
+            this.lblLandCode.TabIndex = 42;
+            this.lblLandCode.Text = "รหัสพื้นที่";
             // 
             // txtDistress
             // 
@@ -120,13 +141,13 @@
             this.txtDistress.MaxLength = 500;
             this.txtDistress.Name = "txtDistress";
             this.txtDistress.Size = new System.Drawing.Size(407, 287);
-            this.txtDistress.TabIndex = 41;
+            this.txtDistress.TabIndex = 8;
             this.txtDistress.Text = "";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(440, 133);
+            this.label7.Location = new System.Drawing.Point(446, 133);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(192, 17);
             this.label7.TabIndex = 39;
@@ -139,13 +160,13 @@
             this.txtHistory.MaxLength = 500;
             this.txtHistory.Name = "txtHistory";
             this.txtHistory.Size = new System.Drawing.Size(417, 287);
-            this.txtHistory.TabIndex = 37;
+            this.txtHistory.TabIndex = 7;
             this.txtHistory.Text = "";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 133);
+            this.label6.Location = new System.Drawing.Point(19, 133);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(173, 17);
             this.label6.TabIndex = 36;
@@ -153,18 +174,18 @@
             // 
             // txtProvince
             // 
-            this.txtProvince.Location = new System.Drawing.Point(401, 83);
+            this.txtProvince.Location = new System.Drawing.Point(500, 83);
             this.txtProvince.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtProvince.MaxLength = 100;
             this.txtProvince.Name = "txtProvince";
-            this.txtProvince.Size = new System.Drawing.Size(233, 24);
-            this.txtProvince.TabIndex = 35;
+            this.txtProvince.Size = new System.Drawing.Size(350, 24);
+            this.txtProvince.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.DarkRed;
-            this.label5.Location = new System.Drawing.Point(340, 86);
+            this.label5.Location = new System.Drawing.Point(446, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 17);
             this.label5.TabIndex = 34;
@@ -176,8 +197,8 @@
             this.txtDistrict.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDistrict.MaxLength = 100;
             this.txtDistrict.Name = "txtDistrict";
-            this.txtDistrict.Size = new System.Drawing.Size(233, 24);
-            this.txtDistrict.TabIndex = 33;
+            this.txtDistrict.Size = new System.Drawing.Size(344, 24);
+            this.txtDistrict.TabIndex = 5;
             // 
             // label4
             // 
@@ -191,18 +212,18 @@
             // 
             // txtSubDistrict
             // 
-            this.txtSubDistrict.Location = new System.Drawing.Point(493, 51);
+            this.txtSubDistrict.Location = new System.Drawing.Point(500, 51);
             this.txtSubDistrict.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSubDistrict.MaxLength = 100;
             this.txtSubDistrict.Name = "txtSubDistrict";
-            this.txtSubDistrict.Size = new System.Drawing.Size(141, 24);
-            this.txtSubDistrict.TabIndex = 31;
+            this.txtSubDistrict.Size = new System.Drawing.Size(350, 24);
+            this.txtSubDistrict.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.DarkRed;
-            this.label3.Location = new System.Drawing.Point(445, 54);
+            this.label3.Location = new System.Drawing.Point(446, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 17);
             this.label3.TabIndex = 30;
@@ -210,22 +231,41 @@
             // 
             // txtVillageNo
             // 
-            this.txtVillageNo.Location = new System.Drawing.Point(371, 51);
+            this.txtVillageNo.Location = new System.Drawing.Point(363, 51);
             this.txtVillageNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtVillageNo.MaxLength = 5;
             this.txtVillageNo.Name = "txtVillageNo";
-            this.txtVillageNo.Size = new System.Drawing.Size(68, 24);
-            this.txtVillageNo.TabIndex = 29;
+            this.txtVillageNo.Size = new System.Drawing.Size(74, 24);
+            this.txtVillageNo.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
-            this.label2.Location = new System.Drawing.Point(340, 54);
+            this.label2.Location = new System.Drawing.Point(332, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 17);
             this.label2.TabIndex = 28;
             this.label2.Text = "หมู่";
+            // 
+            // txtVillageName
+            // 
+            this.txtVillageName.Location = new System.Drawing.Point(93, 51);
+            this.txtVillageName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtVillageName.MaxLength = 50;
+            this.txtVillageName.Name = "txtVillageName";
+            this.txtVillageName.Size = new System.Drawing.Size(233, 24);
+            this.txtVillageName.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.DarkRed;
+            this.label1.Location = new System.Drawing.Point(19, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 17);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "ชื่อหมู่บ้าน";
             // 
             // tabPage3
             // 
@@ -245,6 +285,14 @@
             this.dgvTimeLandHD.AllowUserToDeleteRows = false;
             this.dgvTimeLandHD.AutoGenerateColumns = false;
             this.dgvTimeLandHD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTimeLandHD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvTimeLandHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTimeLandHD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colTimeLineDate,
@@ -277,7 +325,7 @@
             // colTitleEvent
             // 
             this.colTitleEvent.DataPropertyName = "TitleEvent";
-            this.colTitleEvent.HeaderText = "TitleEvent";
+            this.colTitleEvent.HeaderText = "หัวข้อ";
             this.colTitleEvent.Name = "colTitleEvent";
             this.colTitleEvent.ReadOnly = true;
             // 
@@ -341,6 +389,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnPrint);
             this.panel1.Controls.Add(this.BtnSearch);
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.btnDel);
@@ -352,9 +401,22 @@
             this.panel1.Size = new System.Drawing.Size(852, 42);
             this.panel1.TabIndex = 1;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Image = global::Application_Form.Properties.Resources.printer;
+            this.btnPrint.Location = new System.Drawing.Point(761, 3);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(79, 35);
+            this.btnPrint.TabIndex = 30;
+            this.btnPrint.Text = "พิมพ์";
+            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnAreaPrint_Click);
+            // 
             // BtnSearch
             // 
-            this.BtnSearch.Image = global::Application_Form.Properties.Resources.Delete;
+            this.BtnSearch.Image = global::Application_Form.Properties.Resources.Search;
             this.BtnSearch.Location = new System.Drawing.Point(676, 3);
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Size = new System.Drawing.Size(79, 35);
@@ -414,52 +476,15 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.DarkRed;
-            this.label1.Location = new System.Drawing.Point(19, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 17);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "ชื่อหมู่บ้าน";
-            // 
-            // txtVillageName
-            // 
-            this.txtVillageName.Location = new System.Drawing.Point(93, 51);
-            this.txtVillageName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtVillageName.MaxLength = 50;
-            this.txtVillageName.Name = "txtVillageName";
-            this.txtVillageName.Size = new System.Drawing.Size(233, 24);
-            this.txtVillageName.TabIndex = 27;
-            // 
-            // txtLandCode
-            // 
-            this.txtLandCode.Location = new System.Drawing.Point(92, 19);
-            this.txtLandCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtLandCode.MaxLength = 50;
-            this.txtLandCode.Name = "txtLandCode";
-            this.txtLandCode.Size = new System.Drawing.Size(233, 24);
-            this.txtLandCode.TabIndex = 43;
-            // 
-            // lblLandCode
-            // 
-            this.lblLandCode.AutoSize = true;
-            this.lblLandCode.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblLandCode.Location = new System.Drawing.Point(19, 22);
-            this.lblLandCode.Name = "lblLandCode";
-            this.lblLandCode.Size = new System.Drawing.Size(61, 17);
-            this.lblLandCode.TabIndex = 42;
-            this.lblLandCode.Text = "รหัสพื้นที่";
-            // 
             // LandInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 518);
+            this.ClientSize = new System.Drawing.Size(870, 388);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.MinimumSize = new System.Drawing.Size(532, 427);
+            this.MaximumSize = new System.Drawing.Size(886, 427);
+            this.MinimumSize = new System.Drawing.Size(886, 427);
             this.Name = "LandInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ข้อมูลพื้นที่";
@@ -517,6 +542,10 @@
         private System.Windows.Forms.BindingSource tbTimeLineHDBindingSource;
         private System.Windows.Forms.Button BtnSearch;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.TextBox txtLandCode;
+        private System.Windows.Forms.Label lblLandCode;
+        private System.Windows.Forms.TextBox txtVillageName;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLineDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTitleEvent;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLineEvent;
@@ -525,9 +554,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colRemark;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedDate;
-        private System.Windows.Forms.TextBox txtLandCode;
-        private System.Windows.Forms.Label lblLandCode;
-        private System.Windows.Forms.TextBox txtVillageName;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

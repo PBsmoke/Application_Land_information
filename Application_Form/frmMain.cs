@@ -52,7 +52,7 @@ namespace Application_Form
                 f_FormControl.Dock = DockStyle.Fill;
                 TabPage Tab_New = new TabPage();//Create new tabpage
                 Tab_New.Controls.Add(f_FormControl);
-                Tab_New.Text = "ข้อมูลพยาน/หลักฐาน";
+                //Tab_New.Text = "ข้อมูลพยาน/หลักฐาน";
                 Tab_New.Name = "tabEvidence";
                 tabPageMain.Controls.Add(Tab_New);
                 tabPageMain.SelectedTab = Tab_New;
@@ -70,7 +70,7 @@ namespace Application_Form
                 f_FormControl.Dock = DockStyle.Fill;
                 TabPage Tab_New = new TabPage();//Create new tabpage
                 Tab_New.Controls.Add(f_FormControl);
-                Tab_New.Text = "ข้อมูลพื้นที่";
+                //Tab_New.Text = "ข้อมูลพื้นที่";
                 Tab_New.Name = "tabLand";
                 tabPageMain.Controls.Add(Tab_New);
                 tabPageMain.SelectedTab = Tab_New;
@@ -87,7 +87,7 @@ namespace Application_Form
                 f_FormControl.Dock = DockStyle.Fill;
                 TabPage Tab_New = new TabPage();//Create new tabpage
                 Tab_New.Controls.Add(f_FormControl);
-                Tab_New.Text = "ข้อมูลผู้ใช้";
+                //Tab_New.Text = "ข้อมูลผู้ใช้";
                 Tab_New.Name = "tabUser";
                 tabPageMain.Controls.Add(Tab_New);
                 tabPageMain.SelectedTab = Tab_New;

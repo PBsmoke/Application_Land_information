@@ -38,9 +38,11 @@
             this.btnSetting = new System.Windows.Forms.Button();
             this.pnMain = new System.Windows.Forms.Panel();
             this.tabPageMain = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pnMenu.SuspendLayout();
             this.pnSetting.SuspendLayout();
             this.pnMain.SuspendLayout();
+            this.tabPageMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnMenu
@@ -152,16 +154,31 @@
             // 
             // tabPageMain
             // 
+            this.tabPageMain.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabPageMain.Controls.Add(this.tabPage1);
             this.tabPageMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabPageMain.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.tabPageMain.ItemSize = new System.Drawing.Size(0, 1);
             this.tabPageMain.Location = new System.Drawing.Point(0, 0);
-            this.tabPageMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPageMain.Margin = new System.Windows.Forms.Padding(0);
             this.tabPageMain.Name = "tabPageMain";
+            this.tabPageMain.Padding = new System.Drawing.Point(0, 0);
             this.tabPageMain.SelectedIndex = 0;
             this.tabPageMain.ShowToolTips = true;
             this.tabPageMain.Size = new System.Drawing.Size(646, 71);
+            this.tabPageMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabPageMain.TabIndex = 3;
             this.tabPageMain.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabPageMain_DrawItem);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 5);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(638, 62);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -175,14 +192,15 @@
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMain";
-            this.Text = "จัดเก็บข้อมูลที่ดิน";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "จัดเก็บข้อมูลที่ดิน";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.MdiChildActivate += new System.EventHandler(this.frmMain_MdiChildActivate);
             this.pnMenu.ResumeLayout(false);
             this.pnSetting.ResumeLayout(false);
             this.pnMain.ResumeLayout(false);
+            this.tabPageMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -198,5 +216,6 @@
         private System.Windows.Forms.Button btnUser;
         private System.Windows.Forms.Panel pnMain;
         private System.Windows.Forms.TabControl tabPageMain;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }

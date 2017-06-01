@@ -34,36 +34,8 @@ namespace Application_Report
 
         private void ReportPreview_Load(object sender, EventArgs e)
         {
-            // Copy data to Data Temp
-            ReportDS dsTemp = new ReportDS();
-            dsTemp.tbLand.ImportRow(tblReport.tbLand[0]);
-
-            // Select data from Database
-            dbConString.Chk_ConnectionState();
-            
-            string sqlTmp = "SELECT * FROM uv_Timeline ORDER BY TimeLineDate, EvidenceCode, EvidenceName";
             TimelineReport fReport = new TimelineReport();
-            DataSet Ds = new DataSet();
-            dbConString.Com = new SqlCommand();
-            dbConString.Com.CommandType = CommandType.Text;
-            dbConString.Com.CommandText = sqlTmp;
-            dbConString.Com.Connection = dbConString.mySQLConn;
-            SqlCommand cmd = new SqlCommand(sqlTmp, dbConString.mySQLConn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            tblReport.Clear();
-            
-            da.Fill(tblReport, "uv_Timeline");
-            da.Dispose();
-
-            //// Import data from Data Temp to main dataset
-            //tblReport.tbLand.ImportRow(dsTemp.tbLand[0]);
-
-            fReport.SetDataSource(tblReport);
-            fReport.SetParameterValue("VillageNo", dsTemp.tbLand[0].VillageNo.ToString());
-            fReport.SetParameterValue("VillageName", dsTemp.tbLand[0].VillageName.ToString());
-            fReport.SetParameterValue("SubDistrict", dsTemp.tbLand[0].SubDistrict.ToString());
-            fReport.SetParameterValue("District", dsTemp.tbLand[0].District.ToString());
-            fReport.SetParameterValue("Province", dsTemp.tbLand[0].Province.ToString());
+            fReport.SetDataSource(GetDataSet);
             crvTimeline.ReportSource = fReport;
         }
     }

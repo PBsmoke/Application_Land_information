@@ -117,7 +117,7 @@ namespace Application_Form
                         dbConString.Com.Parameters.Add("@SettingPathID", SqlDbType.VarChar).Value = SettingPathID;
                         dbConString.Com.Parameters.Add("@SettingPath", SqlDbType.VarChar).Value = txtPath.Text;
                         dbConString.Com.Parameters.Add("@Detail", SqlDbType.VarChar).Value = string.Empty;
-                        dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = string.Empty;
+                        dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = dbConString.UserID;
                         dbConString.Com.ExecuteNonQuery();
                         dbConString.Transaction.Commit();
                     }

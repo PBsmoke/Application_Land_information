@@ -54,5 +54,10 @@ namespace Application_Service
                 this.Close();
             }
         }
+
+        protected virtual void CallSave()
+        {
+            DoSave();
+        }
     }
 }
