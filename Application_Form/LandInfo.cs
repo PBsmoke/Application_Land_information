@@ -60,7 +60,7 @@ namespace Application_Form
                     sqlTmp = "SELECT * FROM uv_TimelineALL ";
                     if (!string.IsNullOrEmpty(Whereclause))
                     {
-                        sqlTmp += " WHERE LandID = '" + LandID + "' TimeLineDate LIKE '%" + Whereclause + "%' OR TitleEvent LIKE '%" + Whereclause + "%' ";
+                        sqlTmp += " WHERE LandID = '" + LandID + "' AND TimeLineDate LIKE '%" + Whereclause + "%' OR TitleEvent LIKE '%" + Whereclause + "%' ";
                     }
                     else
                     {
@@ -387,7 +387,7 @@ namespace Application_Form
                     sqlTmp = "SELECT * FROM uv_TimelineALL ";
                     if (!string.IsNullOrEmpty(Whereclause))
                     {
-                        sqlTmp += " WHERE LandID = '" + LandID + "' TimeLineDate LIKE '%" + Whereclause + "%' OR TitleEvent LIKE '%" + Whereclause + "%' ";
+                        sqlTmp += " WHERE LandID = '" + LandID + "' AND TimeLineDate LIKE '%" + Whereclause + "%' OR TitleEvent LIKE '%" + Whereclause + "%' ";
                     }
                     else
                     {
@@ -534,7 +534,7 @@ namespace Application_Form
                     sqlTmp = "SELECT * FROM tbTimeLineHD ";
                     if (!string.IsNullOrEmpty(Whereclause))
                     {
-                        sqlTmp += " WHERE LandID = '" + LandIDTemp + "' TimeLineDate LIKE '%" + Whereclause + "%' OR TitleEvent LIKE '%" + Whereclause + "%' ";
+                        sqlTmp += " WHERE LandID = '" + LandIDTemp + "' AND TimeLineDate LIKE '%" + Whereclause + "%' OR TitleEvent LIKE '%" + Whereclause + "%' ";
                     }
                     else
                     {
@@ -623,7 +623,7 @@ namespace Application_Form
                     //dbConString.Transaction = new SqlTransaction();
                     string sqlTmp = string.Empty;
                     StringBd.Append(" DELETE tbTimeLineDT WHERE TimeLineHDID = @TimeLineHDID;");
-                    StringBd.Append(" DELETE tbTimeLineHD WHERE TimeLineHDID = @LandID;");
+                    StringBd.Append(" DELETE tbTimeLineHD WHERE TimeLineHDID = @TimeLineHDID;");
                     sqlTmp = "";
                     sqlTmp = StringBd.ToString();
                     dbConString.Com = new SqlCommand();

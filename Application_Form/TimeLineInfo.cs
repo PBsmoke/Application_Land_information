@@ -39,6 +39,8 @@ namespace Application_Form
             switch (FormState.ToLower())
             {
                 case "new":
+                    if (string.IsNullOrEmpty(TimeLineHDID))
+                        TimeLineHDID = Guid.NewGuid().ToString();
                     break;
                 case "edit":
                     DoLoadData(TimeLineHDID);
@@ -71,8 +73,7 @@ namespace Application_Form
                             dbConString.Transaction = dbConString.mySQLConn.BeginTransaction();
                             StringBuilder StringBd = new StringBuilder();
 
-                            if (string.IsNullOrEmpty(TimeLineHDID))
-                                TimeLineHDID = Guid.NewGuid().ToString();
+                            
 
                             StringBd.Clear();
                             sqlTmp = string.Empty;
@@ -206,7 +207,6 @@ namespace Application_Form
                     break;
             }
         }
-
         protected override void DoReset()
         {
             tdsTimeLine.Clear();
