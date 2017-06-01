@@ -120,7 +120,7 @@
             // 
             this.txtEvent.Location = new System.Drawing.Point(118, 79);
             this.txtEvent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtEvent.MaxLength = 100;
+            this.txtEvent.MaxLength = 500;
             this.txtEvent.Multiline = true;
             this.txtEvent.Name = "txtEvent";
             this.txtEvent.Size = new System.Drawing.Size(640, 193);
@@ -159,11 +159,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
-            this.label1.Location = new System.Drawing.Point(16, 12);
+            this.label1.Location = new System.Drawing.Point(16, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 34);
+            this.label1.Size = new System.Drawing.Size(78, 17);
             this.label1.TabIndex = 27;
-            this.label1.Text = "วัน/เดือน/ปี \r\nที่เกิดเหตุการณ์";
+            this.label1.Text = "วัน/เดือน/ปี ";
             // 
             // dtpTimeLineDate
             // 

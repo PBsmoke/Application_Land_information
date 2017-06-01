@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtLandCode = new System.Windows.Forms.TextBox();
@@ -85,7 +85,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(870, 349);
+            this.tabControl1.Size = new System.Drawing.Size(870, 480);
             this.tabControl1.TabIndex = 26;
             // 
             // tabPage1
@@ -110,7 +110,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Size = new System.Drawing.Size(862, 320);
+            this.tabPage1.Size = new System.Drawing.Size(862, 451);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ข้อมูลพื้นที่";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -140,7 +140,7 @@
             this.txtDistress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDistress.MaxLength = 500;
             this.txtDistress.Name = "txtDistress";
-            this.txtDistress.Size = new System.Drawing.Size(407, 287);
+            this.txtDistress.Size = new System.Drawing.Size(407, 286);
             this.txtDistress.TabIndex = 8;
             this.txtDistress.Text = "";
             // 
@@ -274,7 +274,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(858, 450);
+            this.tabPage3.Size = new System.Drawing.Size(862, 320);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "ลำดับเหตุการณ์";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -285,14 +285,14 @@
             this.dgvTimeLandHD.AllowUserToDeleteRows = false;
             this.dgvTimeLandHD.AutoGenerateColumns = false;
             this.dgvTimeLandHD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTimeLandHD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTimeLandHD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTimeLandHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTimeLandHD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colTimeLineDate,
@@ -309,7 +309,7 @@
             this.dgvTimeLandHD.Name = "dgvTimeLandHD";
             this.dgvTimeLandHD.ReadOnly = true;
             this.dgvTimeLandHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTimeLandHD.Size = new System.Drawing.Size(852, 402);
+            this.dgvTimeLandHD.Size = new System.Drawing.Size(856, 272);
             this.dgvTimeLandHD.TabIndex = 125;
             this.dgvTimeLandHD.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandHD_CellMouseDoubleClick);
             this.dgvTimeLandHD.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandHD_CellMouseUp);
@@ -398,7 +398,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(852, 42);
+            this.panel1.Size = new System.Drawing.Size(856, 42);
             this.panel1.TabIndex = 1;
             // 
             // btnPrint
@@ -480,11 +480,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 388);
+            this.ClientSize = new System.Drawing.Size(870, 519);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.MaximumSize = new System.Drawing.Size(886, 427);
-            this.MinimumSize = new System.Drawing.Size(886, 427);
+            this.MaximumSize = new System.Drawing.Size(886, 558);
+            this.MinimumSize = new System.Drawing.Size(886, 558);
             this.Name = "LandInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ข้อมูลพื้นที่";
