@@ -211,6 +211,11 @@ namespace Application_Form
         {
             tdsTimeLine.Clear();
             dgvTimeLandDT.DataSource = tdsTimeLine.tbTimeLineDT;
+
+            txtTitleEvent.Clear();
+            txtRemark.Clear();
+            txtEvent.Clear();
+            dtpTimeLineDate.Value = DateTime.Today;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

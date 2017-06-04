@@ -100,6 +100,7 @@ namespace Application_Form
         protected override void DoLoadForm()
         {
             LoadProvince();
+            btnStatus(true);
             switch (FormState.ToLower())
             {
                 case "new":
@@ -144,7 +145,7 @@ namespace Application_Form
                                                   txtLandCode.Text);
                 if (!Success)
                 {
-                    MessageBox.Show("ชื่อพยาน/หลักฐานไม่สามารถซ้ำได้ กรุณาป้อนข้อมูลใหม่", "คำเตือน", MessageBoxButtons.OK);
+                    MessageBox.Show("รหัสพื้นที่ไม่สามารถซ้ำได้ กรุณาป้อนข้อมูลใหม่", "คำเตือน", MessageBoxButtons.OK);
                     Success = false;
                     return;
                 }
@@ -558,6 +559,7 @@ namespace Application_Form
                     MessageBox.Show(ex.ToString());
                 }
                 SelectRowIndex = -1;
+                btnStatus(true);
             }
         }
 
@@ -659,7 +661,10 @@ namespace Application_Form
         private void dgvTimeLandHD_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex > -1)
+            {
                 SelectRowIndex = e.RowIndex;
+                btnStatus(false);
+            }
         }
 
     }
