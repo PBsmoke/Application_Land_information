@@ -36,7 +36,7 @@ namespace Application_Form
         string TempTimeLineHDID = string.Empty;
         ReportDS dsReport = new ReportDS();
         int SelectRowIndex = -1;
-        bool Mofidy_b = false;
+        bool Modify_b = false;
 
         public static ApplicationDS.tbEvidenceRow drEvidenceTemp
         { get; set; }
@@ -199,6 +199,7 @@ namespace Application_Form
 
                             dbConString.Transaction.Commit();
                             FormState = "edit";
+                            Modify_b = false;
                             MessageBox.Show("บันทึกค่าเรียบร้อย", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch
@@ -246,7 +247,7 @@ namespace Application_Form
                             dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = dbConString.UserID;
                             dbConString.Com.ExecuteNonQuery();
                             dbConString.Transaction.Commit();
-
+                            Modify_b = false;
                             MessageBox.Show("บันทึกค่าเรียบร้อย", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             //this.Close();
                         }
@@ -318,7 +319,7 @@ namespace Application_Form
                 SearchTimeLineHD(LandID);
             }
 
-            Mofidy_b = false;
+            Modify_b = false;
         }
 
         private void DoCheckData()
@@ -569,7 +570,7 @@ namespace Application_Form
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (Mofidy_b || FormState.ToLower() == "new")
+            if (Modify_b || FormState.ToLower() == "new")
             {
                 CallSave();
             }
@@ -591,7 +592,7 @@ namespace Application_Form
         {
             if (dgvTimeLandHD.RowCount > 0)
             {
-                if (Mofidy_b)
+                if (Modify_b)
                 {
                     CallSave();
                 }
@@ -612,7 +613,7 @@ namespace Application_Form
         {
             if (dgvTimeLandHD.RowCount > 0)
             {
-                if (Mofidy_b)
+                if (Modify_b)
                 {
                     CallSave();
                 }
@@ -696,37 +697,37 @@ namespace Application_Form
 
         private void txtVillageName_TextChanged(object sender, EventArgs e)
         {
-            Mofidy_b = true;
+            Modify_b = true;
         }
 
         private void txtVillageNo_TextChanged(object sender, EventArgs e)
         {
-            Mofidy_b = true;
+            Modify_b = true;
         }
 
         private void txtDistrict_TextChanged(object sender, EventArgs e)
         {
-            Mofidy_b = true;
+            Modify_b = true;
         }
 
         private void txtProvince_TextChanged(object sender, EventArgs e)
         {
-            Mofidy_b = true;
+            Modify_b = true;
         }
 
         private void txtHistory_TextChanged(object sender, EventArgs e)
         {
-            Mofidy_b = true;
+            Modify_b = true;
         }
 
         private void txtDistress_TextChanged(object sender, EventArgs e)
         {
-            Mofidy_b = true;
+            Modify_b = true;
         }
 
         private void txtSubDistrict_TextChanged(object sender, EventArgs e)
         {
-            Mofidy_b = true;
+            Modify_b = true;
         }
     }
 
