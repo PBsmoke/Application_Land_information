@@ -50,6 +50,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvTimeLandHD = new System.Windows.Forms.DataGridView();
+            this.colTimeLineDate = new DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn();
+            this.colTitleEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTimeLineEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTimeLineHDID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLandID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbTimeLineHDBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.applicationDS2 = new Application_Form.ApplicationData.ApplicationDS();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -59,14 +67,6 @@
             this.btnDel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.colTimeLineDate = new DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn();
-            this.colTitleEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTimeLineEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTimeLineHDID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLandID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -123,6 +123,7 @@
             this.txtLandCode.Name = "txtLandCode";
             this.txtLandCode.Size = new System.Drawing.Size(345, 24);
             this.txtLandCode.TabIndex = 1;
+            this.txtLandCode.TextChanged += new System.EventHandler(this.txtLandCode_TextChanged);
             // 
             // lblLandCode
             // 
@@ -143,6 +144,7 @@
             this.txtDistress.Size = new System.Drawing.Size(407, 286);
             this.txtDistress.TabIndex = 8;
             this.txtDistress.Text = "";
+            this.txtDistress.TextChanged += new System.EventHandler(this.txtDistress_TextChanged);
             // 
             // label7
             // 
@@ -162,6 +164,7 @@
             this.txtHistory.Size = new System.Drawing.Size(417, 287);
             this.txtHistory.TabIndex = 7;
             this.txtHistory.Text = "";
+            this.txtHistory.TextChanged += new System.EventHandler(this.txtHistory_TextChanged);
             // 
             // label6
             // 
@@ -180,6 +183,7 @@
             this.txtProvince.Name = "txtProvince";
             this.txtProvince.Size = new System.Drawing.Size(350, 24);
             this.txtProvince.TabIndex = 6;
+            this.txtProvince.TextChanged += new System.EventHandler(this.txtProvince_TextChanged);
             // 
             // label5
             // 
@@ -199,6 +203,7 @@
             this.txtDistrict.Name = "txtDistrict";
             this.txtDistrict.Size = new System.Drawing.Size(344, 24);
             this.txtDistrict.TabIndex = 5;
+            this.txtDistrict.TextChanged += new System.EventHandler(this.txtDistrict_TextChanged);
             // 
             // label4
             // 
@@ -218,6 +223,7 @@
             this.txtSubDistrict.Name = "txtSubDistrict";
             this.txtSubDistrict.Size = new System.Drawing.Size(350, 24);
             this.txtSubDistrict.TabIndex = 4;
+            this.txtSubDistrict.TextChanged += new System.EventHandler(this.txtSubDistrict_TextChanged);
             // 
             // label3
             // 
@@ -237,6 +243,7 @@
             this.txtVillageNo.Name = "txtVillageNo";
             this.txtVillageNo.Size = new System.Drawing.Size(74, 24);
             this.txtVillageNo.TabIndex = 3;
+            this.txtVillageNo.TextChanged += new System.EventHandler(this.txtVillageNo_TextChanged);
             // 
             // label2
             // 
@@ -256,6 +263,7 @@
             this.txtVillageName.Name = "txtVillageName";
             this.txtVillageName.Size = new System.Drawing.Size(233, 24);
             this.txtVillageName.TabIndex = 2;
+            this.txtVillageName.TextChanged += new System.EventHandler(this.txtVillageName_TextChanged);
             // 
             // label1
             // 
@@ -313,6 +321,97 @@
             this.dgvTimeLandHD.TabIndex = 125;
             this.dgvTimeLandHD.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandHD_CellMouseDoubleClick);
             this.dgvTimeLandHD.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTimeLandHD_CellMouseUp);
+            // 
+            // colTimeLineDate
+            // 
+            // 
+            // 
+            // 
+            this.colTimeLineDate.BackgroundStyle.Class = "DataGridViewDateTimeBorder";
+            this.colTimeLineDate.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.colTimeLineDate.DataPropertyName = "TimeLineDate";
+            this.colTimeLineDate.FillWeight = 30F;
+            this.colTimeLineDate.HeaderText = "วันที่";
+            this.colTimeLineDate.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
+            // 
+            // 
+            // 
+            this.colTimeLineDate.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.colTimeLineDate.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.colTimeLineDate.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            // 
+            // 
+            // 
+            this.colTimeLineDate.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.colTimeLineDate.MonthCalendar.DisplayMonth = new System.DateTime(2017, 6, 1, 0, 0, 0, 0);
+            this.colTimeLineDate.MonthCalendar.MarkedDates = new System.DateTime[0];
+            this.colTimeLineDate.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.colTimeLineDate.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.colTimeLineDate.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
+            this.colTimeLineDate.Name = "colTimeLineDate";
+            this.colTimeLineDate.ReadOnly = true;
+            this.colTimeLineDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // colTitleEvent
+            // 
+            this.colTitleEvent.DataPropertyName = "TitleEvent";
+            this.colTitleEvent.HeaderText = "หัวข้อ";
+            this.colTitleEvent.Name = "colTitleEvent";
+            this.colTitleEvent.ReadOnly = true;
+            // 
+            // colTimeLineEvent
+            // 
+            this.colTimeLineEvent.DataPropertyName = "TimeLineEvent";
+            this.colTimeLineEvent.HeaderText = "TimeLineEvent";
+            this.colTimeLineEvent.Name = "colTimeLineEvent";
+            this.colTimeLineEvent.ReadOnly = true;
+            this.colTimeLineEvent.Visible = false;
+            // 
+            // colTimeLineHDID
+            // 
+            this.colTimeLineHDID.DataPropertyName = "TimeLineHDID";
+            this.colTimeLineHDID.HeaderText = "TimeLineHDID";
+            this.colTimeLineHDID.Name = "colTimeLineHDID";
+            this.colTimeLineHDID.ReadOnly = true;
+            this.colTimeLineHDID.Visible = false;
+            // 
+            // colLandID
+            // 
+            this.colLandID.DataPropertyName = "LandID";
+            this.colLandID.HeaderText = "LandID";
+            this.colLandID.Name = "colLandID";
+            this.colLandID.ReadOnly = true;
+            this.colLandID.Visible = false;
+            // 
+            // colRemark
+            // 
+            this.colRemark.DataPropertyName = "Remark";
+            this.colRemark.HeaderText = "Remark";
+            this.colRemark.Name = "colRemark";
+            this.colRemark.ReadOnly = true;
+            this.colRemark.Visible = false;
+            // 
+            // colCreatedBy
+            // 
+            this.colCreatedBy.DataPropertyName = "CreatedBy";
+            this.colCreatedBy.HeaderText = "CreatedBy";
+            this.colCreatedBy.Name = "colCreatedBy";
+            this.colCreatedBy.ReadOnly = true;
+            this.colCreatedBy.Visible = false;
+            // 
+            // colCreatedDate
+            // 
+            this.colCreatedDate.DataPropertyName = "CreatedDate";
+            this.colCreatedDate.HeaderText = "CreatedDate";
+            this.colCreatedDate.Name = "colCreatedDate";
+            this.colCreatedDate.ReadOnly = true;
+            this.colCreatedDate.Visible = false;
             // 
             // tbTimeLineHDBindingSource
             // 
@@ -412,97 +511,6 @@
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // colTimeLineDate
-            // 
-            // 
-            // 
-            // 
-            this.colTimeLineDate.BackgroundStyle.Class = "DataGridViewDateTimeBorder";
-            this.colTimeLineDate.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.colTimeLineDate.DataPropertyName = "TimeLineDate";
-            this.colTimeLineDate.FillWeight = 30F;
-            this.colTimeLineDate.HeaderText = "วันที่";
-            this.colTimeLineDate.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
-            // 
-            // 
-            // 
-            this.colTimeLineDate.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
-            // 
-            // 
-            // 
-            this.colTimeLineDate.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.colTimeLineDate.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
-            // 
-            // 
-            // 
-            this.colTimeLineDate.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.colTimeLineDate.MonthCalendar.DisplayMonth = new System.DateTime(2017, 6, 1, 0, 0, 0, 0);
-            this.colTimeLineDate.MonthCalendar.MarkedDates = new System.DateTime[0];
-            this.colTimeLineDate.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
-            // 
-            // 
-            // 
-            this.colTimeLineDate.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.colTimeLineDate.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
-            this.colTimeLineDate.Name = "colTimeLineDate";
-            this.colTimeLineDate.ReadOnly = true;
-            this.colTimeLineDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // colTitleEvent
-            // 
-            this.colTitleEvent.DataPropertyName = "TitleEvent";
-            this.colTitleEvent.HeaderText = "หัวข้อ";
-            this.colTitleEvent.Name = "colTitleEvent";
-            this.colTitleEvent.ReadOnly = true;
-            // 
-            // colTimeLineEvent
-            // 
-            this.colTimeLineEvent.DataPropertyName = "TimeLineEvent";
-            this.colTimeLineEvent.HeaderText = "TimeLineEvent";
-            this.colTimeLineEvent.Name = "colTimeLineEvent";
-            this.colTimeLineEvent.ReadOnly = true;
-            this.colTimeLineEvent.Visible = false;
-            // 
-            // colTimeLineHDID
-            // 
-            this.colTimeLineHDID.DataPropertyName = "TimeLineHDID";
-            this.colTimeLineHDID.HeaderText = "TimeLineHDID";
-            this.colTimeLineHDID.Name = "colTimeLineHDID";
-            this.colTimeLineHDID.ReadOnly = true;
-            this.colTimeLineHDID.Visible = false;
-            // 
-            // colLandID
-            // 
-            this.colLandID.DataPropertyName = "LandID";
-            this.colLandID.HeaderText = "LandID";
-            this.colLandID.Name = "colLandID";
-            this.colLandID.ReadOnly = true;
-            this.colLandID.Visible = false;
-            // 
-            // colRemark
-            // 
-            this.colRemark.DataPropertyName = "Remark";
-            this.colRemark.HeaderText = "Remark";
-            this.colRemark.Name = "colRemark";
-            this.colRemark.ReadOnly = true;
-            this.colRemark.Visible = false;
-            // 
-            // colCreatedBy
-            // 
-            this.colCreatedBy.DataPropertyName = "CreatedBy";
-            this.colCreatedBy.HeaderText = "CreatedBy";
-            this.colCreatedBy.Name = "colCreatedBy";
-            this.colCreatedBy.ReadOnly = true;
-            this.colCreatedBy.Visible = false;
-            // 
-            // colCreatedDate
-            // 
-            this.colCreatedDate.DataPropertyName = "CreatedDate";
-            this.colCreatedDate.HeaderText = "CreatedDate";
-            this.colCreatedDate.Name = "colCreatedDate";
-            this.colCreatedDate.ReadOnly = true;
-            this.colCreatedDate.Visible = false;
             // 
             // LandInfo
             // 

@@ -36,6 +36,7 @@ namespace Application_Form
         string TempTimeLineHDID = string.Empty;
         ReportDS dsReport = new ReportDS();
         int SelectRowIndex = -1;
+        bool Mofidy_b = false;
 
         public static ApplicationDS.tbEvidenceRow drEvidenceTemp
         { get; set; }
@@ -153,6 +154,7 @@ namespace Application_Form
 
             if (MessageBox.Show("คุณต้องการบันทึกข้อมูล ใช่หรือไม่ ?", dbConString.xMessage, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
             {
+                Success = false;
                 return;
             }
 
@@ -315,6 +317,8 @@ namespace Application_Form
                 txtDistress.Text = tdsLand.tbLand[0].Distress;
                 SearchTimeLineHD(LandID);
             }
+
+            Mofidy_b = false;
         }
 
         private void DoCheckData()
@@ -565,15 +569,21 @@ namespace Application_Form
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            CallSave();
-            if (!string.IsNullOrEmpty(LandID))
+            if (Mofidy_b || FormState.ToLower() == "new")
             {
-                TimeLineInfo frmForm = new TimeLineInfo();
-                frmForm.LandID = LandID;
-                frmForm.FormState = "new";
-                frmForm.ShowDialog();
-                btnStatus(true);
-                SearchTimeLineHD(LandID);
+                CallSave();
+            }
+            if (Success)
+            {
+                if (!string.IsNullOrEmpty(LandID))
+                {
+                    TimeLineInfo frmForm = new TimeLineInfo();
+                    frmForm.LandID = LandID;
+                    frmForm.FormState = "new";
+                    frmForm.ShowDialog();
+                    btnStatus(true);
+                    SearchTimeLineHD(LandID);
+                }
             }
         }
 
@@ -581,13 +591,19 @@ namespace Application_Form
         {
             if (dgvTimeLandHD.RowCount > 0)
             {
-                CallSave();
-                TimeLineInfo frmForm = new TimeLineInfo();
-                frmForm.FormState = "edit";
-                frmForm.LandID = LandID;
-                frmForm.TimeLineHDID = dgvTimeLandHD.Rows[SelectRowIndex].Cells[colTimeLineHDID.Name].Value.ToString();
-                frmForm.ShowDialog();
-                btnStatus(true);
+                if (Mofidy_b)
+                {
+                    CallSave();
+                }
+                if (Success)
+                {
+                    TimeLineInfo frmForm = new TimeLineInfo();
+                    frmForm.FormState = "edit";
+                    frmForm.LandID = LandID;
+                    frmForm.TimeLineHDID = dgvTimeLandHD.Rows[SelectRowIndex].Cells[colTimeLineHDID.Name].Value.ToString();
+                    frmForm.ShowDialog();
+                    btnStatus(true);
+                }
             }
             SearchTimeLineHD(LandID);
         }
@@ -596,13 +612,19 @@ namespace Application_Form
         {
             if (dgvTimeLandHD.RowCount > 0)
             {
-                CallSave();
-                TimeLineInfo frmForm = new TimeLineInfo();
-                frmForm.FormState = "edit";
-                frmForm.LandID = LandID;
-                frmForm.TimeLineHDID = dgvTimeLandHD.Rows[SelectRowIndex].Cells[colTimeLineHDID.Name].Value.ToString();
-                frmForm.ShowDialog();
-                btnStatus(true);
+                if (Mofidy_b)
+                {
+                    CallSave();
+                }
+                if (Success)
+                {
+                    TimeLineInfo frmForm = new TimeLineInfo();
+                    frmForm.FormState = "edit";
+                    frmForm.LandID = LandID;
+                    frmForm.TimeLineHDID = dgvTimeLandHD.Rows[SelectRowIndex].Cells[colTimeLineHDID.Name].Value.ToString();
+                    frmForm.ShowDialog();
+                    btnStatus(true);
+                }
             }
             SearchTimeLineHD(LandID);
         }
@@ -667,6 +689,45 @@ namespace Application_Form
             }
         }
 
+        private void txtLandCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtVillageName_TextChanged(object sender, EventArgs e)
+        {
+            Mofidy_b = true;
+        }
+
+        private void txtVillageNo_TextChanged(object sender, EventArgs e)
+        {
+            Mofidy_b = true;
+        }
+
+        private void txtDistrict_TextChanged(object sender, EventArgs e)
+        {
+            Mofidy_b = true;
+        }
+
+        private void txtProvince_TextChanged(object sender, EventArgs e)
+        {
+            Mofidy_b = true;
+        }
+
+        private void txtHistory_TextChanged(object sender, EventArgs e)
+        {
+            Mofidy_b = true;
+        }
+
+        private void txtDistress_TextChanged(object sender, EventArgs e)
+        {
+            Mofidy_b = true;
+        }
+
+        private void txtSubDistrict_TextChanged(object sender, EventArgs e)
+        {
+            Mofidy_b = true;
+        }
     }
 
 }

@@ -244,6 +244,8 @@
     <None Include="Resources\Search.png" />
     <None Include="Resources\printer.png" />
     <None Include="Resources\preview.png" />
+    <None Include="Resources\Save1.png" />
+    <None Include="Resources\browser.png" />
     <Content Include="Script\SumScript.sql" />
     <Content Include="Script\uv_Address.sql" />
     <Content Include="ICON.ico" />
