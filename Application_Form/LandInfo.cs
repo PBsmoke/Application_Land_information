@@ -61,7 +61,7 @@ namespace Application_Form
                     sqlTmp = "SELECT * FROM uv_TimelineALL ";
                     if (!string.IsNullOrEmpty(Whereclause))
                     {
-                        sqlTmp += " WHERE LandID = '" + LandID + "' AND TimeLineDate LIKE '%" + Whereclause + "%' OR TitleEvent LIKE '%" + Whereclause + "%' ";
+                        sqlTmp += " WHERE LandID = '" + LandID + "' AND TimeLineDate LIKE '%" + Whereclause + "%' OR TimeLineEvent LIKE '%" + Whereclause + "%' ";
                     }
                     else
                     {
@@ -540,7 +540,7 @@ namespace Application_Form
                     sqlTmp = "SELECT * FROM tbTimeLineHD ";
                     if (!string.IsNullOrEmpty(Whereclause))
                     {
-                        sqlTmp += " WHERE LandID = '" + LandIDTemp + "' AND TimeLineDate LIKE '%" + Whereclause + "%' OR TitleEvent LIKE '%" + Whereclause + "%' ";
+                        sqlTmp += " WHERE LandID = '" + LandIDTemp + "' AND TimeLineDate LIKE '%" + Whereclause + "%' OR TimeLineEvent LIKE '%" + Whereclause + "%' ";
                     }
                     else
                     {

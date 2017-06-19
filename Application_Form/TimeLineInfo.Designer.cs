@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabTimeLine = new System.Windows.Forms.TabControl();
             this.tabInfo = new System.Windows.Forms.TabPage();
             this.lblRemark = new System.Windows.Forms.Label();
@@ -118,19 +118,19 @@
             // 
             // txtEvent
             // 
-            this.txtEvent.Location = new System.Drawing.Point(118, 79);
+            this.txtEvent.Location = new System.Drawing.Point(118, 47);
             this.txtEvent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEvent.MaxLength = 500;
             this.txtEvent.Multiline = true;
             this.txtEvent.Name = "txtEvent";
-            this.txtEvent.Size = new System.Drawing.Size(640, 193);
+            this.txtEvent.Size = new System.Drawing.Size(640, 225);
             this.txtEvent.TabIndex = 2;
             // 
             // lblEvent
             // 
             this.lblEvent.AutoSize = true;
-            this.lblEvent.ForeColor = System.Drawing.Color.Black;
-            this.lblEvent.Location = new System.Drawing.Point(16, 82);
+            this.lblEvent.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblEvent.Location = new System.Drawing.Point(16, 50);
             this.lblEvent.Name = "lblEvent";
             this.lblEvent.Size = new System.Drawing.Size(64, 17);
             this.lblEvent.TabIndex = 33;
@@ -144,6 +144,7 @@
             this.txtTitleEvent.Name = "txtTitleEvent";
             this.txtTitleEvent.Size = new System.Drawing.Size(640, 24);
             this.txtTitleEvent.TabIndex = 1;
+            this.txtTitleEvent.Visible = false;
             // 
             // lblSubject
             // 
@@ -154,6 +155,7 @@
             this.lblSubject.Size = new System.Drawing.Size(41, 17);
             this.lblSubject.TabIndex = 28;
             this.lblSubject.Text = "หัวข้อ";
+            this.lblSubject.Visible = false;
             // 
             // label1
             // 
@@ -217,14 +219,14 @@
             this.dgvTimeLandDT.AllowUserToDeleteRows = false;
             this.dgvTimeLandDT.AutoGenerateColumns = false;
             this.dgvTimeLandDT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTimeLandDT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTimeLandDT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTimeLandDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTimeLandDT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colEvidenceCode,

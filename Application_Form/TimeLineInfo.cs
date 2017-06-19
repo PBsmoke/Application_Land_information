@@ -89,7 +89,7 @@ namespace Application_Form
                             dbConString.Com.Parameters.Add("@TimeLineHDID", SqlDbType.VarChar).Value = TimeLineHDID;
                             dbConString.Com.Parameters.Add("@LandID", SqlDbType.VarChar).Value = LandID;
                             dbConString.Com.Parameters.Add("@TimeLineDate", SqlDbType.DateTime).Value = dtpTimeLineDate.Value;
-                            dbConString.Com.Parameters.Add("@TitleEvent", SqlDbType.VarChar).Value = txtTitleEvent.Text;
+                            dbConString.Com.Parameters.Add("@TitleEvent", SqlDbType.VarChar).Value = string.Empty;
                             dbConString.Com.Parameters.Add("@TimeLineEvent", SqlDbType.VarChar).Value = txtEvent.Text;
                             dbConString.Com.Parameters.Add("@Remark", SqlDbType.VarChar).Value = txtRemark.Text;
                             dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = dbConString.UserID;
@@ -160,7 +160,7 @@ namespace Application_Form
                             dbConString.Com.Parameters.Clear();
                             dbConString.Com.Parameters.Add("@TimeLineHDID", SqlDbType.VarChar).Value = TimeLineHDID;
                             dbConString.Com.Parameters.Add("@TimeLineDate", SqlDbType.DateTime).Value = dtpTimeLineDate.Value;
-                            dbConString.Com.Parameters.Add("@TitleEvent", SqlDbType.VarChar).Value = txtTitleEvent.Text;
+                            dbConString.Com.Parameters.Add("@TitleEvent", SqlDbType.VarChar).Value = string.Empty;
                             dbConString.Com.Parameters.Add("@TimeLineEvent", SqlDbType.VarChar).Value = txtEvent.Text;
                             dbConString.Com.Parameters.Add("@Remark", SqlDbType.VarChar).Value = txtRemark.Text;
                             dbConString.Com.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = dbConString.UserID;
@@ -319,7 +319,7 @@ namespace Application_Form
             if (tdsTimeLine.tbTimeLineHD.Rows.Count > 0)
             {
                 dtpTimeLineDate.Value = tdsTimeLine.tbTimeLineHD[0].TimeLineDate;
-                txtTitleEvent.Text = tdsTimeLine.tbTimeLineHD[0].TitleEvent;
+                //txtTitleEvent.Text = tdsTimeLine.tbTimeLineHD[0].TitleEvent;
                 txtEvent.Text = tdsTimeLine.tbTimeLineHD[0].TimeLineEvent;
                 txtRemark.Text = tdsTimeLine.tbTimeLineHD[0].Remark;
                 //
@@ -329,11 +329,11 @@ namespace Application_Form
 
         private void DoCheckData()
         {
-            if (string.IsNullOrEmpty(txtTitleEvent.Text))
+            if (string.IsNullOrEmpty(txtEvent.Text))
             {
-                MessageBox.Show("หัวข้อ ไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("เหตุการณ์ ไม่สามารถเป็นค่าว่างได้ กรุณาป้อนข้อมูล", "Warning", MessageBoxButtons.OK);
                 Success = false;
-                txtTitleEvent.Focus();
+                txtEvent.Focus();
                 return;
             }           
         }
